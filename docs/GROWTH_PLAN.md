@@ -1,154 +1,142 @@
-# Badie 上线第一个月的增长方案
+# Badie 到 2027 年中的增长方案
 
-> 2026-11-03 写。目标：上线后一个月 **1 万个注册用户**，并且在重点城市真的约得到球。
-> 口径以 Badie 仓库的 [STORY.md](https://github.com/JunqiPi/Badie/blob/main/Badie-iOS/docs/STORY.md) 为准，做事的规矩以 [MARKETING_BRIEF.md](https://github.com/JunqiPi/Badie/blob/main/Badie-iOS/docs/MARKETING_BRIEF.md) 为准。本文只管“怎么把人带进来”。
-> 证据分三档标注：**[论文]** 有同行评审研究；**[公认]** 没有论文但被很多产品和从业者验证过；**[个案]** 只有个别案例或自述，要自己验证。
+> 2026-11-08 重写（同日加上：品牌账号由 AI 吉祥物小羽来发，自动发不用问），取代 11-03 那版（那版靠创始人联系群主、每天手动发帖，和现在的条件不符）。
+> 口径以 Badie 仓库的 [STORY.md](https://github.com/JunqiPi/Badie/blob/main/Badie-iOS/docs/STORY.md) 为准，做事的规矩以 [MARKETING_BRIEF.md](https://github.com/JunqiPi/Badie/blob/main/Badie-iOS/docs/MARKETING_BRIEF.md) 和本仓库 `CLAUDE.md` 为准。写法见 `docs/WRITING.md`。
+> 证据分三档：**[论文]** 同行评审；**[公认]** 平台官方规则或被很多产品验证过；**[个案]** 单个案例或自述。
 
-## 0. 结论
+## 0. 条件和目标
 
-1. **1 万人不是靠发帖发出来的，是靠“搬群”搬过来的。** 最快的来源是已经在组织球局的人：微信群群主、俱乐部、学校羽毛球社、Facebook/Meetup 群。让他们把每周报名搬到 Badie 的“球群”，一个群主带来几十到几百人。
-2. **先做密度，再做广度。** 约球 App 的价值只在本地成立：湾区有 1 万人，对纽约的用户没用。用户来了约不到人，就会删掉，还会说不好用。所以先选 3 个城市打透，内容可以全国发，线下和群主只做这 3 个城市。
-3. **内容负责让人信，群主负责让人来。** 小红书和 TikTok 让人知道 Badie、相信它是真的；真正成批的注册来自群主和线下活动。
-4. **零预算、创始人不出镜。** 账号以 Badie 品牌的名义运营（不冒充普通球友），视频用 AI 配音 + 网站和 App 的录屏、截图、等级表、球馆清单来做，全部标注 AI 配音。线下不自己包场，改成和俱乐部合办。
-5. **1 万是冲刺目标。** 没有预算、没有真人出镜，内容的转化会低一些，能不能到 1 万主要看群主那条线。下面的拆解每一行都是假设，第一、二周就用真实数字验证，不行就砍掉换方向。
+**条件**（用户 2026-11-08 定的）
+- 创始人不主动联系任何人：不找群主、不私信、不发邮件、不出镜。
+- 每天花的时间尽量是 0。
+- 预算 50–100 美元。
+- 住在大洛杉矶，平时在那里打球。
+- 现有的小红书、TikTok、Instagram、Reddit 都是**私人账号**。
 
-## 1. 底层逻辑（为什么这样做）
+**目标：2027-06-30 前，在洛杉矶的一片区域里，Badie 成为羽毛球人真的在用的工具。**
+数字定义（每月月初对一次）：
+- 这片区域每周成局 ≥ 30（双方确认的球局 + 球群报名的场次）。
+- 至少 3 个球群每周用 Badie 报名，替代原来的微信接龙或表格。
+- 注册数只作参考，不作目标：注册涨、成局不涨，说明人来了约不到。
 
-| 原则 | 依据 | 对 Badie 意味着什么 |
+**要先说清楚的**：不找群主，等于放弃了最快的那条路。11-03 那版预计的注册里，一半以上来自群主和社团。所以这版的节奏是 **8 个月慢慢滚起来**，不是一个月冲 1 万。8 个月的时间正好适合搜索、球馆页这类越做越多的渠道。
+
+## 1. 底层逻辑：调研后的 4 条
+
+| 原则 | 依据 | 对 Badie 的意思 |
 |---|---|---|
-| 先找“枢纽人物” | **[论文]** Hinz 等 2011，《Journal of Marketing》：20 万人的真实实验里，先发给人脉最广的人，推荐数比随机发多一半以上；他们不是更有说服力，而是更常转发、接触的人更多。这篇论文后来拿了该期刊的长期影响奖。 | 群主、社长、教练、球馆前台就是枢纽。先花时间在 100 个群主身上，而不是 1 万个路人身上。 |
-| 被推荐来的用户更值钱 | **[论文]** Schmitt、Skiera、Van den Bulte 2011，《Journal of Marketing》：推荐来的客户价值至少高 16%，留存差距不会随时间消失。 | 把邀请做成默认动作：建局、建群、加球友都要能一键发链接（已经有 `/join/?code=` 和 `/add/` 链接）。 |
-| 网络效应是本地的，要一个城市一个城市打 | **[公认]** Andrew Chen《The Cold Start Problem》、Uber 和 Tinder 的经验：在纽约强对圣地亚哥没帮助，每个城市都是一次冷启动。 | 线下活动和群主只做 3 个城市。“约不到人”的城市不推。 |
-| 用线下活动一次凑够人 | **[公认]** Tinder 早期在大学办派对，入场条件是下载 App，再请社团负责人带头；据报道一趟校园巡回从 5,000 人涨到 1.5 万人（数字来源不一）。 | 和俱乐部、社团合办“球友夜”：他们出场地和人，Badie 负责报名和按水平配对，我们免费帮他们做宣传内容。 |
-| 让用户在用的时候顺便拉人 | **[公认]** Partiful：每一张邀请都是一次曝光；早期在纽约靠传单和二维码起步。 | 群主每周发报名链接，接龙的人就要注册。比任何广告都直接。 |
-| 短视频看内容不看粉丝 | **[公认]** TikTok 和小红书会把新账号的内容推给非粉丝；**[个案]** 有 App 靠产品演示和第一视角视频 90 天 6.5 万下载（自述）。 | 新账号也有机会。画面用真实的产品界面和真实的球馆数据，讲真实的问题；不用 AI 生成的假人、假球场（**[个案]** 多位从业者说 AI 图文缺少信任感）。 |
-| AI 内容要标明 | TikTok 社区规则要求逼真的 AI 声音、画面加标签，不标会被限流或删除；小红书 2026 年 2 月起限制分发未标识的 AI 内容，3 月起封禁“全部笔记由 AI 托管代发”的账号。 | 每条用了 AI 配音的都打开平台的 AI 标签；小红书由你本人手动发，掺一些你随手拍的球场照片（不用露脸）。 |
-| 被提及次数决定 AI 会不会推荐你 | **[个案，样本大]** Ahrefs 统计 7.5 万个品牌：品牌被提及次数和出现在 Google AI 回答里的相关系数 0.664。 | 每条帖子都写 “Badie badminton” 和 `badie.rsvp`；在 Reddit 认真回答“XX 市在哪打球”。 |
+| **1. 宣传藏在产品本来就要产出的东西里** | **[论文]** Aral & Walker 2011（Management Science，Facebook 上的随机实验）：自动发给朋友的被动通知让同伴采用率提高 246%，再加上主动邀请只多 98%。**[公认]** Partiful 每张邀请都是一个落地页，靠口碑做到约 500 万用户。 | 群主每周往微信群里贴的报名链接，就是 Badie 最好的广告，而且不用你开口。这条要让工程 agent 把报名页做好（第 5 节）。 |
+| **2. 不去找组织者，让组织者自己找上门** | **[个案]** Pickleheads 先做球场搜索页，每月 10 万访问后才加组织球局；PlayTime Scheduler 从萨克拉门托一个组织者的网站做到约 57 万球员；Reclub 主打“替代群聊和表格的一个报名链接”。 | 做一个“替代微信接龙”的免费工具页，让组织者在 Google、小红书、报名页底部自己看到。一个组织者带来 20–50 人。 |
+| **3. 先密度，后广度；选人会主动搜的渠道** | **[论文]** Cullen & Farronato 2021（Management Science）：TaskRabbit 的撮合效率取决于本地密度。**[个案]** RacketPal 10 万用户里约一半在伦敦；用户差评最多的是“人太少”。 | 洛杉矶只选一片打透。主力渠道是人会主动搜的：Google 球馆页、小红书搜索、App Store。全国性的短视频播放量只是辅助。 |
+| **4. 平台惩罚的是“没有人”，不是 AI** | **[公认]** 小红书 2026-03 起封禁 AI 托管账号，但说 AI 标签“不会影响流量”；YouTube 把 AI 写脚本列为不用声明的“轻微”用法。**[论文]** Jakesch 等 2023（PNAS）：读者分辨不出 AI 文字；Altay & Gilardi 2024：标了 AI 的内容可信度下降，原因是读者以为全程没有人参与。**[公认]** Reddit 用 AI 抓 AI 写的“自然推广”，苏黎世大学偷偷用 AI 账号发评论被全网封禁。 | “像真人”靠的不是文风技巧，而是只有你知道的真实细节：哪家球馆、星期几、谁没来。AI 负责量和格式，真实素材来自你。账号上写明“配音是 AI，App 和故事是我的”。 |
 
-## 2. 1 万人怎么拆
+## 2. 打哪里
 
-| 来源 | 假设 | 预计注册 |
+- **洛杉矶，先选一片**：精选球馆数据里大洛杉矶 + 橙县有 20 家，分成两片：
+  - **圣盖博谷**：Los Angeles Badminton Club、San Gabriel Valley Badminton Club（El Monte）、Elite Rally（Irwindale）、Walnut、Alhambra、Pomona。华人多。
+  - **橙县**：Irvine 两处、Orange County Badminton Club、Royal Badminton Academy（Lake Forest）、Fountain Valley。
+  - **定了：先打圣盖博谷**（用户常去 Elite Rally、LABC，都在这片；还有 San Gabriel Valley Badminton Club 等，球馆密）。用户也常去 OCBC，所以**橙县是第二片**：第一片每周成局到 15 后再开始。
+  - 宣传里讲到的球馆优先用 Elite Rally、LABC、OCBC：用户真的在那打，空镜和细节都是真的。
+- **语言**：先做中文（小红书，北美华人找球局主要在这里搜），英文短视频辅助。
+- **时间点**（未确认的标了）：
+  - 12 月中到 1 月初：放假，学生回家。
+  - **1 月**：新年计划，一年里最好拉新的窗口，内容和球馆页要在 12 月底前准备好。
+  - **2027-02-06 春节**：新春球局内容。
+  - 2–4 月：高中羽毛球季，可以对家长讲。
+  - 5–6 月：毕业生搬到新城市，讲“刚搬来谁也不认识”。
+  - 2027 年 7 月 BWF US Open 可能在洛杉矶（只有第三方网站这么写，未确认），确认后作为目标之后的第一个高峰。
+
+## 3. 渠道：按你要花的时间分三档
+
+### A. 你 0 分钟（全自动，或由工程 agent 做一次）
+
+| 渠道 | 怎么做 | 为什么 |
 |---|---|---|
-| 群主搬群（微信群、俱乐部、Facebook 群） | 联系 150 个，40 个用起来，每个群平均 80 人注册 | 3,200 |
-| 大学羽毛球社 | 联系 80 个，25 个用起来，每个 60 人 | 1,500 |
-| 合办球友夜（3 个城市，共 6 场） | 每场 50–80 人，加上他们当场拉的人 | 500 |
-| 小红书 + TikTok + Reels/Shorts | 一个月约 120 万次播放，0.12% 注册 | 1,500 |
-| Reddit、论坛、搜索、AI 回答 | 认真回答 60 个问题 + 城市球馆页 | 500 |
-| App Store 上架（搜索、可能的推荐） | 只是估计，不能指望编辑推荐 | 700 |
-| 用户之间的邀请 | 每个活跃用户带来 0.15 个人 | 900 |
-| **合计** | | **约 8,800** |
+| **球馆页和“在哪打球”搜索**（主力） | 洛杉矶那片的球馆页补上 drop-in 价格、开放时间、本周在这里打的球群、中文版。Google 和 ChatGPT 这类 AI 会引用。 | 原则 2、3。要 3–9 个月才见效，所以现在就做。**[个案]** Pickleheads 上线球场搜索后自然流量涨了 10 倍。 |
+| **球群报名页**（主力） | 免登录能看、在微信里显示正式的卡片（群名、球馆、时间、已报名人数），页面底部写“你也在组织？免费建一个”。 | 原则 1：每个用 Badie 的群主，每周都在免费替我们做广告。 |
+| **“替代微信接龙”页** | `/organize`，中英文：30 秒演示、把接龙名单粘进来就能建群、爽约规则、可打印的二维码海报。 | 原则 2：组织者自己找上门。 |
+| **App Store 的 App 内活动** | 发每周固定的活动（比如“圣盖博谷周三晚双打 4–6 级”），会出现在 App Store 搜索里。 | **[公认]** Apple 官方免费入口，最多同时挂 10 个。 |
+| **Instagram Reels + YouTube Shorts** | 新开的 Badie 品牌账号，由吉祥物小羽（公开说明是 AI，可爱的语气，见 `docs/MASCOT.md`）来发。GitHub Actions 每天自动生成并用官方接口发 1 条：小羽 + App 真实录屏 + 你拍的球馆空镜，打开 AI 标签，发前不用问（用户 2026-11-08 同意）。 | 辅助，主要用来让人“搜到你的时候看起来是真的”，也带来一些全国流量。 |
+| **TikTok** | 先提交 Content Posting API 审核（网上说要 2–6 周，未核实）；通过后和 Instagram 同一套流水线。 | 没通过审核时，用接口发的视频只有自己能看到，所以先等审核。 |
+| **评论区的常见问题** | Instagram 和 YouTube 上，**自己帖子下面**的问题（免费吗、有安卓吗、哪些城市），用你写过的固定回答自动回。其他评论不回，每周把清单放进 `queue/`，想回你就回。 | 官方接口允许，只答事实，不会乱承诺。 |
 
-剩下的 1,200 要靠群主那条线超额完成，所以群主是整个月最重要的事。比较现实的区间是 5,000–9,000，做得好能到 1 万。
+### B. 每周 15 分钟（推荐，但由你决定）
 
-**怎么判断是不是“真的能用”**：每周看每个重点城市**成了多少局**（双方确认的球局 + 球群报名），不只看注册数。注册数涨、成局数不涨，说明人来了约不到，要先补那个城市的密度。
+**小红书**：我每周日把 5–7 篇笔记做好（图、文字、话题），放在 `queue/xhs/` 里。你在小红书创作服务平台用**官方的定时发布**一次排完。
+- 这是北美华人找球局的地方，也是最可能让洛杉矶的组织者找到 Badie 的地方。放弃它，中文这条线基本就断了。
+- 不能做成自动：小红书没有开放发帖接口，第三方自动发帖工具 2026-03 起会被封号。这是你的私人账号，风险太大。
 
-## 3. 打哪里
+### C. 不做
 
-**推荐：先做美国，3 个城市 + 全美华人的线上内容。**
+- **Reddit 机器人**：Reddit 在专门抓 AI 写的推广，r/badminton 禁止自我推广。用私人账号跑机器人，大概率被封。
+  可以做的：到 2027 年中，你最多手动发 2 条“这是我做的”介绍帖（我写好，你复制粘贴），其余时间不碰。
+- 自动发小红书、在别人的帖子下面自动评论、批量私信、小号、冒充普通球友、AI 生成的假人和假球场。
 
-- **湾区（Fremont / San Jose / Milpitas）**：美国羽毛球最集中的地方，有人估计 15 家俱乐部、2–3 万球友（**[个案]** 当地从业者接受采访时的说法）。第一个城市。
-- **另外两个城市**：**大洛杉矶**（尔湾、圣盖博谷，华人和东南亚球友多）和**纽约/新泽西**。西雅图、休斯顿、多伦多以后再看。
-- **华人是第一批用户**：创始人的故事是中文圈最有共鸣的“社恐不敢约”；小红书在北美华人和留学生里用得最多；美国很多华人球局本来就在微信群里接龙，Badie 的球群（报名、候补、爽约记录）正好替代接龙。
-- **先不做马来西亚、印尼**：那边打球的人多得多，但已经有 Reclub、Playminton、T-BAD 这些 App，我们又没法办线下。等美国 3 个城市跑通再说。
-- **不做抖音**：抖音的用户主要在中国大陆，App 不在大陆上架，网站在大陆也不一定打得开。抖音的视频直接发到 TikTok 和小红书。
+## 4. “100% 像真人”怎么保证
 
-## 4. 各平台怎么做
+不能保证 100%。真正能做到的是让每条都**有真东西**，再加三道检查：
+1. **素材库**：只用你提供的真实经历和真实画面（第 7 节）。AI 不编经历、对话和数据，缺素材就不发那一类。
+2. **文风锚点**：用你自己写的 10 段以上文字做样本，写法规则在 `docs/WRITING.md`。
+3. **发之前自动检查**：查禁用词和 AI 腔句式（中英文各一份清单）；对照 STORY.md 核对每一句说法；同一个模板不连发三天（YouTube 2025-07 起会处理“大量重复的内容”）。
+没通过检查的不发，留在 `queue/rejected/` 里，每周汇总一句话给你。
 
-| 平台 | 角色 | 怎么做 | 注意 |
-|---|---|---|---|
-| **小红书** | 主力（华人） | 每天 1 条。图文和短视频都做。关键词：羽毛球搭子、湾区羽毛球、XX 市打羽毛球、羽毛球几级。 | 笔记、评论、简介里不放网址，不写“加微信”“看主页”（会限流或封号）。写“App Store 搜 Badie 羽毛球”，网页写成 badie 点 rsvp 这种也可能被判导流，先测一条。 |
-| **TikTok** | 主力（英文） | 每天 1–2 条，同一条视频改字幕再发 Reels 和 Shorts。 | 用企业账号才能稳定放主页链接。前两周手动发。 |
-| **Instagram** | 辅助 + 找人 | Reels 复用 TikTok 视频；主要用来找俱乐部和学校社团（他们的主页都在 IG 上），一对一私信。 | 私信必须是真人一条条发，不批量。 |
-| **YouTube** | 辅助 | 只发 Shorts。长视频第一个月不做。 | |
-| **Reddit** | 搜索和 AI 曝光 | r/badminton 和城市版：认真回答“在哪打”“几级”这类问题，合适时提一句“我做了个工具”。整个月最多 1 条自己的介绍帖，要征求意见。 | 先看版规，开头说明是自己做的。 |
-| **Facebook 群 / Meetup / 微信群** | 主力（找群主） | 不在群里发广告。找到群主，私聊，请他试用球群。 | 微信群由你本人去聊，我写话术。 |
-| **大学羽毛球社** | 主力 | 给社长写邮件或 IG 私信：免费给社团用球群报名和定级；可以一起办球夜。 | 11 月底到 1 月中是期末和放假，要在感恩节前联系完。 |
+## 5. 要工程 agent 做的事（请转给 Badie 仓库那边，按重要性）
 
-### 内容的 5 个固定栏目
+1. **球群报名页**：免登录能看名单、水平、球馆、时间、候补；在微信、iMessage 里显示正式的分享卡片；一点就报名；页面底部写“你也在组织？免费建一个”。
+2. **`/organize` 页**（中英）：替代微信接龙；粘贴接龙名单导入；可打印的二维码海报（每个球馆一个码，能区分来源）。
+3. **洛杉矶那片的球馆页**：drop-in 价格、开放时间（`us_venues.json` 里已经有）、本周在这里打的球群、中文版本。
+4. **空状态不空**：附近配不到人时，显示附近已知的 drop-in 时段（精选数据里有时间表），不显示一个空页面。**[个案]** 约球 App 的差评最多的是“人太少”。
+5. **注册后问“你从哪里知道 Badie 的”**（如果还没做）。
+6. **App 内活动**：用 App Store Connect 接口发布每周固定的活动。
 
-1. **创始人的故事**：第一人称、AI 配音，画面是球馆空镜（你随手拍的）和 App 录屏，“我以前不敢在球馆找人一起打”。字幕里写明“AI 配音”。
-2. **你是几级**：拿 https://badie.rsvp/levels/ 的对照表，问“你觉得自己几级”。这类话题容易吵起来，评论多。
-3. **XX 市在哪打羽毛球**：每条一个城市，用球馆列表页。小红书上这类笔记会被长期搜到。
-4. **合作俱乐部**：“XX 俱乐部每周几打、什么水平、怎么报名”。俱乐部愿意转发，等于免费给我们曝光，也是请他们合办球友夜的见面礼。
-5. **吐槽和共鸣**：放鸽子、约到水平差太多、搬家后没人打。结尾一句话带出对应的功能。
+## 6. 时间表
 
-每条视频前 2 秒就要出现问题本身（比如“约好的人又没来”），不先讲 Badie。
+| 时间 | 做什么 |
+|---|---|
+| **11 月** | 你：一次性设置（第 7 节，约 1–2 小时）。我：写好素材库、`WRITING.md`、前 30 条内容；搭好自动发布流水线。工程：第 5 节第 1–3 项。小红书开始每周排。 |
+| **12 月** | Instagram、YouTube 自动发上线；提交 TikTok 审核。圣诞假期内容。12 月底前球馆页和 `/organize` 必须上线，赶 1 月的窗口。 |
+| **1 月** | 全年最重要的一个月：新年开练内容 + App 内活动。第一次花钱测试（见第 8 节）。 |
+| **2 月** | 春节（02-06）新春球局内容。月底复盘：哪个渠道带来了成局，没用的停掉。 |
+| **3–4 月** | 加倍投入有效的渠道。如果第一片区域每周成局到了 15，开始给第二片做球馆页。 |
+| **5–6 月** | “刚搬来洛杉矶”内容。6 月底对目标。 |
 
-### 视频怎么做（零预算、不出镜）
+每周一我在 `queue/` 写一句话总结：发了什么、哪条最好、网站来源（Cloudflare Web Analytics 的 `?ref=`）、成局数。不需要你回复。
 
-- **配音**：先在本仓库外的临时目录里用开源 TTS 生成（英文试 Kokoro，中文试 CosyVoice2 或 Fish Speech），各出几版让你挑一个固定声音，以后都用它。网上的对比多是厂商博客，以你耳朵听为准。
-- **画面**：用浏览器自动录网站和 App 的真实操作（定级、约球、球群报名），加上等级表、城市球馆页的截图，按品牌色和 Nunito 字体加大字幕。
-- **成片**：ffmpeg 合成 9:16、15–30 秒的视频，一条出英文和中文两版。
-- **你要做的**：偶尔拍几段球馆空镜（不露脸），然后上传、打开 AI 标签、发布。
+## 7. 需要你提供的（都是一次性的）
 
-## 5. 30 天日程
+1. **你自己写的文字，10 段以上**：以前的小红书、朋友圈、和朋友的聊天（别人的名字删掉）。英文的也要几段（短信、Discord 都行）。这是“像你”的唯一来源。
+2. **3–5 个真实经历**，一两句话就行，比如“有一次约好 4 个人只来了我一个”“刚搬到 XX 的第一个月一直一个人对墙打”。只用你说过的。
+3. **球馆空镜**：下次去打球时用手机拍 10 段，每段 3–5 秒：球场、球、鞋、记分牌，不拍人脸。拍一次能用很久。
+4. **品牌账号**（已定新开）：Instagram、YouTube、TikTok 各注册一个 `badiebadminton`，头像用小羽。注册要手机号或邮箱验证，只能你来点；密码不要发给我。
+5. **一次性设置**：开发者账号和令牌（Meta、Google、TikTok）由你登录点确认，密钥填进 GitHub Secrets。我会写一步一步的说明。
 
-**第 0 周（现在到审核通过）**
-- 你：注册账号（见第 6 节），把审核状态告诉我。
-- 我：整理 3 个城市的群主和社团名单（只用公开信息，人工整理，不爬平台）；写好 15 条视频脚本、10 篇小红书、群主私信话术。
-- 定下 AI 配音的声音，做出第一批 10 条视频。
+## 8. 50–100 美元怎么花
 
-**第 1 周**
-- 你每天联系 10 个群主或社长（我写好话术，你发）。目标：5 个群开始用。
-- 小红书、TikTok 每天发。Reddit 每天回答 2 个问题。
-- 在 App Store Connect 提交“精选推荐”申请，把球夜做成 App 内活动（In-App Event，会出现在 App Store 搜索里）。
-
-**第 2 周：上线周**
-- App 通过审核后点发布，同一周和湾区一家俱乐部合办第一场球友夜，所有平台集中发上线内容。
-- 请俱乐部拍几段现场（征得同意），第二天剪出来发。
-
-**第 3 周**
-- 洛杉矶、纽约各合办一场球友夜。
-- 联系大学社团（感恩节前联系完）。
-- 给小博主免费提供素材和他们城市的球馆清单，请他们愿意的话提一下；不付费就不用标 `#ad`，但不能让他们装作偶然发现。
-
-**第 4 周**
-- 只留数字好的渠道，加倍投入；其他的停掉。
-
-每周一给你一句话总结：注册多少、各城市成了多少局、哪条内容最好、下周做什么。
-
-## 6. 要你来做的事
-
-- **注册账号**（统一叫 `badiebadminton`，头像用 Logo）：小红书、TikTok（企业账号）、Instagram（专业账号）、YouTube、Reddit。密码别发给我。
-- **联系群主和社长**：话术我写，私信由你本人发（平台不允许批量自动私信，你本人发回复率也高得多）。
-- **手动发布**：我给成品，你上传、打开 AI 标签、点发布。
-- 已定：重点城市是湾区、洛杉矶、纽约；预算 0；不出镜，用 AI 配音。
-- **连接发布工具**：目前 claude.ai 里**没有**能直接发小红书、TikTok、Instagram 帖子的连接器（只有投广告的）。建议：
-  - 前两周你手动发，我给你成品（文案 + 图 + 视频脚本），一条两分钟。
-  - 之后如果要自动发：Instagram 和 YouTube 可以用官方接口，由工程 agent 写一个 GitHub Actions 定时发布，令牌你自己填到 GitHub Secrets；TikTok 要先过平台审核（网上说 2–6 周，未核实），现在就可以提交；小红书一直手动发。
-  - 也可以先用 Buffer 免费版（3 个账号、每个排 10 条），由你登录操作。
-
-## 7. 要工程 agent 做的事（按重要性）
-
-1. **注册后问“你从哪里知道 Badie 的”**（选项：朋友或群主、小红书、TikTok、Instagram、Reddit、球夜、App Store、其他）。没有这个，就不知道哪个渠道有用。
-2. **球群邀请链接的分享卡片**：`/join/?code=` 在微信、iMessage 里显示群名、球馆和时间，而不是通用图。群主转发时更像正式邀请。
-3. **每天的数字**：按城市统计新注册和成局数（只看总数，不涉及个人），方便每周总结。
-4. **球夜签到**：现场扫码加入一个临时球群，自动配对上场（可以先用现有的球群和附近球局凑合）。
-5. 上架后网站加 App Store 下载按钮（MARKETING_BRIEF 里已经写了）。
-
-## 8. 不做的事
-
-- 买粉、刷赞、刷评论；小号自问自答；批量私信或评论；冒充普通用户推荐。
-- 爬小红书、Facebook、微信等商业平台的数据找人。群主名单只靠公开页面人工整理，加上你自己的人脉。
-- 报用户数，说“最大”“第一”，承诺上架日期，说“安卓 App”。
-- 小红书里放外链或导流到微信。
-- 用 AI 托管工具自动发小红书；用了 AI 配音不打标签；用 AI 生成假人、假球场、假的用户评价。
+先不花，等第 5 节的报名页和球馆页上线、内容跑满一个月，知道哪条笔记最好之后：
+- **1 月，30 美元**：给表现最好的那条小红书笔记投“薯条”，只投洛杉矶（海外账号能不能投还没核实，到时候在 App 里看一下）。
+- **2 月，30–50 美元**：Apple Ads，精确匹配 “badminton partner” “羽毛球”，只投你选的那片。**[公认]** 运动类每次下载要 14–20 美元，所以只是测试，不指望靠它拉人。
+- **剩下的留着**，给效果最好的那个再加一次。
+- 不投 Reddit 广告（起投门槛高、地区定向粗）。
 
 ## 来源
 
-- Hinz, Skiera, Barrot, Becker (2011). Seeding Strategies for Viral Marketing: An Empirical Comparison. *Journal of Marketing* 75(6). 摘要和获奖说明：https://ama.org/2019/01/16/seeding-strategies-for-viral-marketing-an-empirical-comparison ，https://www.wiwi.uni-frankfurt.de/de/details/article/professors-hinz-and-skiera-win-sheth-foundationjournal-of-marketing-long-term-impact-award.html
-- Schmitt, Skiera, Van den Bulte (2011). Referral Programs and Customer Value. *Journal of Marketing* 75(1). 全文：https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/Schmitt-Skiera-vandenBulte-2011-Referral-Programs-Customer-Value.pdf
-- Andrew Chen《The Cold Start Problem》摘要：https://builtin.com/articles/andrew-chen-cold-start-problem
-- Tinder 早期校园推广：https://d3.harvard.edu/platform-digit/submission/tinder-growing-the-critical-mass/ ，https://www.entrepreneur.com/article/253165
-- Partiful 的推广方式：https://nogood.io/blog/partiful-marketing-strategy/
-- 湾区球友数量（当地从业者的说法）：https://dallasnews.com/news/2023/07/22/badminton-facility-with-14-courts-coming-to-mckinney
-- 竞品：Reclub https://pickleball.reclub.co/for-organizers ，RacketPal https://www.racketpal.co.uk/ ，T-BAD https://tbadapp.com/en
-- TikTok 自然流量个案：https://playkit.substack.com/p/fish-id-app
-- UGC 视频价格（多数在 100–300 美元一条）：https://ppc.io/blog/ugc-pricing
-- 小红书导流规则（第三方整理，以官方为准）：https://sohu.com/a/1045179482_121124358
-- TikTok 主页链接的条件：https://stan.store/blog/tiktok-link-bio-requirements-2026-guide/
-- Buffer 免费版限制：https://napoleoncat.com/blog/buffer-pricing/
-- TikTok AI 内容标签（第三方整理）：https://www.cinerads.com/blog/tiktok-ai-content-policy
-- 小红书 AI 内容治理（媒体报道官方公告）：https://www.stdaily.com/web/gdxw/2026-04/27/content_508976.html ，https://www.thepaper.cn/newsDetail_forward_32599956
-- 开源 TTS 对比（厂商博客，仅作起点）：https://codesota.com/guides/tts-models
-- Ahrefs 品牌提及与 AI 回答：https://ahrefs.com/blog/ai-overview-brand-correlation/
+- Aral & Walker (2011). Creating Social Contagion Through Viral Product Design. *Management Science* 57(9). https://econpapers.repec.org/RePEc:inm:ormnsc:v:57:y:2011:i:9:p:1623-1639
+- Cullen & Farronato (2021). Outsourcing Tasks Online: Matching Supply and Demand on Peer-to-Peer Internet Platforms. *Management Science* 67(7). https://econpapers.repec.org/RePEc:inm:ormnsc:v:67:y:2021:i:7:p:3985-4003
+- Jakesch, Hancock & Naaman (2023). Human heuristics for AI-generated language are flawed. *PNAS*. https://arxiv.org/abs/2206.07271
+- Altay & Gilardi (2024). People are skeptical of headlines labeled as AI-generated. *PNAS Nexus*. https://www.eurekalert.org/news-releases/1060210
+- Kim, Heo & Kim (2014). 韩国移民在羽毛球俱乐部里的社会支持. *IJQSHW*. https://pmc.ncbi.nlm.nih.gov/articles/PMC4038719
+- Partiful：https://sacra.com/chat/h/ca6c792b-7d6d-42a9-ae5f-0970a819c66c/
+- Pickleheads：https://thefourthquarter.beehiiv.com/p/the-4th-quarter-latest-in-sports-b18 ，https://www.formula4media.com/articles/pickleheads-debuts-court-finder-for-pickleballers ，https://www.pickleheads.com/guides/complete-group-guide
+- PlayTime Scheduler：https://playtimescheduler.com/about.php
+- Reclub：https://pickleball.reclub.co/for-organizers ，https://weekender.thejakartapost.com/the-weekend-digest/2025/09/07/courts-clubs-and-connections-the-rise-of-community-sports-apps.html
+- RacketPal 用户分布和差评：https://startupsmagazine.co.uk/article-where-are-they-now-racketpal ，https://apps.apple.com/us/app/-/id1453817491
+- Andrew Chen “atomic network”：https://www.lennysnewsletter.com/p/atomic-network
+- Google 对批量低质页面的处理：https://developers.google.com/search/blog/2024/03/core-update-spam-policies
+- Apple App 内活动：https://developer.apple.com/app-store/in-app-events
+- Apple Ads 运动类价格：https://www.mobileaction.co/report/apple-search-ads-2025-benchmark-report/cost-per-tap/
+- 小红书 AI 托管账号治理：https://m.gmw.cn/2026-03/10/content_1304371172.htm ，https://www.thepaper.cn/newsDetail_forward_32599956 ，https://www.stdaily.com/web/gdxw/2026-04/27/content_508976.html
+- TikTok 未审核接口只能私密发布：https://developers.tiktok.com/doc/content-posting-api-reference-direct-post
+- YouTube AI 内容声明：https://support.google.com/youtube/answer/14328491 ；重复内容：https://www.socialmediatoday.com/news/youtube-clarifies-monetization-update-inauthentic-repeated-content/752892/
+- Reddit 打击 AI 推广：https://thenextweb.com/news/reddit-ai-marketing-slop-geo-crackdown ，https://www.nbcnews.com/news/rcna203597
+- “Larry” TikTok 自动化（自述，有带货链接）：https://www.stack-junkie.com/blog/how-to-automate-tiktok-marketing-with-openclaw-larry-skill-deep-dive ；自动发只比手动多约 7% 播放：https://growwstacks.com/blog/openclaw-social-media-automation-hard-truths
+- US Open 2027 洛杉矶（第三方，未确认）：https://allsportdb.com/Events/2027-BWF-Badminton-World-Tour-US-Open-20451

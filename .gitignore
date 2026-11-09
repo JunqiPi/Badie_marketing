@@ -5,3 +5,6 @@ video/models/
 queue/
 *.mp4
 *.wav
+
+# 固定的配音参考音要进 git
+!video/voices/*.wav

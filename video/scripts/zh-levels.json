@@ -1,7 +1,6 @@
 {
   "lang": "zh",
-  "voice": "zf_xiaoxiao",
-  "speed": 1.0,
+  "voice": "zh",
   "scenes": [
     {"say": "约球最怕什么？约到的人，要么太强，要么太弱。", "caption": "约到的人水平**差太多**？", "text": "太强？\n太弱？"},
     {"say": "Badie 把羽毛球水平分成一到九级，两分钟做完问卷就知道自己几级。", "caption": "你是**几级**？", "url": "https://badie.rsvp/zh/levels/"},

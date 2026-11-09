@@ -1,0 +1,17 @@
+{
+  "zh": {
+    "audio": "zh.wav",
+    "text": "羽毛球什么地方最难？技术？步伐？都不是！找不到人一起打啊！去场上直接问？简直就是i人炼狱。于是，我做了 Badie。选好时间、球馆、水平，我们帮你匹配。羽毛球搭子？就在今日。",
+    "language": "Chinese"
+  },
+  "en": {
+    "audio": "en.wav",
+    "text": "Too shy to ask strangers for a game? Same. So I made Badie. Pick a time and a court, and it finds players at your level. Badminton buddy? Find one today.",
+    "language": "English"
+  },
+  "en-male": {
+    "audio": "en-male.wav",
+    "text": "Too shy to ask strangers for a game? Same. So I made Badie. Pick a time and a court, and it finds players at your level. Badminton buddy? Find one today.",
+    "language": "English"
+  }
+}

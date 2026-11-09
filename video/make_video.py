@@ -1,44 +1,34 @@
 """把一个视频脚本（JSON）做成 9:16 的成片：AI 配音 + 品牌画面 + 字幕。
 
-用法：python -I make_video.py <脚本.json> <输出.mp4>
-需要：ffmpeg、node（装好 playwright）、以及 setup.sh 装好的 Kokoro 模型。
+用法：python make_video.py <脚本.json> <输出.mp4>
+需要：ffmpeg、node（装好 playwright）、requirements.txt 里的 Python 依赖（配音用 Qwen3-TTS，见 voice.py）。
 
 脚本格式见 scripts/ 里的例子：
 {
   "lang": "zh" 或 "en",
-  "voice": "zf_xiaoxiao"（中文）/ "af_heart"（英文），
-  "speed": 1.0,
+  "voice": "zh" / "en" / "en-male"（固定的配音声音，见 voices/README.md；不写就按 lang 选 zh 或 en），
   "scenes": [{"say": "配音念的话", "caption": "画面上方的大字，**重点词**", "url": "https://badie.rsvp/zh/levels/"}]
 }
 每个场景三选一：url（自动截网站手机版）、image（本地图片）、text（大字卡片）。
 """
 import json
-import os
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
 
 import soundfile as sf
-from kokoro_onnx import Kokoro
+
+from voice import Voice
 
 HERE = Path(__file__).resolve().parent
-MODELS = Path(os.environ.get("BADIE_TTS_MODELS", HERE / "models"))
 
 
 def tts(spec, work):
-    k = Kokoro(str(MODELS / "kokoro-v1.0.onnx"), str(MODELS / "voices-v1.0.bin"))
-    g2p = None
-    if spec["lang"] == "zh":
-        from misaki import zh
-        g2p = zh.ZHG2P()
+    v = Voice(spec.get("voice") or spec["lang"])
     durations = []
     for i, scene in enumerate(spec["scenes"]):
-        text = scene["say"]
-        if g2p:
-            audio, sr = k.create(g2p(text), voice=spec["voice"], speed=spec.get("speed", 1.0), is_phonemes=True)
-        else:
-            audio, sr = k.create(text, voice=spec["voice"], speed=spec.get("speed", 1.0), lang="en-us")
+        audio, sr = v.say(scene["say"])
         path = work / f"scene-{i:02d}.wav"
         sf.write(path, audio, sr)
         durations.append(len(audio) / sr + 0.35)  # 每段之间留一点气口
