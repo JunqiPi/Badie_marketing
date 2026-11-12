@@ -1,6 +1,7 @@
 """把 content/threads.json 里用户确认过的文字帖排进 Buffer，到点由 Buffer 自动发到 Threads。
 
 - 只排 "approved": true 的：帖子先给用户看，用户确认了才标。
+- "approved" 改回 false 的：如果还在队列里没发，就撤下来。
 - "when" 是洛杉矶时间。已经过了时间的不补发，只提示。
 - 同样的文字已经排着或发过的，跳过。所以这个脚本重复跑是安全的。
 环境变量：BUFFER_API_KEY。
@@ -30,7 +31,19 @@ def main():
     for e in entries:
         label = e["text"][:12]
         if e.get("approved") is not True:
-            print(f"::notice title=没确认，不排::{label}")
+            # 没确认（或者确认后又撤回）的：如果还排在队列里，就撤下来
+            h = have.get(e["text"])
+            if h and h["status"] == "scheduled":
+                try:
+                    buffer.delete_post(h["id"])
+                    print(f"::notice title=撤下来了::{label} 原定 dueAt={h['dueAt']}")
+                except Exception as err:
+                    failed = True
+                    print(f"::error title=没撤成::{label}: {err}")
+            elif h:
+                print(f"::warning title=已经发出去了，撤不了::{label} status={h['status']}")
+            else:
+                print(f"::notice title=没确认，不排::{label}")
             continue
         when = datetime.datetime.strptime(e["when"], "%Y-%m-%d %H:%M").replace(tzinfo=LA)
         if e["text"] in have:

@@ -71,6 +71,17 @@ def schedule_text(channel, text, due_at_utc):
     return data["post"]
 
 
+def delete_post(post_id):
+    """删掉一条还没发出去的帖子。"""
+    data = gql(
+        "mutation($input: DeletePostInput!) { deletePost(input: $input) "
+        "{ __typename ... on VoidMutationError { message } } }",
+        {"input": {"id": post_id}},
+    )["deletePost"]
+    if data.get("message") or data["__typename"] != "DeletePostSuccess":
+        raise RuntimeError(data.get("message") or data["__typename"])
+
+
 def metadata(service, title):
     """各平台的设置。都声明用了 AI（配音是 AI 的）。"""
     if service == "instagram":
