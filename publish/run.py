@@ -1,5 +1,6 @@
 """每天运行一次：把 content/schedule.json 里到期的视频做出来，发到品牌账号。
 
+- 只发 "approved": true 的条目：成片先给用户看，用户同意了才标。
 - 日期按洛杉矶时间。只处理今天和昨天的（漏跑一天能补上，不会把旧的一口气全发出去），一次最多发一条。
 - 成片传到本仓库的 Release（公开网址，Buffer 从那里取）。
 - 每个平台发成功后，在 Release 里留一个 posted-<平台>.txt。重跑只补没发成的平台。
@@ -31,8 +32,9 @@ def notice(title, msg):
 
 def main():
     today = datetime.datetime.now(zoneinfo.ZoneInfo("America/Los_Angeles")).date()
+    # 只发用户看过并同意的："approved": true（用户 2026-11-12：先确认质量再发）
     due = [e for e in json.loads((ROOT / "content/schedule.json").read_text(encoding="utf-8"))
-           if 0 <= (today - datetime.date.fromisoformat(e["date"])).days <= 1]
+           if e.get("approved") is True and 0 <= (today - datetime.date.fromisoformat(e["date"])).days <= 1]
     channels = buffer.channels()
     for entry in sorted(due, key=lambda e: e["date"]):
         script = ROOT / entry["script"]

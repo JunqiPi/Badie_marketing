@@ -13,7 +13,7 @@ Badie（免费的羽毛球找搭子 App，网站 https://badie.rsvp）的宣传�
 ## 和用户合作
 
 - **用中文回复**，话要短，给推荐，不列一长串选项。
-- **品牌账号自动发，不用问**（用户 2026-11-08 说的）：Badie 品牌账号（Instagram、YouTube、TikTok）上的帖子、视频，和这些帖子下面的自动回复，过了 `docs/WRITING.md` 的检查就直接发，每周一在 `queue/` 写一句总结。
+- **品牌账号也要先给用户看**（用户 2026-11-12 改的，取代 11-08 的“自动发不用问”）：每条视频、帖子做好后先发给用户，用户确认质量后，才在 `content/schedule.json` 里标 `"approved": true`，发布任务只发标过的。用户说“这类以后不用看”之前，都这样。
 - **品牌账号**：Instagram、TikTok、YouTube 都叫 badiebadminton，用品牌专用邮箱注册（邮箱不写进仓库：本仓库 2026-11-12 起是公开的）。发布通过 Buffer 的 API，密钥在 GitHub Secrets 的 `BUFFER_API_KEY`。
 - **其他的发之前还是先问**：用户私人账号（小红书、Reddit 等）上的任何东西、私信、邮件、花钱，整理成一批，用户回“发”之后才发。确认后再改任何一个字，要重新确认那一条。
 - **密钥不进聊天、不进仓库**：让用户填到 GitHub Secrets（比如 `GEMINI_API_KEY`）。不在任何地方写用户的私人邮箱。仓库里不写模型名。
@@ -27,7 +27,7 @@ Badie（免费的羽毛球找搭子 App，网站 https://badie.rsvp）的宣传�
 
 - `docs/GROWTH_PLAN.md`：到 2027 年中的增长方案（2026-11-08 重写）。
 - `docs/WRITING.md`：帖子怎么写才像创始人本人、禁用词、发前检查。
-- `docs/MASCOT.md`：品牌账号的吉祥物小羽（公开说明是 AI）：角色、语气、句子库、评论区回复。形象暂不做。
+- `docs/MASCOT.md`：品牌账号的人设 Claudia（公开说明是 AI）：口气、句子库、评论区回复。没有形象图。
 - `video/`：做竖版宣传视频。`scripts/*.json` 是视频脚本（配音、画面大字、画面来源），`make_video.py` 合成，`render.cjs` 画每个画面。
 - `setup.sh`：旧的 Mac 安装脚本（还是 Kokoro 配音），要改成 Qwen3-TTS 后再用。
 - `queue/`：每天待发的批次和发帖记录（不进 git）。
