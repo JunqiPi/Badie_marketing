@@ -2,12 +2,14 @@
 
 - 只排 "approved": true 的：帖子先给用户看，用户确认了才标。
 - "approved" 改回 false 的：如果还在队列里没发，就撤下来。
+- 可以带一张图："image" 写仓库里的路径（放在 content/media/），"alt" 写给看不见图的人的说明。
 - "when" 是洛杉矶时间。已经过了时间的不补发，只提示。
 - 同样的文字已经排着或发过的，跳过。所以这个脚本重复跑是安全的。
 环境变量：BUFFER_API_KEY。
 """
 import datetime
 import json
+import os
 import sys
 import zoneinfo
 from pathlib import Path
@@ -46,16 +48,29 @@ def main():
                 print(f"::notice title=没确认，不排::{label}")
             continue
         when = datetime.datetime.strptime(e["when"], "%Y-%m-%d %H:%M").replace(tzinfo=LA)
+        image_url = None
+        if e.get("image"):
+            if not (ROOT / e["image"]).is_file():
+                failed = True
+                print(f"::error title=图片不在仓库里::{label}: {e['image']}")
+                continue
+            # 用这次提交的固定网址，之后分支再变，图也还在
+            image_url = f"https://raw.githubusercontent.com/{os.environ['GITHUB_REPOSITORY']}/{os.environ['GITHUB_SHA']}/{e['image']}"
         if e["text"] in have:
             h = have[e["text"]]
-            print(f"::notice title=已经有了::{label} status={h['status']} dueAt={h['dueAt']}")
-            continue
+            if image_url and h["status"] == "scheduled" and not h.get("assets"):
+                # 之前排的是纯文字，现在确认要配图：撤掉重排
+                buffer.delete_post(h["id"])
+                print(f"::notice title=换成带图的::{label}")
+            else:
+                print(f"::notice title=已经有了::{label} status={h['status']} dueAt={h['dueAt']} 图={len(h.get('assets') or [])}")
+                continue
         if when <= now:
             print(f"::warning title=时间已过，没排::{label} when={e['when']}")
             continue
         due = when.astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
         try:
-            post = buffer.schedule_text(channel, e["text"], due)
+            post = buffer.schedule_text(channel, e["text"], due, image_url, e.get("alt"))
             print(f"::notice title=排上了::{label} 洛杉矶 {e['when']} dueAt={post['dueAt']} status={post['status']}")
         except Exception as err:
             failed = True

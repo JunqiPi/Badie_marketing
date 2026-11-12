@@ -49,22 +49,30 @@ def channels():
 def existing_texts(channel):
     """这个频道里已经排着或已经发出去的帖子的文字，用来防止重复发。"""
     data = gql(
-        "query($input: PostsInput!) { posts(first: 100, input: $input) { edges { node { id text status dueAt } } } }",
+        "query($input: PostsInput!) { posts(first: 100, input: $input) "
+        "{ edges { node { id text status dueAt assets { mimeType } } } } }",
         {"input": {"organizationId": channel["organizationId"],
                    "filter": {"channelIds": [channel["id"]], "status": ["scheduled", "sending", "sent"]}}},
     )["posts"]["edges"]
     return {e["node"]["text"]: e["node"] for e in data}
 
 
-def schedule_text(channel, text, due_at_utc):
-    """排一条文字帖，到点自动发（不是提醒）。due_at_utc 形如 2026-11-13T03:30:00.000Z。
+def schedule_text(channel, text, due_at_utc, image_url=None, alt=None):
+    """排一条帖子（纯文字，或者带一张图），到点自动发（不是提醒）。
+    due_at_utc 形如 2026-11-13T03:30:00.000Z。图片要是公开网址，Buffer 到发的时候才去取。
     不设 aiAssisted：文字帖平台不要求标 AI，用户定了没人问不主动说（MASCOT.md 第 1 节）。"""
+    assets = []
+    if image_url:
+        image = {"url": image_url}
+        if alt:
+            image["metadata"] = {"altText": alt}
+        assets = [{"image": image}]
     data = gql(
         """mutation($input: CreatePostInput!) { createPost(input: $input) {
              ... on PostActionSuccess { post { id dueAt status } }
              ... on MutationError { message } } }""",
         {"input": {"text": text, "channelId": channel["id"], "schedulingType": "automatic",
-                   "mode": "customScheduled", "dueAt": due_at_utc, "assets": []}},
+                   "mode": "customScheduled", "dueAt": due_at_utc, "assets": assets}},
     )["createPost"]
     if "message" in data:
         raise RuntimeError(data["message"])
