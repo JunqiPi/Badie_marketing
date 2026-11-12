@@ -57,22 +57,35 @@ def existing_texts(channel):
     return {e["node"]["text"]: e["node"] for e in data}
 
 
-def schedule_text(channel, text, due_at_utc, image_url=None, alt=None):
-    """排一条帖子（纯文字，或者带一张图），到点自动发（不是提醒）。
+def _assets(image_url, alt):
+    if not image_url:
+        return []
+    image = {"url": image_url}
+    if alt:
+        image["metadata"] = {"altText": alt}
+    return [{"image": image}]
+
+
+def schedule_text(channel, text, due_at_utc, image_url=None, alt=None, reply=None):
+    """排一条帖子，到点自动发（不是提醒）。可以带一张图，也可以带一条自己的回复。
     due_at_utc 形如 2026-11-13T03:30:00.000Z。图片要是公开网址，Buffer 到发的时候才去取。
+    reply 是 {"text": ..., "image_url": ..., "alt": ...}：发在主帖下面的第一条回复，
+    用来放 App 的名字、截图和链接（主帖本身不放链接，带链接的帖子互动最低）。
     不设 aiAssisted：文字帖平台不要求标 AI，用户定了没人问不主动说（MASCOT.md 第 1 节）。"""
-    assets = []
-    if image_url:
-        image = {"url": image_url}
-        if alt:
-            image["metadata"] = {"altText": alt}
-        assets = [{"image": image}]
+    assets = _assets(image_url, alt)
+    payload = {"text": text, "channelId": channel["id"], "schedulingType": "automatic",
+               "mode": "customScheduled", "dueAt": due_at_utc, "assets": assets}
+    if reply:
+        # Buffer 的要求：thread 里要列出全部帖子，第一项是主帖，文字和上面的 text 一样
+        payload["metadata"] = {channel["service"]: {"thread": [
+            {"text": text, "assets": assets},
+            {"text": reply["text"], "assets": _assets(reply.get("image_url"), reply.get("alt"))},
+        ]}}
     data = gql(
         """mutation($input: CreatePostInput!) { createPost(input: $input) {
              ... on PostActionSuccess { post { id dueAt status assets { mimeType } } }
              ... on MutationError { message } } }""",
-        {"input": {"text": text, "channelId": channel["id"], "schedulingType": "automatic",
-                   "mode": "customScheduled", "dueAt": due_at_utc, "assets": assets}},
+        {"input": payload},
     )["createPost"]
     if "message" in data:
         raise RuntimeError(data["message"])
