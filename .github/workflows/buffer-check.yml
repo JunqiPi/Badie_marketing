@@ -1,0 +1,17 @@
+# 只读检查：Buffer 里连了哪些频道。不发帖。
+name: Buffer check
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/buffer-check]
+    paths: [publish/buffer.py, .github/workflows/buffer-check.yml]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 publish/buffer.py channels
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}

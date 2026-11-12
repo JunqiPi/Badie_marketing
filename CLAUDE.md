@@ -1,6 +1,6 @@
 # Badie 宣传
 
-Badie（免费的羽毛球找搭子 App，网站 https://badie.rsvp）的宣传仓库，**私有**。产品代码在公开仓库 [JunqiPi/Badie](https://github.com/JunqiPi/Badie)，不在这里。
+Badie（免费的羽毛球找搭子 App，网站 https://badie.rsvp）的宣传仓库，**2026-11-12 起公开**：不写任何邮箱、密钥、私人信息，`queue/` 不进 git。产品代码在公开仓库 [JunqiPi/Badie](https://github.com/JunqiPi/Badie)，不在这里。
 
 ## 先读
 
@@ -14,6 +14,7 @@ Badie（免费的羽毛球找搭子 App，网站 https://badie.rsvp）的宣传�
 
 - **用中文回复**，话要短，给推荐，不列一长串选项。
 - **品牌账号自动发，不用问**（用户 2026-11-08 说的）：Badie 品牌账号（Instagram、YouTube、TikTok）上的帖子、视频，和这些帖子下面的自动回复，过了 `docs/WRITING.md` 的检查就直接发，每周一在 `queue/` 写一句总结。
+- **品牌账号**：Instagram、TikTok、YouTube 都叫 badiebadminton，用品牌专用邮箱注册（邮箱不写进仓库：本仓库 2026-11-12 起是公开的）。发布通过 Buffer 的 API，密钥在 GitHub Secrets 的 `BUFFER_API_KEY`。
 - **其他的发之前还是先问**：用户私人账号（小红书、Reddit 等）上的任何东西、私信、邮件、花钱，整理成一批，用户回“发”之后才发。确认后再改任何一个字，要重新确认那一条。
 - **密钥不进聊天、不进仓库**：让用户填到 GitHub Secrets（比如 `GEMINI_API_KEY`）。不在任何地方写用户的私人邮箱。仓库里不写模型名。
 - **不做**：买粉刷量、开小号、冒充普通球友、批量私信或评论、爬商业平台、破解验证码、在小红书放外链或导流到微信、用 AI 托管工具自动发小红书、AI 配音不打标签、编造用户评价和对话。

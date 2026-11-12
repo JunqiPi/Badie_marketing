@@ -8,3 +8,5 @@ queue/
 
 # 固定的配音参考音要进 git
 !video/voices/*.wav
+video/__pycache__/
+__pycache__/
