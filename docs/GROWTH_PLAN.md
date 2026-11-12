@@ -154,6 +154,30 @@
 
 来源：https://grass.camp/blog/group-meetup-apps-taiwan-2026 （作者自家产品也在名单里，有立场），https://www.cna.com.tw/news/afe/202306030033.aspx
 
+## 美国的同类 App（2026-11-12 查的）
+
+查法：用 12 个关键词搜美国区 App Store，去掉游戏，留下介绍里提到羽毛球的，共 30 个；按评分数看谁有人用。评分数只是粗略的指标，搜索也不保证全，安卓没查。
+
+结论：**美国还没有一个做起来的羽毛球找球友 App。**
+
+| App | 是什么 | 美国区评分数 | 上线 |
+|---|---|---|---|
+| ConnectPlayers | 24 种运动通用的找搭子 | 258 | 2023 |
+| Playo、Hudle | 印度的多运动约球 | 各 162 | 2016、2018 |
+| RacketPal | 英国的球拍类运动找搭子，差评说人太少 | 91 | 2019 |
+| Kotofit | 自家球馆的订场和门禁，不是找球友 | 62 | 2026-04 |
+| TournMate | 匹克球、羽毛球、网球的比赛和开放场 | 2 | 2026-05 |
+| **Shuttlers** | **专做羽毛球：团主发每周场次，球友一点就报名** | **0** | **2026-07** |
+| Badie | | 0 | 2026-11-05 |
+
+**最该盯的是 Shuttlers**（shuttlers.com，App Store 上的开发者是 NextShark, Inc.）：
+- 模式是团主发场次、球友报名，有候补、嘉宾名额、场次群聊，场次标明水平。不经手钱，球友用 Venmo 等直接付给团主。免费。有 iPhone、安卓和网页。
+- 还在测试期。网站上列了 4 个球馆、4 个城市：Houston、Menlo Park、Mukilteo、Pomona。Pomona 就在洛杉矶东边。
+- 和 Badie 重合的是球群报名。它没提按水平给个人配对，也没提爽约记录。它有安卓，Badie 没有。
+- 另外 Buddy Finder（湾区，2021 年起测试版）看起来没在更新。
+
+真正在被用的不是 App，是 Facebook 群、Meetup、微信群和球馆前台。匹克球那边已经有做大的（Pickleheads），说明这个模式在美国跑得通。
+
 ## 来源
 
 - Aral & Walker (2011). Creating Social Contagion Through Viral Product Design. *Management Science* 57(9). https://econpapers.repec.org/RePEc:inm:ormnsc:v:57:y:2011:i:9:p:1623-1639
