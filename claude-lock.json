@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "origin": {
+    "base_url": "https://api.anthropic.com",
+    "organization_id": "2beef03a-5cb3-4b46-a513-42df8d2e7370",
+    "workspace_id": "wrkspc_01EcSQkdBwrZRqLiSDXE1niQ"
+  },
+  "resources": {
+    "./agents/claudia-surf.md": {
+      "kind": "agent",
+      "id": "agent_01SWYDLXVaQNTaZPi5WwFtXQ",
+      "version": "1",
+      "hash": "86fcc52046d7195c065b83c59132099f",
+      "remote_hash": "957bd53e83279d4f12ee3bfc757f0374",
+      "stamp": "1"
+    },
+    "./deployments/claudia-surf-daily.md": {
+      "kind": "deployment",
+      "id": "depl_01VRD68Q5E7ccivkcJQZcv1h",
+      "hash": "96844bbae42e96b1bf9ffeab4302fc83",
+      "remote_hash": "96844bbae42e96b1bf9ffeab4302fc83",
+      "stamp": "2026-11-12T22:06:22.015458Z"
+    },
+    "./environments/claudia-surf.yaml": {
+      "kind": "environment",
+      "id": "env_018Vo7nDDEBtA2s6chgX4dXR",
+      "hash": "d5cbe203a05261192ddf448717773f4e",
+      "remote_hash": "254dff15e732220fe71685f938410215",
+      "stamp": "2026-11-12T22:06:20.854023Z"
+    }
+  }
+}

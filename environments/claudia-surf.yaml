@@ -1,0 +1,5 @@
+# 逛圈任务用的云端沙箱。里面不放任何密钥，只读公开网页和公开仓库。
+name: claudia-surf-env
+config:
+  type: cloud
+  networking: {type: unrestricted}
