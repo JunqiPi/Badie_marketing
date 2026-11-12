@@ -10,7 +10,9 @@ on:
     paths: [content/schedule.json, publish/**, video/**, .github/workflows/publish.yml]
 permissions:
   contents: write
-concurrency: publish
+concurrency:
+  group: publish
+  cancel-in-progress: true
 jobs:
   publish:
     runs-on: ubuntu-24.04
