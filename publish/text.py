@@ -71,7 +71,7 @@ def main():
         due = when.astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
         try:
             post = buffer.schedule_text(channel, e["text"], due, image_url, e.get("alt"))
-            print(f"::notice title=排上了::{label} 洛杉矶 {e['when']} dueAt={post['dueAt']} status={post['status']}")
+            print(f"::notice title=排上了::{label} 洛杉矶 {e['when']} dueAt={post['dueAt']} status={post['status']} 图={len(post.get('assets') or [])}")
         except Exception as err:
             failed = True
             print(f"::error title=没排上::{label}: {err}")

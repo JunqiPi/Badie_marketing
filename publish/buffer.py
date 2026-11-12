@@ -69,7 +69,7 @@ def schedule_text(channel, text, due_at_utc, image_url=None, alt=None):
         assets = [{"image": image}]
     data = gql(
         """mutation($input: CreatePostInput!) { createPost(input: $input) {
-             ... on PostActionSuccess { post { id dueAt status } }
+             ... on PostActionSuccess { post { id dueAt status assets { mimeType } } }
              ... on MutationError { message } } }""",
         {"input": {"text": text, "channelId": channel["id"], "schedulingType": "automatic",
                    "mode": "customScheduled", "dueAt": due_at_utc, "assets": assets}},
