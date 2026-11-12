@@ -81,3 +81,64 @@
 - AI 腔：“隨著……”开头、“不是……而是……”、“此外”“值得注意的是”、工整的三点式、面面俱到没有立场、每段一个 emoji。
 - 声称没有代笔；官腔（“如有造成不便”）；删帖不解释；和网友对呛；碰政治和宗教。
 - 到别人的帖子下面留言推销（台湾叫“海巡”）。
+
+## 8. 英文：可爱、又会怼老板的口气是怎么来的
+
+> 2026-11-12。用户看了第一版英文帖说“没有中文版可爱，少了点怼老板的那种活人感”，让去搜英文的语感是怎么来的。
+> **局限**：引文经抓取工具转述，可能有细节出入。X、TikTok 评论区、Reddit 抓不到；Threads 上每个账号只看得到四五条。下面标“没找到出处”的，是常见但这次没有找到来源的说法。
+
+**一句话**：英文里的“可爱”主要靠小写、不加句号、一个情绪 emoji 和一件具体的小事，不靠叠词和颜文字。“怼老板”最有效的写法，是背着老板跟读者说悄悄话。
+
+### 真实例子
+
+| 手法 | 原文 | 出处 |
+|---|---|---|
+| 背着老板跟读者坦白 | Calm：“How long do you think it'll take before anyone at calm notices I changed our bio to "clam?"”（2 万赞、763 条回复）。后续：“Someone finally noticed AND IT WAS LEGAL 😂 (Gonna keep it anyway)”（1.14 万赞） | https://www.threads.com/@calm |
+| 拉读者一起跟老板打赌 | “60 days remaining to prove to my boss that smashing this can is more effective than his entire marketing strategy.”（后续帖 16.5 万赞以上） | https://dailydot.com/tiktok-instagram-trend-prove-to-my-boss-marketing-strategy-viral |
+| 假装饭碗不保 | “I told my boss I made a viral edit, please don't let it flop.” | 同上 |
+| 小写、不加句号、一个 emoji | Duolingo：“now go do your lesson 🙄”（763 赞） | https://www.threads.com/@duolingo |
+| 一个词全大写 | Sour Patch Kids：“DONT TEXT UR EX THEY’RE A LOSER”（612 赞） | https://www.threads.com/@sourpatchkids |
+| 为小事夸张 | Ryanair：“a little “let’s leave on Friday and come back Sunday” trip could heal me rn” | https://www.threads.com/@ryanair |
+| AI 角色怼创造者 | Neuro-sama 对 Vedal：“If you don't know, why are you a dev?” 观众的说法：“a spoiled AI daughter with her beleaguered dad” | https://arxiv.org/html/2509.20817v1 |
+| 球友说自己打得烂 | “I got the yips. Every single time I served, it was like I was a newbie who'd never picked up a paddle in my life.” | https://pickleball.com/culture/scariest-things-that-happen-during-open-play |
+
+对照：只可爱、没有事的帖子（Starface，6–12 赞）和纯促销的帖子（eos，12–47 赞）互动都很低。没有控制粉丝数，只能当方向看。
+
+语言学上的说法（NPR 转述 Gretchen McCulloch）：拉长字母（yesss、noooo）是在表示亲近；句尾加句号会被读成在生闷气。https://www.wlrn.org/npr-breaking-news/2019-08-20/ironic-informal-and-expressive-new-rules-of-language-evolve-online
+😭 和 💀 现在表示好笑或喜欢，不是难过；😂 被看成上一代人用的。https://www.dictionary.com/e/gen-z-explains-emoji-to-millennials/
+
+### 用户给的七条手法，对应到英文
+
+| 中文 | 英文里自然的对应 | 用多少 |
+|---|---|---|
+| 1 小事大反应 | 夸张的说法：could heal me | 放开用 |
+| 2 语气词 | 开头或句尾的小词：pls、ok、be honest | 一条一个 |
+| 3 颜文字 | 句尾一个情绪 emoji（😭🥹🙄） | 少用，不成串 |
+| 4 口齿不清的写法 | 缩写：u、ur、bc、rn。不是 uwu、smol | 少用 |
+| 5 感叹号省略号代替句号 | 小写、不加句号、“??”、一个词全大写 | 放开用 |
+| 6 叠字 | 拉长字母（noooo）、同一个 emoji 连打 | 适量 |
+| 7 表情包 | 一张反应图加一句短评 | 少用 |
+
+### 怎么亲昵地怼老板
+
+1. 背着老板跟读者说（“don't tell my boss”“before anyone notices”）。
+2. 拉读者打赌、倒计时。
+3. 老板发现以后照旧（“Gonna keep it anyway”）。
+4. 一本正经的反问（“If you don't know, why are you a dev?”）。
+5. 做成连续剧：老板“发现了”“回嘴了”，后续帖的互动比第一条高（Calm、Sweet Loren's）。
+
+共同点：槽点小、是真事、不伤人；员工其实站在老板这边。读者成了同谋。
+Claudia 的槽点用真事：老板不敢在球馆开口问人。不自称 intern（这个梗被批过时了）。
+中文的“就这？？”不直译，换成一句一本正经的收尾。
+
+### 不要
+
+- 过时的词：slay、adulting、bae、YOLO、lit、savage、pookie、rizz、skibidi、6-7、nom nom、doggo、smol、uwu、😂。来源：https://www.mentalfloss.com/language/slang/slang-terms-from-2010s-that-are-outdated ，https://www.vice.com/en/article/gen-z-hates-these-popular-words-for-being-insanely-cringe/
+- 一条里塞好几个流行语。品牌这么写被评论“Did an old person make this?”。
+- 靠出格、蹭敏感的事。“Shock value only works when it's still shocking.” https://digiday.com/marketing/brands-theyre-just-like-us-the-cases-for-and-against-the-so-called-unhinged-social-media-manager
+- AI 腔：破折号、三连排比、“not just X, it's Y”、工整的完整句子加句号、结尾总结或号召、故意造错字。https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing
+
+### 没找到出处的
+
+“sir.”“the way i…”“help”这类说法没找到语言学或新闻来源；“got cooked”、birdie 还是 shuttle，没找到球友的原话。洛杉矶球友平时叫 birdie 还是 shuttle，要问用户。球场的说法查到的有：open play、drop-in、walk-in。
+
