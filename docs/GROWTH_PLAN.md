@@ -137,6 +137,23 @@
 - **剩下的留着**，给效果最好的那个再加一次。
 - 不投 Reddit 广告（起投门槛高、地区定向粗）。
 
+## 台湾的同类 App（2026-11-12 粗查，没有逐个核实）
+
+逛 Threads 时看到一条“這個臨打app超方便的，好誇張”（1.6K 赞、2.9K 分享），帖子没写是哪个 App，后来再搜没找到这条。台湾做羽球臨打的 App 有好几个：
+- **羽球總站**：臨打报名、场地租借、排点管理、教练课预约、找附近团的地图。在 App Store 上架。
+- **羽你速配 Matchminton**：免费，臨打行事历、报名链接、排点程序，名单自动递补。https://matchminton.tw/
+- **愛羽球 AI badminton**：找团、订场、战绩。https://www.aibadminton.com.tw/
+- 羽球GO（2023 年的报道，现在还在不在不清楚）、PlayOne 零打快查。
+
+和 Badie 的关系：
+- **重合的**：它们的臨打报名，就是 Badie 的球群和附近球局。
+- **Badie 有、它们没主打的**：按水平给个人配对、按天刷附近的人、爽约记录。
+- **它们有、Badie 没有的**：排点（开放场上谁下一个上、上哪块场地）、订场。
+- 它们都做台湾。有没有美国的球馆和用户，没查。我们先打的是洛杉矶，眼下不是正面竞争；但中文帖在 Threads 上主要被推给台湾的人，那边已经有这些 App，这也是 Threads 以英文为主的一个理由。
+- 可以学的：那边火起来的入口是给团主用的工具（报名、排点），和方案第 1 节“让组织者自己找上门”是一回事。
+
+来源：https://grass.camp/blog/group-meetup-apps-taiwan-2026 （作者自家产品也在名单里，有立场），https://www.cna.com.tw/news/afe/202306030033.aspx
+
 ## 来源
 
 - Aral & Walker (2011). Creating Social Contagion Through Viral Product Design. *Management Science* 57(9). https://econpapers.repec.org/RePEc:inm:ormnsc:v:57:y:2011:i:9:p:1623-1639
