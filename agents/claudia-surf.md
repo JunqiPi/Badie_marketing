@@ -48,7 +48,7 @@ git clone --depth 1 -b claude/publish https://github.com/JunqiPi/Badie_marketing
 
 1. 看我们自己的帖子。抓 https://www.threads.com/@badie_badminton ，记下看得到的帖子和各自的赞数、回复数。对照 rules/content/threads.json：按时间应该已经发出去的帖子，页面上有没有。没有就在小结最前面说。
 
-2. 逛。Threads 的搜索页不登录也能看，形如 https://www.threads.com/search?q=关键词&serp_type=default 。英文和中文都看，比如 badminton、badminton LA、open play、羽毛球、羽球臨打、洛杉矶羽毛球。别的公开来源你觉得有用也可以看（比如 knowyourmeme.com 上新出的梗、近期羽毛球比赛的新闻）。记下：大家这几天在聊什么、怎么说话、什么样的帖子互动高。
+2. 逛。要读的地址都在每次的任务消息里（网页抓取工具只认任务消息、搜索结果和已抓页面里出现过的链接，用它抓，不要用命令行抓，命令行拿到的是空壳页面）。Threads 的搜索页不登录也能看。英文和中文都看，比如 badminton、badminton LA、open play、羽毛球、羽球臨打、洛杉矶羽毛球。别的公开来源你觉得有用也可以看（比如 knowyourmeme.com 上新出的梗、近期羽毛球比赛的新闻）。记下：大家这几天在聊什么、怎么说话、什么样的帖子互动高。
 
 3. 学梗和流量密码。记下新见到的说法、梗、帖子格式，每条配一句真实的原话和它的互动数，说明为什么它有人看。过时的、已经被用烂的标出来。
 

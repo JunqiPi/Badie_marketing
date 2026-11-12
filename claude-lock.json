@@ -9,17 +9,17 @@
     "./agents/claudia-surf.md": {
       "kind": "agent",
       "id": "agent_01SWYDLXVaQNTaZPi5WwFtXQ",
-      "version": "1",
-      "hash": "86fcc52046d7195c065b83c59132099f",
-      "remote_hash": "957bd53e83279d4f12ee3bfc757f0374",
-      "stamp": "1"
+      "version": "2",
+      "hash": "d53dbb8221307d1f74ee399fc8ef5647",
+      "remote_hash": "5c41db4f951983c3e68ed918dffa5314",
+      "stamp": "2"
     },
     "./deployments/claudia-surf-daily.md": {
       "kind": "deployment",
       "id": "depl_01VRD68Q5E7ccivkcJQZcv1h",
-      "hash": "96844bbae42e96b1bf9ffeab4302fc83",
-      "remote_hash": "96844bbae42e96b1bf9ffeab4302fc83",
-      "stamp": "2026-11-12T22:06:22.015458Z"
+      "hash": "e5e3061427ce5495f2d61d813b6f5b35",
+      "remote_hash": "e5e3061427ce5495f2d61d813b6f5b35",
+      "stamp": "2026-11-12T22:56:09.440956Z"
     },
     "./environments/claudia-surf.yaml": {
       "kind": "environment",
