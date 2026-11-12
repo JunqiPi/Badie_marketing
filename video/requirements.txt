@@ -1,7 +1,9 @@
 # 配音（Qwen3-TTS）。有 NVIDIA 显卡时，先装 CUDA 版的 torch：
 #   pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu128
+# 没有显卡（比如 GitHub Actions）：把上面的 cu128 换成 cpu。
 torch==2.8.0
 torchaudio==2.8.0
 qwen-tts==0.1.1
 soundfile==0.14.0
 numpy==2.5.4
+imageio-ffmpeg==0.6.0

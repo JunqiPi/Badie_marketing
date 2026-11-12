@@ -2,7 +2,6 @@
 
 用法：
   python publish/buffer.py channels
-  python publish/buffer.py post <频道id> <视频公开网址> <文案文件>
 """
 import json
 import os
@@ -41,21 +40,35 @@ def channels():
     return found
 
 
-def post_video(channel_id, video_url, text):
+def metadata(service, title):
+    """各平台的设置。都声明用了 AI（配音是 AI 的）。"""
+    if service == "instagram":
+        return {"instagram": {"type": "reel", "shouldShareToFeed": True, "isAiGenerated": True}}
+    if service == "youtube":
+        return {"youtube": {"title": title[:100], "categoryId": "17", "madeForKids": False, "isAiGenerated": True}}
+    if service == "tiktok":
+        return {"tiktok": {"isAiGenerated": True}}
+    return {}
+
+
+def post_video(channel, video_url, text, title):
+    """马上发一条视频帖（自动发布，不是提醒）。channel 是 channels() 返回的一项。"""
     data = gql(
         """mutation($input: CreatePostInput!) { createPost(input: $input) {
              ... on PostActionSuccess { post { id dueAt status } }
              ... on MutationError { message } } }""",
         {"input": {
             "text": text,
-            "channelId": channel_id,
+            "channelId": channel["id"],
             "schedulingType": "automatic",
-            "mode": "addToQueue",
+            "mode": "shareNow",
+            "aiAssisted": True,
+            "metadata": metadata(channel["service"], title),
             "assets": [{"video": {"url": video_url, "metadata": {"thumbnailOffset": 1000}}}],
         }},
     )["createPost"]
     if "message" in data:
-        raise SystemExit("Buffer 没收：" + data["message"])
+        raise RuntimeError(data["message"])
     return data["post"]
 
 
@@ -66,6 +79,3 @@ if __name__ == "__main__":
             # GitHub Actions 的 notice 备注：公开仓库不登录也能读到
             print(f"::notice title=buffer channel::{c['service']} | {c['displayName'] or c['name']} | "
                   f"paused={c['isQueuePaused']} | id={c['id']}")
-    elif cmd == "post":
-        _, _, cid, url, textfile = sys.argv
-        print(post_video(cid, url, open(textfile, encoding="utf-8").read()))
