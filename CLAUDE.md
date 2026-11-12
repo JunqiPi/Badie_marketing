@@ -27,7 +27,8 @@ Badie（免费的羽毛球找搭子 App，网站 https://badie.rsvp）的宣传�
 
 - `docs/GROWTH_PLAN.md`：到 2027 年中的增长方案（2026-11-08 重写）。
 - `docs/WRITING.md`：帖子怎么写才像创始人本人、禁用词、发前检查。
-- `docs/MASCOT.md`：品牌账号的人设 Claudia（公开说明是 AI）：口气、句子库、评论区回复。没有形象图。
+- `docs/MASCOT.md`：品牌账号的人设 Claudia（虚拟萌妹人格，不藏着是虚拟的）：口气、句子库、评论区回复。没有形象图。
+- `docs/TEXT_STUDY.md`、`docs/IMAGE_TEXT_STUDY.md`、`docs/VIDEO_STUDY.md`：真人和成功案例的拆解（文字帖、图文和引流、视频）。写任何内容之前先看对应的那份。
 - `video/`：做竖版宣传视频。`scripts/*.json` 是视频脚本（配音、画面大字、画面来源），`make_video.py` 合成，`render.cjs` 画每个画面。
 - `setup.sh`：旧的 Mac 安装脚本（还是 Kokoro 配音），要改成 Qwen3-TTS 后再用。
 - `queue/`：每天待发的批次和发帖记录（不进 git）。
