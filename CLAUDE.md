@@ -23,6 +23,15 @@ Badie（免费的羽毛球找搭子 App，网站 https://badie.rsvp）的宣传�
 - **依赖版本写死**，用发布满两周的版本。
 - **推送**：说“推到 main”才推 main，平时推会话指定的开发分支。不开 PR，除非用户要。
 
+## 待办
+
+- **等级分享卡片上线后**（用户 2026-11-12 交代）：Claudia 发一张自己的等级卡，配一句问大家都是几级。
+  - 等卡片功能对所有人上线（用户会说；也可以看 Badie 仓库的提交）。
+  - 要先在 App 里给 Claudia 建一个资料，并在设置里关掉“被别人看到”，免得真球友在附近的人里刷到她、约她。这一步要动 App 的账号，先问用户。
+  - 帖子照常先给用户看。
+- **价格帖**（“LABC 一天十块 Elite 十五 SGVBC 十四 你们常去哪家”）：Elite $15、SGVBC $14 在 2026-11-12 对过球馆自己的订场系统；LABC 官网写 $9/$10，没说哪天是 9。等用户说清楚再发。
+- **英文帖**：草稿在本机 `queue/threads-batch-01-en.md`，等用户看。
+
 ## 仓库结构
 
 - `docs/GROWTH_PLAN.md`：到 2027 年中的增长方案（2026-11-08 重写）。
@@ -31,7 +40,8 @@ Badie（免费的羽毛球找搭子 App，网站 https://badie.rsvp）的宣传�
 - `docs/TEXT_STUDY.md`、`docs/IMAGE_TEXT_STUDY.md`、`docs/VIDEO_STUDY.md`：真人和成功案例的拆解（文字帖、图文和引流、视频）。写任何内容之前先看对应的那份。
 - `video/`：做竖版宣传视频。`scripts/*.json` 是视频脚本（配音、画面大字、画面来源），`make_video.py` 合成，`render.cjs` 画每个画面。
 - `setup.sh`：旧的 Mac 安装脚本（还是 Kokoro 配音），要改成 Qwen3-TTS 后再用。
-- `queue/`：每天待发的批次和发帖记录（不进 git）。
+- `queue/`：待用户确认的草稿（不进 git）。
+- `content/threads.json`：用户确认过的 Threads 文字帖和发布时间；`publish/text.py` 把它们排进 Buffer。
 
 ## 素材
 

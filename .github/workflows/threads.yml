@@ -1,0 +1,18 @@
+# 把用户确认过的文字帖排进 Buffer，到点自动发到 Threads。发什么、几点发：content/threads.json。
+name: Threads text posts
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, claude/publish]
+    paths: [content/threads.json, publish/text.py, publish/buffer.py, .github/workflows/threads.yml]
+permissions:
+  contents: read
+concurrency: threads-text
+jobs:
+  schedule:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 publish/text.py
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}

@@ -5,9 +5,7 @@ on:
   schedule:
     - cron: "30 1 * * *"   # 洛杉矶傍晚 5:30（冬令时）
   workflow_dispatch:
-  push:
-    branches: [claude/publish]
-    paths: [content/schedule.json, publish/**, video/**, .github/workflows/publish.yml]
+  # 视频先停了（2026-11-12）。恢复时再加回 push 触发。
 permissions:
   contents: write
 concurrency:

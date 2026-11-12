@@ -28,16 +28,47 @@ def gql(query, variables=None):
     return out["data"]
 
 
+def org_ids():
+    return [o["id"] for o in gql("query { account { organizations { id } } }")["account"]["organizations"]]
+
+
 def channels():
-    orgs = gql("query { account { organizations { id } } }")["account"]["organizations"]
     found = []
-    for o in orgs:
-        found += gql(
+    for oid in org_ids():
+        chans = gql(
             "query($id: OrganizationId!) { channels(input: {organizationId: $id}) "
             "{ id name displayName service isQueuePaused } }",
-            {"id": o["id"]},
+            {"id": oid},
         )["channels"]
+        for c in chans:
+            c["organizationId"] = oid
+        found += chans
     return found
+
+
+def existing_texts(channel):
+    """这个频道里已经排着或已经发出去的帖子的文字，用来防止重复发。"""
+    data = gql(
+        "query($input: PostsInput!) { posts(first: 100, input: $input) { edges { node { id text status dueAt } } } }",
+        {"input": {"organizationId": channel["organizationId"],
+                   "filter": {"channelIds": [channel["id"]], "status": ["scheduled", "sending", "sent"]}}},
+    )["posts"]["edges"]
+    return {e["node"]["text"]: e["node"] for e in data}
+
+
+def schedule_text(channel, text, due_at_utc):
+    """排一条文字帖，到点自动发（不是提醒）。due_at_utc 形如 2026-11-13T03:30:00.000Z。
+    不设 aiAssisted：文字帖平台不要求标 AI，用户定了没人问不主动说（MASCOT.md 第 1 节）。"""
+    data = gql(
+        """mutation($input: CreatePostInput!) { createPost(input: $input) {
+             ... on PostActionSuccess { post { id dueAt status } }
+             ... on MutationError { message } } }""",
+        {"input": {"text": text, "channelId": channel["id"], "schedulingType": "automatic",
+                   "mode": "customScheduled", "dueAt": due_at_utc, "assets": []}},
+    )["createPost"]
+    if "message" in data:
+        raise RuntimeError(data["message"])
+    return data["post"]
 
 
 def metadata(service, title):
