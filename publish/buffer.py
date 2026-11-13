@@ -57,22 +57,24 @@ def existing_texts(channel):
     return {e["node"]["text"]: e["node"] for e in data}
 
 
-def _assets(image_url, alt):
-    if not image_url:
-        return []
-    image = {"url": image_url}
-    if alt:
-        image["metadata"] = {"altText": alt}
-    return [{"image": image}]
+def _assets(images):
+    """images 是 [{"url": ..., "alt": ...}]，可以是空的。多张图在 Threads 和 Instagram 上是一条能左右滑的帖子。"""
+    out = []
+    for item in images or []:
+        image = {"url": item["url"]}
+        if item.get("alt"):
+            image["metadata"] = {"altText": item["alt"]}
+        out.append({"image": image})
+    return out
 
 
-def schedule_text(channel, text, due_at_utc, image_url=None, alt=None, reply=None):
-    """排一条帖子，到点自动发（不是提醒）。可以带一张图，也可以带一条自己的回复。
+def schedule_text(channel, text, due_at_utc, images=None, reply=None):
+    """排一条帖子，到点自动发（不是提醒）。可以带图（一张或多张），也可以带一条自己的回复。
     due_at_utc 形如 2026-11-13T03:30:00.000Z。图片要是公开网址，Buffer 到发的时候才去取。
-    reply 是 {"text": ..., "image_url": ..., "alt": ...}：发在主帖下面的第一条回复，
+    reply 是 {"text": ..., "images": [...]}：发在主帖下面的第一条回复，
     用来放 App 的名字、截图和链接（主帖本身不放链接，带链接的帖子互动最低）。
     不设 aiAssisted：文字帖平台不要求标 AI，用户定了没人问不主动说（MASCOT.md 第 1 节）。"""
-    assets = _assets(image_url, alt)
+    assets = _assets(images)
     payload = {"text": text, "channelId": channel["id"], "schedulingType": "automatic",
                "mode": "customScheduled", "dueAt": due_at_utc, "assets": assets}
     if channel["service"] == "instagram":
@@ -82,7 +84,7 @@ def schedule_text(channel, text, due_at_utc, image_url=None, alt=None, reply=Non
         # Buffer 的要求：thread 里要列出全部帖子，第一项是主帖，文字和上面的 text 一样
         payload.setdefault("metadata", {})[channel["service"]] = {"thread": [
             {"text": text, "assets": assets},
-            {"text": reply["text"], "assets": _assets(reply.get("image_url"), reply.get("alt"))},
+            {"text": reply["text"], "assets": _assets(reply.get("images"))},
         ]}
     data = gql(
         """mutation($input: CreatePostInput!) { createPost(input: $input) {
