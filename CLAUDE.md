@@ -49,6 +49,8 @@ Badie（免费的羽毛球找搭子 App，网站 https://badie.rsvp）的宣传�
   - 卡片是在本机用 Badie 仓库 `web/src/app/levelCard.ts` 渲染的，没有在 App 里给 Claudia 建账号。卡片改版后要重新渲染。
   - 更新宣传帖（“主人居然做了个等级卡”）：用户 2026-11-13 确认了英文版，排在 11-14 中午，Threads 和 Instagram 各一条。
 - **Instagram 图文**（用户 2026-11-13 同意）：带图的帖子同步到 Instagram，在 `content/threads.json` 的那一条里加 `"instagram": {"text": 配文}`。第一条是 11-14 中午的等级卡；Buffer 已经接受排期，**发出去以后要去主页看一眼才算验证过**。配文里的链接点不了，写 link in bio，简介里的链接由用户放。
+- **上线帖**（用户 2026-11-13 确认）：排在 11-15 中午，Threads 和 Instagram 各一条，8 张图（`content/media/launch/`，封面是 Claudia，后面是 App Store 截图的上半截）。这是第一次发多图，也是第一次发 Instagram 多图，**发出后要去两个主页看一眼**。发出后提醒用户：手动置顶；每月 20 美元的推广用这条（在电脑网页上点推广，不在 iPhone 的 App 里付，苹果抽 30%；目标是访问网站，链接带 `?ref=ig_ad`，人群是洛杉矶周边 25 英里、对羽毛球感兴趣，每天 5 美元跑 4 天）。
+- 正式宣发帖说 we，不说 boss；Instagram 配文末尾带 `#badminton #badmintonlovers #badmintonplayer`，Threads 不带。
 - **Product Hunt**（2026-11-13）：用户账号下有一条 “Badie” 的草稿，已填好：主链接是网站，App Store 是附加链接，4 张展示图（封面加 3 张用商店截图拼的三联图），介绍、创始人留言、分类。**没有提交，没有定日期**：等 iPhone 1.0.5 上架后再定；提交前把全文给用户看，用户说可以才提交。连接方式是 Product Hunt 的 MCP 服务，登录凭证只在本机临时目录，过期了要用户重新点一次登录链接。预期：那里是做产品的人，带不来多少球友，图的是外链和反馈。
 - **价格帖**（“LABC 一天十块 Elite 十五 SGVBC 十四 你们常去哪家”）：Elite $15、SGVBC $14 在 2026-11-12 对过球馆自己的订场系统；LABC 官网写 $9/$10，没说哪天是 9。等用户说清楚再发。
 - **英文帖**：草稿在本机 `queue/threads-batch-01-en.md`，等用户看。
