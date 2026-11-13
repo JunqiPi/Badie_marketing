@@ -43,7 +43,8 @@ Badie（免费的羽毛球找搭子 App，网站 https://badie.rsvp）的宣传�
 - **等级卡**（2026-11-13 卡片已上线）：Claudia 的卡是 `content/media/claudia-card.png`（3−、Iron wall；按她的设定答题，用网站同一套算法算的；人物剪影换成了她，是只有她有的特别版，用户选的）。
   - 第一次用：11-13 中午那条 "everyone says they're intermediate" 下面的自己回复。
   - 卡片是在本机用 Badie 仓库 `web/src/app/levelCard.ts` 渲染的，没有在 App 里给 Claudia 建账号。卡片改版后要重新渲染。
-  - 更新宣传帖（“主人居然做了个等级卡”）：英文草稿等用户确认。
+  - 更新宣传帖（“主人居然做了个等级卡”）：用户 2026-11-13 确认了英文版，排在 11-14 中午，Threads 和 Instagram 各一条。
+- **Instagram 图文**（用户 2026-11-13 同意）：带图的帖子同步到 Instagram，在 `content/threads.json` 的那一条里加 `"instagram": {"text": 配文}`。第一条是 11-14 中午的等级卡；Buffer 已经接受排期，**发出去以后要去主页看一眼才算验证过**。配文里的链接点不了，写 link in bio，简介里的链接由用户放。
 - **价格帖**（“LABC 一天十块 Elite 十五 SGVBC 十四 你们常去哪家”）：Elite $15、SGVBC $14 在 2026-11-12 对过球馆自己的订场系统；LABC 官网写 $9/$10，没说哪天是 9。等用户说清楚再发。
 - **英文帖**：草稿在本机 `queue/threads-batch-01-en.md`，等用户看。
 
