@@ -24,6 +24,10 @@ ROOT = Path(__file__).resolve().parent.parent
 LA = zoneinfo.ZoneInfo("America/Los_Angeles")
 
 
+# 已经在 Buffer 里的帖子的状态，最后合成一条提示（GitHub 每一步最多显示 10 条提示）
+STATUS = []
+
+
 def parse_due(text):
     return datetime.datetime.strptime(text[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=datetime.timezone.utc)
 
@@ -53,6 +57,7 @@ def sync(channel, have, label, approved, text, when_text, image_url, alt, reply,
             buffer.delete_post(h["id"])
             print(f"::notice title=撤掉旧版重排::{name} {label}")
         else:
+            STATUS.append(f"{name} {label} {h['status']} {h.get('dueAt')}")
             return False
     if when <= now:
         print(f"::warning title=时间已过，没排::{name} {label} when={when_text}")
@@ -114,6 +119,8 @@ def main():
             else:
                 failed |= sync(instagram, have_instagram, label, approved, ig["text"], ig.get("when", e["when"]),
                                image_url, e.get("alt"), None, replace, now)
+    if STATUS:
+        print("::notice title=已经在 Buffer 里的::" + " | ".join(STATUS))
     if failed:
         raise SystemExit(1)
 
