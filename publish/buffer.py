@@ -160,3 +160,17 @@ if __name__ == "__main__":
                 numbers = ", ".join(f"{m['name']}={m['value']:g}" for m in (n.get("metrics") or []) if m.get("value") is not None) or "还没有数据"
                 first_line = (n["text"] or "").splitlines()[0][:40]
                 print(f"::notice title={c['service']} {n.get('sentAt')}::{first_line} | {numbers} | 更新于 {n.get('metricsUpdatedAt')} | {n.get('externalLink')}")
+    if cmd == "schema":
+        # 只读：发 Threads 帖子时能带哪些设置（比如话题）
+        def fields(name):
+            t = gql("query($n: String!) { __type(name: $n) { inputFields { name description type { name ofType { name ofType { name } } } } } }", {"n": name})["__type"]
+            return (t or {}).get("inputFields") or []
+        def base(t):
+            while t and not t.get("name"):
+                t = t.get("ofType")
+            return (t or {}).get("name")
+        meta = next((base(f["type"]) for f in fields("CreatePostInput") if f["name"] == "metadata"), None)
+        for f in fields(meta) if meta else []:
+            if f["name"] in ("threads", "instagram"):
+                sub = fields(base(f["type"]))
+                print(f"::notice title={f['name']} 的设置::" + " ; ".join(f"{x['name']}:{base(x['type'])} {x.get('description') or ''}"[:160] for x in sub))
