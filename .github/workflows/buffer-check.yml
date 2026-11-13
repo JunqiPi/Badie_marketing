@@ -1,4 +1,4 @@
-# 只读检查：Buffer 里连了哪些频道。不发帖。
+# 只读检查：Buffer 里连了哪些频道、帖子上有哪些字段。不发帖。
 name: Buffer check
 on:
   workflow_dispatch:
@@ -12,6 +12,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - run: python3 publish/buffer.py channels
+      - run: python3 publish/buffer.py channels && python3 publish/buffer.py schema
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
