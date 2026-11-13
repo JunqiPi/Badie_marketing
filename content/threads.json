@@ -1,12 +1,68 @@
 [
-  {"when": "2026-11-12 19:30", "approved": false, "text": "三级的人又在看五级的教学了……眼睛学会了 手没有😭😭😭", "note": "用户 2026-11-12：很多人不知道三级和级别是什么意思，要改"},
-  {"when": "2026-11-13 12:30", "approved": false, "text": "中羽三级算会打还是不会打啊 认真问", "note": "用户 2026-11-12：很多人不知道三级和级别是什么意思，要改"},
-  {"when": "2026-11-13 19:30", "approved": false, "text": "我老板做了个约球的 app 原因是他自己不敢在球馆开口问人……就这？？", "note": "2026-11-12 用户定 Threads 以英文为主，这条换成英文版（同一个梗不中英各发一遍）"},
-  {"when": "2026-11-14 19:30", "approved": true, "text": "约好四个人到场两个的时候 你们都怎么办 我先生气"},
-  {"when": "2026-11-15 19:30", "approved": true, "text": "小聲問 在 LA 打羽球的脆友都去哪裡臨打啊 新手友善的那種"},
-  {"when": "2026-11-12 19:30", "approved": false, "text": "又菜又爱看教学……眼睛学会了 手没有😭😭😭", "image": "content/media/claudia-tutorial.png", "alt": "两格简笔画：左边橘色长发的女孩趴在床上看羽毛球教学，眼睛冒星星；右边她在球场上哭，球砸在额头上，球拍飞了", "note": "2026-11-12 用户定 Threads 以英文为主，这条换成英文版（同一个梗不中英各发一遍）"},
-  {"when": "2026-11-12 19:30", "approved": true, "text": "watched a footwork tutorial\nmy eyes: got it!!\nmy feet: who are you 😭😭😭", "image": "content/media/claudia-tutorial.png", "alt": "Two-panel doodle: a girl with long orange hair lies on a bed watching a badminton tutorial with stars in her eyes; then she is on court crying as the shuttle bounces off her forehead and her racket flies away", "note": "英文版。用户 2026-11-12：调研完确认有没有更好的写法就可以换"},
-  {"when": "2026-11-13 12:30", "approved": true, "text": "everyone at open play says they're \"intermediate\"\nEVERYONE\nbe honest what are you actually", "note": "英文版。用户 2026-11-12：调研完确认有没有更好的写法就可以换"},
-  {"when": "2026-11-13 19:30", "approved": true, "text": "don't tell my boss i said this but he built an entire app because he was too scared to ask strangers to play badminton\nall he had to do was say hi", "note": "英文版。用户 2026-11-12：调研完确认有没有更好的写法就可以换"},
-  {"when": "2026-11-14 12:30", "approved": true, "text": "LA badminton people where do you go for open play\nasking for my boss\nhe will not ask you himself", "note": "英文版。用户 2026-11-12：调研完确认有没有更好的写法就可以换"}
+  {
+    "when": "2026-11-12 19:30",
+    "approved": false,
+    "text": "三级的人又在看五级的教学了……眼睛学会了 手没有😭😭😭",
+    "note": "用户 2026-11-12：很多人不知道三级和级别是什么意思，要改"
+  },
+  {
+    "when": "2026-11-13 12:30",
+    "approved": false,
+    "text": "中羽三级算会打还是不会打啊 认真问",
+    "note": "用户 2026-11-12：很多人不知道三级和级别是什么意思，要改"
+  },
+  {
+    "when": "2026-11-13 19:30",
+    "approved": false,
+    "text": "我老板做了个约球的 app 原因是他自己不敢在球馆开口问人……就这？？",
+    "note": "2026-11-12 用户定 Threads 以英文为主，这条换成英文版（同一个梗不中英各发一遍）"
+  },
+  {
+    "when": "2026-11-14 19:30",
+    "approved": true,
+    "text": "约好四个人到场两个的时候 你们都怎么办 我先生气"
+  },
+  {
+    "when": "2026-11-15 19:30",
+    "approved": true,
+    "text": "小聲問 在 LA 打羽球的脆友都去哪裡臨打啊 新手友善的那種"
+  },
+  {
+    "when": "2026-11-12 19:30",
+    "approved": false,
+    "text": "又菜又爱看教学……眼睛学会了 手没有😭😭😭",
+    "image": "content/media/claudia-tutorial.png",
+    "alt": "两格简笔画：左边橘色长发的女孩趴在床上看羽毛球教学，眼睛冒星星；右边她在球场上哭，球砸在额头上，球拍飞了",
+    "note": "2026-11-12 用户定 Threads 以英文为主，这条换成英文版（同一个梗不中英各发一遍）"
+  },
+  {
+    "when": "2026-11-12 19:30",
+    "approved": true,
+    "text": "watched a footwork tutorial\nmy eyes: got it!!\nmy feet: who are you 😭😭😭",
+    "image": "content/media/claudia-tutorial.png",
+    "alt": "Two-panel doodle: a girl with long orange hair lies on a bed watching a badminton tutorial with stars in her eyes; then she is on court crying as the shuttle bounces off her forehead and her racket flies away",
+    "note": "英文版。用户 2026-11-12：调研完确认有没有更好的写法就可以换"
+  },
+  {
+    "when": "2026-11-13 12:30",
+    "approved": true,
+    "text": "everyone at open play says they're \"intermediate\"\nEVERYONE\nbe honest what are you actually",
+    "note": "英文版。用户 2026-11-13 确认：下面自己回一条，配 Claudia 的等级卡（方案 B，剪影换成她）",
+    "reply": "ok i'll go first\nmy boss's quiz says i'm a novice 😭\nbut it also called me an iron wall so\nwhat did you get https://badie.rsvp/levels/?ref=threads",
+    "reply_image": "content/media/claudia-card.png",
+    "reply_alt": "Claudia's Badie level card: a doodle girl with long orange hair waving and holding a badminton racket. Level 3- Novice, play style Iron wall, best shot forehand clear.",
+    "replace": true
+  },
+  {
+    "when": "2026-11-13 19:30",
+    "approved": true,
+    "text": "don't tell my boss i said this but he built an entire app because he was too scared to ask strangers to play badminton\nall he had to do was say hi",
+    "note": "英文版。用户 2026-11-12：调研完确认有没有更好的写法就可以换"
+  },
+  {
+    "when": "2026-11-14 12:30",
+    "approved": true,
+    "text": "LA badminton people where do you go for open play\nasking for my boss\nhe will not ask you himself",
+    "note": "英文版。用户 2026-11-12：调研完确认有没有更好的写法就可以换"
+  }
 ]
