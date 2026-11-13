@@ -145,18 +145,18 @@ if __name__ == "__main__":
             # GitHub Actions 的 notice 备注：公开仓库不登录也能读到
             print(f"::notice title=buffer channel::{c['service']} | {c['displayName'] or c['name']} | "
                   f"paused={c['isQueuePaused']} | id={c['id']}")
-    if cmd == "schema":
-        # 只读：看帖子上有哪些字段（找互动数据在哪）
-        def fields(name):
-            t = gql("query($n: String!) { __type(name: $n) { fields { name type { name kind ofType { name kind ofType { name } } } } } }", {"n": name})["__type"]
-            return t["fields"] if t else []
-        def base(t):
-            while t and not t.get("name"):
-                t = t.get("ofType")
-            return (t or {}).get("name")
-        post = fields("Post")
-        print("::notice title=Post::" + ", ".join(f"{f['name']}:{base(f['type'])}" for f in post))
-        for f in post:
-            if any(k in f["name"].lower() for k in ("stat", "metric", "insight", "analytic", "engag")):
-                sub = fields(base(f["type"]))
-                print(f"::notice title={f['name']}::" + ", ".join(f"{x['name']}:{base(x['type'])}" for x in sub))
+    if cmd == "stats":
+        # 只读：已经发出去的帖子的互动数据（Buffer 从平台取回来的）
+        for c in channels():
+            if c["service"] not in ("threads", "instagram"):
+                continue
+            edges = gql(
+                "query($input: PostsInput!) { posts(first: 50, input: $input) { edges { node "
+                "{ text sentAt externalLink metricsUpdatedAt metrics { name value } } } } }",
+                {"input": {"organizationId": c["organizationId"], "filter": {"channelIds": [c["id"]], "status": ["sent"]}}},
+            )["posts"]["edges"]
+            for e in edges:
+                n = e["node"]
+                numbers = ", ".join(f"{m['name']}={m['value']:g}" for m in (n.get("metrics") or []) if m.get("value") is not None) or "还没有数据"
+                first_line = (n["text"] or "").splitlines()[0][:40]
+                print(f"::notice title={c['service']} {n.get('sentAt')}::{first_line} | {numbers} | 更新于 {n.get('metricsUpdatedAt')} | {n.get('externalLink')}")
