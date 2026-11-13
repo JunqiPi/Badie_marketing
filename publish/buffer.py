@@ -75,12 +75,15 @@ def schedule_text(channel, text, due_at_utc, image_url=None, alt=None, reply=Non
     assets = _assets(image_url, alt)
     payload = {"text": text, "channelId": channel["id"], "schedulingType": "automatic",
                "mode": "customScheduled", "dueAt": due_at_utc, "assets": assets}
+    if channel["service"] == "instagram":
+        # 图文帖（不是 Reels）。不标 AI：和 Threads 的图一样，用户定了没人问不主动说
+        payload["metadata"] = {"instagram": {"type": "post", "shouldShareToFeed": True}}
     if reply:
         # Buffer 的要求：thread 里要列出全部帖子，第一项是主帖，文字和上面的 text 一样
-        payload["metadata"] = {channel["service"]: {"thread": [
+        payload.setdefault("metadata", {})[channel["service"]] = {"thread": [
             {"text": text, "assets": assets},
             {"text": reply["text"], "assets": _assets(reply.get("image_url"), reply.get("alt"))},
-        ]}}
+        ]}
     data = gql(
         """mutation($input: CreatePostInput!) { createPost(input: $input) {
              ... on PostActionSuccess { post { id dueAt status assets { mimeType } } }

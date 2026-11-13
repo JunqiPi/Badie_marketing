@@ -41,7 +41,11 @@
     "text": "watched a footwork tutorial\nmy eyes: got it!!\nmy feet: who are you 😭😭😭",
     "image": "content/media/claudia-tutorial.png",
     "alt": "Two-panel doodle: a girl with long orange hair lies on a bed watching a badminton tutorial with stars in her eyes; then she is on court crying as the shuttle bounces off her forehead and her racket flies away",
-    "note": "英文版。用户 2026-11-12：调研完确认有没有更好的写法就可以换"
+    "note": "英文版。用户 2026-11-12：调研完确认有没有更好的写法就可以换",
+    "instagram": {
+      "text": "watched a footwork tutorial\nmy eyes: got it!!\nmy feet: who are you 😭😭😭",
+      "when": "2026-11-16 12:30"
+    }
   },
   {
     "when": "2026-11-13 12:30",
@@ -59,9 +63,21 @@
     "note": "英文版。用户 2026-11-12：调研完确认有没有更好的写法就可以换"
   },
   {
-    "when": "2026-11-14 12:30",
+    "when": "2026-11-15 12:30",
     "approved": true,
     "text": "LA badminton people where do you go for open play\nasking for my boss\nhe will not ask you himself",
     "note": "英文版。用户 2026-11-12：调研完确认有没有更好的写法就可以换"
+  },
+  {
+    "when": "2026-11-14 12:30",
+    "approved": true,
+    "text": "WAIT my boss made level cards??\ni will not be defined by a card!!\nanyway apparently i'm a level 3",
+    "image": "content/media/claudia-card.png",
+    "alt": "Claudia's Badie level card: a doodle girl with long orange hair waving and holding a badminton racket. Level 3- Novice, play style Iron wall, best shot forehand clear.",
+    "reply": "make yours, 2 min no sign up\nhttps://badie.rsvp/levels/?ref=threads",
+    "instagram": {
+      "text": "WAIT my boss made level cards??\ni will not be defined by a card!!\nanyway apparently i'm a level 3\n\nmake yours, 2 min no sign up\nlink in bio"
+    },
+    "note": "等级卡上线的宣传。用户 2026-11-13 给了中文原话（我去，主人居然做了个等级卡，我是不可以被定义的！顺便一提我好像是三级），确认英文版和 level 3；同意带图的帖子同步到 Instagram"
   }
 ]
