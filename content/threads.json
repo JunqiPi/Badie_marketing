@@ -64,9 +64,9 @@
   },
   {
     "when": "2026-11-16 12:30",
-    "approved": true,
+    "approved": false,
     "text": "LA badminton people where do you go for open play\nasking for my boss\nhe will not ask you himself",
-    "note": "英文版。用户 2026-11-12：调研完确认有没有更好的写法就可以换"
+    "note": "2026-11-16 撤下：和 11-15 晚的繁体帖是同一个问题，改发价格帖（里面也问了 where do you play）"
   },
   {
     "when": "2026-11-14 12:30",
@@ -123,5 +123,17 @@
       "text": "badie is LIVE!!\nour badminton app is finally out, on iphone and on the web\n\n🏸 2 min quiz to find out what level you actually are\n🏸 say when you're free and which courts you can get to, we go find you a game\n🏸 or peek at who's free tomorrow and swipe\n🏸 no-shows go on your profile so don't\n🏸 2,772 courts in 7 countries\n\nit's free, no ads\ncome play with us\n\nlinks in bio\n#badminton #badmintonlovers #badmintonplayer"
     },
     "note": "上线帖。用户 2026-11-13 给的意思（app 终于 live，网页和 iOS 都能用，给链接，简单介绍功能，说“我们”不说 boss），确认了英文稿、8 张图、周日中午发、Instagram 带话题标签。发出后提醒用户置顶；每月 20 美元的推广也用这条。用户 11-13 下午说要更早，改到当晚 19:30；原来那晚的 \"don't tell my boss\" 挪到周日中午"
+  },
+  {
+    "when": "2026-11-16 12:30",
+    "approved": true,
+    "text": "LA badminton drop-in prices\nbecause nobody puts them in one place\n\nElite Rally, Irwindale $15\nSGVBC, El Monte $14\nLABC, El Monte $10\nSanta Fe Springs BC $12\nArena, Pomona $16\nPBC, Lakewood $15\nRoyal, Lake Forest $18\nOCBC, Orange: booking only, $42/hr a court\nfree: Almansor Park gym in Alhambra\n\nchecked last month, tell me if one changed\nwhere do you play",
+    "image": "content/media/la-prices-en.jpg",
+    "alt": "A list of walk-in prices at badminton gyms around Los Angeles: Elite Rally $15, SGVBC $14, LABC $10, Santa Fe Springs BC $12, Arena Badminton $16, PickleBall Badminton Center $15, Royal Badminton $18, OCBC $42 an hour per court (booking only), Almansor Park gym free",
+    "reply": "hours and directions for all of these\nhttps://badie.rsvp/courts/?ref=threads",
+    "instagram": {
+      "text": "LA badminton drop-in prices\nbecause nobody puts them in one place\n\nElite Rally, Irwindale $15\nSGVBC, El Monte $14\nLABC, El Monte $10\nSanta Fe Springs BC $12\nArena, Pomona $16\nPBC, Lakewood $15\nRoyal, Lake Forest $18\nOCBC, Orange: booking only, $42/hr a court\nfree: Almansor Park gym in Alhambra\n\nchecked last month, tell me if one changed\nwhere do you play\n\nlinks in bio\n#badminton #badmintonlovers #badmintonplayer"
+    },
+    "note": "洛杉矶球馆散客价格。用户 2026-11-16 确认：LABC 是 $10，OCBC 只有订场 $42/小时，其余按球馆库 10-16 查的价格；顶替中午那条 LA 的问句"
   }
 ]
