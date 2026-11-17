@@ -34,6 +34,14 @@ Badie（免费的羽毛球找搭子 App，网站 https://badie.rsvp）的宣传�
 - **托管 Agent 版（`agents/`、`environments/`、`deployments/`，用 `ant apply` 管）：已暂停。** 它能设 medium 和每次运行的美元硬上限（2.50），但 Anthropic 服务器端的网页抓取工具屏蔽 Threads（返回 `url_not_allowed`），读不了帖子，所以不能用来逛 Threads。留着备用，适合不需要读 Threads 的定时任务。恢复：`ant beta:deployments unpause --deployment-id depl_01VRD68Q5E7ccivkcJQZcv1h`。
 - 这台电脑上装了 `ant` 命令行（在用户目录的 `bin/ant.exe`），用用户的 Anthropic 账号登录过。登录会过期，过期了要用户重新授权（`ant auth login --no-browser`，用户在手机上拿验证码）。
 
+## 目标和打法（2026-11-17 用户定）
+
+- 目标：**2027 年中每日千人活跃**。当天 34 个账号、每天新增两三个，来源标记全空。
+- 主线：拉“组局的人”用球群（每周报名、候补自动递补），对象是大学羽毛球社、Meetup 群、本地社群。外联话术面向组织者，结尾问愿不愿意合作。
+- 底盘：球馆和价格页的搜索流量。访问数在 Cloudflare Web Analytics，要用户的 Cloudflare 账号，我没有登录。
+- 报数时 App 活跃和网站访问分开。
+- 1 月底检查点：10 个球群在真实使用；网站每天 300 个搜索访问。不达标就换打法。
+
 ## 已经验证过的
 
 - 2026-11-12 晚 7:30（洛杉矶）第一条 Threads 帖按时发出：Buffer 到点自动发，带图也行。未登录看主页，帖子上没有 AI 标签。
