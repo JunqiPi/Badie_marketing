@@ -12,6 +12,7 @@
 - **2026-11-15 换工具**：WebFetch 这天抓 Threads 全是空页（主页和搜索页都是）。改用本机 Playwright 的 headless Chromium（不登录、只读页面文字，滚三屏），一页能读到 15–20 条帖子和全部数字，主页也能看到每条帖子。以后先用这个。脚本：打开页面、等 6 秒、滚三次、取 `document.body.innerText`。
   - 数字的顺序是 赞、回复、转发、分享（缺的就不显示）。
   - 多词也能搜了（badminton beginner 有结果），但带地名的照样 No results（badminton LA、洛杉矶羽毛球）。
+- 2026-11-16：Playwright 照样能用，9 个页面都读到了。solo badminton 是 No results；Hong Kong Open 搜出来混着网球和旅游，没用。open play 搜出来几乎全是菲律宾的 pickleball。
 - 搜索结果是“热门 + 最近”混排，几个月前的高赞帖会一直挂在前面。
 - 我们自己的主页不登录能看到简介、粉丝数和帖子正文，**看不到赞和回复数**。2026-11-12 晚 footwork 那条已经挂上去，0 粉丝。
 
@@ -48,6 +49,11 @@
 - **新手怕上场**：“i downloaded reclub… but im scared to be a beginner in a court… how do u overcome this fear”，22 赞、11 回复。和中文的“新手怕被虐”是同一件事。
 - pickleball open play 吐槽还在：新手场混进来中阶的猛打（低互动）；有人打 7 局有人只打 5 局 😂。
 
+- **一个人去 open play**（2026-11-16，英文，pickleball）：“Being a solo joiner in open play is more than just showing up alone…”，1.2K 赞、72 回复、196 转发（不到一天）。另一条：“I was honestly so intimidated watching everyone smash… 5 wins and 2 losses! Not bad for my second open play!”，199 赞、31 回复。**一个人去、先怕后乐**是英文圈现成的共鸣点，正好是 Badie 的场景。
+- **刚搬来找球团**（2026-11-16 看到，10-24 的帖）：一个外国人用中文写“最近剛搬來台北…有沒有羽球團可以跟”，15.5K 赞、486 回复、5.8K 分享。新到一个城市找球打，大家愿意帮着转。
+- **臨打招人帖的固定说法**（2026-11-16）：“臭臉勿入”“認真魔人勿入”“球品差、臭臉仔、放鳥請勿報名”“太介意輸贏/黑面/教練上身勿join”（香港）。这些词人人都认得，可以拿来自嘲。
+- **一句挑衅式约球**（2026-11-16 看到，4 月的帖）：“誰來陪我打羽球呀～ 輸的人要聽贏的人24hr 敢不敢～”，1.3K 赞、137 回复。
+
 ## 热但不碰的
 
 - **双打性别站队**（2026-11-12）：骂男生双打叫女搭档顾前场，1.8K 赞、609 回复、762 分享；问招人帖“善待女生”是不是话术，41 回复。回复多半是吵架，品牌进去只会挨骂。我们写双打只写前后场、不带性别。
@@ -67,4 +73,5 @@
 - 11 月：Korea Open 3–8、Japan Masters 和 Kaohsiung Masters 10–15、Hong Kong Open 17–22、Syed Modi 24–29。要蹭比赛热点之前先查 BWF 官网确认。
 - 2026-11-12 新闻核实：Kumamoto Masters Japan 是 11-10 到 11-15（就是上面的 Japan Masters）。其余没核实。
 - 2026-11-15 从 Threads 上选手本人和多条球迷帖确认：**2026 熊本大师赛男双冠军是马来西亚的 Aaron Tai / Yap Roy King**，决赛赢日本组合，16-21 21-13 21-15（第二个比分来自球迷帖，没对官网）。选手自己说下周打香港 500。
+- 2026-11-16：选手和球迷帖都说这周打 Li-Ning Hong Kong Open 2026（500 级）。**决赛 11-22（周日），反应帖当天或第二天发。**熊本那批反应帖已经过时，不再接。
 - 香港公开赛：有人转让 11-22 决赛的票（Threads 帖），和上面 17–22 的日期对得上。决赛日 11-22 可以蹭。
