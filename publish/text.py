@@ -43,6 +43,7 @@ def sync(channel, have, wanted, label, approved, text, when_text, images, reply,
         if h and h["status"] == "scheduled":
             try:
                 buffer.delete_post(h["id"])
+                del have[text]  # 已经撤了：后面排同一时间的新帖时不要再撤一遍
                 print(f"::notice title=撤下来了::{name} {label} 原定 dueAt={h['dueAt']}")
             except Exception as err:
                 print(f"::error title=没撤成::{name} {label}: {err}")
