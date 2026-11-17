@@ -41,6 +41,8 @@ Badie（免费的羽毛球找搭子 App，网站 https://badie.rsvp）的宣传�
 - **看帖子的数据**：`git push -f origin claude/publish:claude/buffer-check` 会跑一次只读检查，结果在那次运行的提示里：每条已发帖子的浏览、赞、评论、转发（Buffer 从平台取回来的，有几小时延迟）。未登录的网页只看得到粉丝数和帖子，看不到赞和浏览。
 - 2026-11-13 第一次读数：粉丝 0；第一条（看教学）发出 13 小时后 3 次浏览、0 赞。
 - Buffer 的接口发 Threads 帖子时不能带话题标签（只有链接卡片、地点、串帖）；Instagram 可以带第一条评论。
+- **Threads 改成用浏览器发**（2026-11-17 用户定）：没挂话题的帖子几乎没人看得到（8 条帖子 30 天一共 14 次浏览）。现在用 Claude in Chrome 在 threads.com 上发，发帖框里点“社群或话题”选 **Badminton**；图片用 file_upload 传；链接放在串文的第二条。旧帖 11-17 全部删了，按“上线帖、价格表、等级卡、Claudia 的碎碎念（只发英文的）”的顺序每天重发一条，上线帖已发（球馆数改成 13,000+ courts in 126 countries，数据库当天是 13,290 家、126 个国家）。Instagram 还是走 Buffer。
+- **外联**（2026-11-17）：品牌号已关注 @usc.badminton、@uclabadminton、@sgv_badminton_club、@baddixxla，前两个各留了一条评论。私信用 Claudia 的口气，每条发之前给用户看。目标是全美，不只洛杉矶；高中社团不发。
 
 ## 待办
 
