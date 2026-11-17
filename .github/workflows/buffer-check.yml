@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - run: python3 publish/buffer.py channels && python3 publish/buffer.py stats && python3 publish/buffer.py schema
+      - run: python3 publish/buffer.py stats
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
-# 手动触发：2026-11-16-0659
+# 手动触发：2026-11-16-1640

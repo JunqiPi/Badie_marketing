@@ -157,11 +157,16 @@ if __name__ == "__main__":
                 "{ text sentAt externalLink metricsUpdatedAt metrics { name value } } } } }",
                 {"input": {"organizationId": c["organizationId"], "filter": {"channelIds": [c["id"]], "status": ["sent"]}}},
             )["posts"]["edges"]
+            # 一个频道合成一条备注：GitHub 每一步最多显示 10 条备注，一帖一条会把后面的频道挤掉
+            lines = []
             for e in edges:
                 n = e["node"]
-                numbers = ", ".join(f"{m['name']}={m['value']:g}" for m in (n.get("metrics") or []) if m.get("value") is not None) or "还没有数据"
-                first_line = (n["text"] or "").splitlines()[0][:40]
-                print(f"::notice title={c['service']} {n.get('sentAt')}::{first_line} | {numbers} | 更新于 {n.get('metricsUpdatedAt')} | {n.get('externalLink')}")
+                numbers = ",".join(f"{m['name']}={m['value']:g}" for m in (n.get("metrics") or []) if m.get("value") is not None) or "还没有数据"
+                first_line = (n["text"] or "").splitlines()[0][:28]
+                lines.append(f"{(n.get('sentAt') or '')[5:16]} {first_line} [{numbers}] 更新{(n.get('metricsUpdatedAt') or '-')[5:16]}")
+            lines.sort(reverse=True)
+            for i in range(0, len(lines), 6):
+                print(f"::notice title={c['service']} 帖子数据 {i // 6 + 1}::" + " ## ".join(lines[i:i + 6]))
     if cmd == "schema":
         # 只读：发 Threads 帖子时能带哪些设置（比如话题）
         def fields(name):
