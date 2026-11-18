@@ -51,7 +51,9 @@ Badie（免费的羽毛球找搭子 App，网站 https://badie.rsvp）的宣传�
 - Buffer 的接口发 Threads 帖子时不能带话题标签（只有链接卡片、地点、串帖）；Instagram 可以带第一条评论。
 - **Threads 改成用浏览器发**（2026-11-17 用户定）：没挂话题的帖子几乎没人看得到（8 条帖子 30 天一共 14 次浏览）。现在用 Claude in Chrome 在 threads.com 上发，发帖框里点“社群或话题”选 **Badminton**；图片用 file_upload 传；链接放在串文的第二条。旧帖 11-17 全部删了，按“上线帖、价格表、等级卡、Claudia 的碎碎念（只发英文的）”的顺序每天重发一条，上线帖已发（球馆数改成 13,000+ courts in 126 countries，数据库当天是 13,290 家、126 个国家）。Instagram 还是走 Buffer。
 - **外联**（2026-11-17）：品牌号已关注 @usc.badminton、@uclabadminton、@sgv_badminton_club、@baddixxla，前两个各留了一条评论。私信用 Claudia 的口气，每条发之前给用户看。目标是全美，不只洛杉矶；高中社团不发。11-17 已给这四个账号各发了一条私信（结尾请对方试用、转给 group），等回复；以后的私信结尾加一句愿不愿意合作。
-  - 下一批候选（11-17 看过，都在更新，还没关注也没发）：@husky.badminton（UW，1772）、@nyubadminton（1162）、@stanford_badminton（582）；@uiuc.badminton（1042）和 @utbadmintonclub（929）主页上没看到“发消息”按钮，@ucibadminton 也是。
+  - 11-17 晚又关注并私信了 @husky.badminton（UW）、@nyubadminton、@stanford_badminton，用的是面向组织者的写法（用户改过的版本：报名、候补自动递补；不提记账，球群没有“谁付了钱”的功能；不说替对方建演示群）。
+  - Meetup 账号已登录，名字改成 Claudia from Badie。不加群也能看到组织者的 Message 按钮，但新账号给没有共同群的人发消息发不出去（点发送没反应，收件箱是空的）。
+  - 其他候选：@uiuc.badminton（1042）和 @utbadmintonclub（929）主页上没看到“发消息”按钮，@ucibadminton 也是。
   - Meetup（11-17 看过，都还在办活动）：NYC Outdoor Badminton（`/nyc-outdoor-badminton`，1 万人，每周六中央公园 70 人到场）、Southern California Badminton Meetup Group（`/badminton-61`，2643 人，周末在 LABC）、Badminton in Bay Area（`/badmintoninbayarea`，2153 人，收费入门课）、Los Angeles Badminton Meetup（`/labadminton`，1417 人）。Meetup 还没登录：用品牌邮箱走 Google 登录时，扩展不能操作 Google 的登录页，要用户自己点一下账号。
 
 ## 待办
