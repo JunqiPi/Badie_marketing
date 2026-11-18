@@ -56,6 +56,8 @@ Badie（免费的羽毛球找搭子 App，网站 https://badie.rsvp）的宣传�
   - 11-18 早上 Threads 发了价格表（挂 Badminton 话题）。前一天重发的上线帖 23 小时只多了约 2 次浏览，话题基本没带来人。
   - 第三批候选（11-18 看过，都在更新，没关注没发）：Instagram 的 @badminton_ucd（UC Davis，1483，刚打进全国赛）、@ucsdbadminton（2044）、@rutgersbadminton（1644）；Meetup 公开群 Badminton Net-flix and Kill（`/badminton-net-flix-and-kill`，Fremont，组织者 Lee，13 场待办）、Smash Badminton Boston（`/smash-badminton-boston`，MIT，组织者 kamehamehon）。Boston Badminton Westboro 是私密群。其他城市的 Meetup 群大多停办了。
   - 11-18 第三批：Instagram 关注并私信了 UC Davis、UCSD、Rutgers（加了用户要的一句：we really want to help badminton communities grow…）。Meetup 加入了 Badminton Net-flix and Kill，但给组织者 Lee 的消息被 Meetup 的反垃圾保护拦下（提示让改写再发）：按规矩停了，没改写重试，Boston 那条也没发。纽约那条和这条内容几乎一样，可能是同样的文字发第二次被判成群发。以后 Meetup 每条要按对方的群单独写，一天最多一两条。
+  - **11-18 第一个回复：BADDIXX LA 说 “Hello yes we're interested”**。回了：问他们周二在 SGVBC 怎么收报名、多少人；教他们 “+ → Regular games · Groups” 建每周场次；照实说现在要注册、12 月初有免注册的链接报名；提了正在做的循环赛工具请他们给意见。等回复。
+  - 找群主的办法：关键词搜效果很差；看本地球馆（SGVBC）关注了谁最有效。11-18 关注了 @pbca2026（Philippine Badminton Club of America，在 SGVBC 打，办杯赛；刚和圣地亚哥的 SBBS 办了友谊赛），私信草稿给用户看了，还没发。其他：@pickleballbadmintoncenter（Lakewood 球馆）、@joy_badminton（用品店，以后谈合作）。
   - 其他候选：@uiuc.badminton（1042）和 @utbadmintonclub（929）主页上没看到“发消息”按钮，@ucibadminton 也是。
   - Meetup（11-17 看过，都还在办活动）：NYC Outdoor Badminton（`/nyc-outdoor-badminton`，1 万人，每周六中央公园 70 人到场）、Southern California Badminton Meetup Group（`/badminton-61`，2643 人，周末在 LABC）、Badminton in Bay Area（`/badmintoninbayarea`，2153 人，收费入门课）、Los Angeles Badminton Meetup（`/labadminton`，1417 人）。Meetup 还没登录：用品牌邮箱走 Google 登录时，扩展不能操作 Google 的登录页，要用户自己点一下账号。
 
