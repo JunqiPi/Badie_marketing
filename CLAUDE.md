@@ -55,6 +55,7 @@ Badie（免费的羽毛球找搭子 App，网站 https://badie.rsvp）的宣传�
   - Meetup 账号已登录，名字改成 Claudia from Badie。不加群也能看到组织者的 Message 按钮，但新账号给没有共同群的人发消息发不出去（点发送没反应，收件箱是空的）；加入同一个群后就能发。11-17 加入了 NYC Outdoor Badminton（公开群），给组织者 William Young 发了消息。南加州那两个群（`/badminton-61`、`/labadminton`）是私密群，申请时要填水平、一张能看清脸的本人照片等，Claudia 是虚拟人物，不能编答案、不能用别人的照片，所以没申请。
   - 11-18 早上 Threads 发了价格表（挂 Badminton 话题）。前一天重发的上线帖 23 小时只多了约 2 次浏览，话题基本没带来人。
   - 第三批候选（11-18 看过，都在更新，没关注没发）：Instagram 的 @badminton_ucd（UC Davis，1483，刚打进全国赛）、@ucsdbadminton（2044）、@rutgersbadminton（1644）；Meetup 公开群 Badminton Net-flix and Kill（`/badminton-net-flix-and-kill`，Fremont，组织者 Lee，13 场待办）、Smash Badminton Boston（`/smash-badminton-boston`，MIT，组织者 kamehamehon）。Boston Badminton Westboro 是私密群。其他城市的 Meetup 群大多停办了。
+  - 11-18 第三批：Instagram 关注并私信了 UC Davis、UCSD、Rutgers（加了用户要的一句：we really want to help badminton communities grow…）。Meetup 加入了 Badminton Net-flix and Kill，但给组织者 Lee 的消息被 Meetup 的反垃圾保护拦下（提示让改写再发）：按规矩停了，没改写重试，Boston 那条也没发。纽约那条和这条内容几乎一样，可能是同样的文字发第二次被判成群发。以后 Meetup 每条要按对方的群单独写，一天最多一两条。
   - 其他候选：@uiuc.badminton（1042）和 @utbadmintonclub（929）主页上没看到“发消息”按钮，@ucibadminton 也是。
   - Meetup（11-17 看过，都还在办活动）：NYC Outdoor Badminton（`/nyc-outdoor-badminton`，1 万人，每周六中央公园 70 人到场）、Southern California Badminton Meetup Group（`/badminton-61`，2643 人，周末在 LABC）、Badminton in Bay Area（`/badmintoninbayarea`，2153 人，收费入门课）、Los Angeles Badminton Meetup（`/labadminton`，1417 人）。Meetup 还没登录：用品牌邮箱走 Google 登录时，扩展不能操作 Google 的登录页，要用户自己点一下账号。
 
