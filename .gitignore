@@ -10,3 +10,6 @@ queue/
 !video/voices/*.wav
 video/__pycache__/
 __pycache__/
+
+# 动画短视频的成片、审片图和中间文件
+video/out/
