@@ -1,0 +1,292 @@
+{
+  "_note": "站位题 #01 定稿（见 smash-defense.md 的“定稿”一节）。时间以中文母版为准，四种语言共用；只换字。**词** = 荧光绿重点词，\\n = 换行。",
+  "duration": 38.0,
+  "fps": 30,
+  "music": {
+    "bpm": 120,
+    "key": "A",
+    "first_downbeat": 1.0,
+    "drop": 3.0,
+    "full": 15.0,
+    "resolve": 31.0,
+    "tail": 36.3,
+    "dips": [
+      [
+        2.4,
+        3.0
+      ],
+      [
+        14.2,
+        15.0
+      ],
+      [
+        30.4,
+        31.0
+      ]
+    ]
+  },
+  "sfx": {
+    "transition": 3.0,
+    "reveal": 15.0,
+    "miss": 29.533,
+    "rule": 31.0
+  },
+  "sheet": [
+    1.6,
+    7.5,
+    9.3,
+    14.0,
+    17.6,
+    20.85,
+    24.75,
+    29.8
+  ],
+  "subs": [
+    [
+      0.5,
+      3.0,
+      "hook"
+    ],
+    [
+      3.0,
+      7.0,
+      "analogy"
+    ],
+    [
+      7.0,
+      11.0,
+      "mechanism"
+    ],
+    [
+      11.0,
+      15.0,
+      "reversal"
+    ],
+    [
+      15.0,
+      19.0,
+      "answer"
+    ],
+    [
+      19.0,
+      23.0,
+      "ready"
+    ],
+    [
+      23.0,
+      27.0,
+      "cross"
+    ],
+    [
+      27.0,
+      31.0,
+      "miss"
+    ],
+    [
+      34.7,
+      37.8,
+      "cta"
+    ]
+  ],
+  "cards": [
+    [
+      3.0,
+      5.6,
+      "c1"
+    ],
+    [
+      15.0,
+      16.6,
+      "c2"
+    ],
+    [
+      27.0,
+      28.8,
+      "c3"
+    ],
+    [
+      31.0,
+      36.3,
+      "c4"
+    ]
+  ],
+  "text": {
+    "zh": {
+      "font": "zh",
+      "series": "SINGLES · DEFENSE · #01",
+      "title": "为什么你总接不到**杀球**？",
+      "tag": "单打",
+      "hook": "你站**哪**？",
+      "analogy": "同样的力，直线和斜线，**谁先到**？",
+      "mechanism": "杀球也一样：直线短，**球先到**",
+      "reversal": "回中间没错。\n可他要杀球时，中间**反而慢**",
+      "answer": "往**直线那边**偏半步",
+      "ready": "身体对着他，\n拍子放**直线那边**",
+      "cross": "斜线远，**跨一步**来得及",
+      "miss": "直线一来，转身就**晚了**",
+      "cta": "测测你的水平 → **主页链接**",
+      "c1": [
+        "WHY THE STRAIGHT SMASH WINS",
+        "直线 vs 斜线"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "答案：**A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "站中间呢？"
+      ],
+      "c4": [
+        "THE RULE",
+        "挑到哪边，\n先守哪边的**直线**"
+      ],
+      "labels": {
+        "straight": "直线 · 短",
+        "cross": "斜线 · 长",
+        "first": "先到",
+        "barS": "直线",
+        "barC": "斜线",
+        "half": "半步",
+        "face": "朝着他",
+        "racket": "拍子",
+        "step": "一步",
+        "gap": "空当",
+        "late": "晚了"
+      }
+    },
+    "ja": {
+      "font": "ja",
+      "series": "SINGLES · DEFENSE · #01",
+      "title": "スマッシュ、なぜ**取れない**？",
+      "tag": "シングルス",
+      "hook": "**どこ**に立つ？",
+      "analogy": "ストレートとクロス、**どっちが先**？",
+      "mechanism": "ストレートは近い、**先に来る**",
+      "reversal": "センターはいい。\nスマッシュには**遅い**",
+      "answer": "**ストレート側**に半歩",
+      "ready": "体は相手へ、\nラケットは**ストレート側**",
+      "cross": "クロスは遠い、**一歩**で届く",
+      "miss": "ストレートに**振り遅れる**",
+      "cta": "レベル診断→**プロフのリンク**",
+      "c1": [
+        "WHY THE STRAIGHT SMASH WINS",
+        "ストレート vs クロス"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "正解：**A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "センターだと？"
+      ],
+      "c4": [
+        "THE RULE",
+        "上げた側に寄って\n**ストレート**を守る"
+      ],
+      "labels": {
+        "straight": "ストレート · 短い",
+        "cross": "クロス · 長い",
+        "first": "先に着く",
+        "barS": "ストレート",
+        "barC": "クロス",
+        "half": "半歩",
+        "face": "相手へ",
+        "racket": "ラケット",
+        "step": "一歩",
+        "gap": "空く",
+        "late": "間に合わない"
+      }
+    },
+    "ko": {
+      "font": "ko",
+      "series": "SINGLES · DEFENSE · #01",
+      "title": "스매시, 왜 맨날 **못 받을까**?",
+      "tag": "단식",
+      "hook": "**어디** 설까요?",
+      "analogy": "직선이랑 대각, **뭐가 먼저** 올까요?",
+      "mechanism": "직선은 짧아서 **먼저 와요**",
+      "reversal": "가운데로 돌아가는 건 맞아요\n근데 스매시 땐 가운데가 **느려요**",
+      "answer": "**직선 쪽**으로 반 발",
+      "ready": "몸은 치는 사람 쪽으로,\n라켓은 **직선 쪽**에",
+      "cross": "대각은 멀어서 **한 발**이면 돼요",
+      "miss": "몸 돌리다 늦어서 직선에 **뚫려요**",
+      "cta": "레벨 테스트는 **프로필 링크**에서",
+      "c1": [
+        "WHY THE STRAIGHT SMASH WINS",
+        "직선 vs 대각"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "정답: **A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "가운데면?"
+      ],
+      "c4": [
+        "THE RULE",
+        "올려 준 쪽으로 붙어서\n**직선**부터 막아요"
+      ],
+      "labels": {
+        "straight": "직선 · 짧다",
+        "cross": "대각 · 길다",
+        "first": "먼저 도착",
+        "barS": "직선",
+        "barC": "대각",
+        "half": "반 발",
+        "face": "상대 쪽",
+        "racket": "라켓",
+        "step": "한 발",
+        "gap": "빈 곳",
+        "late": "늦었어요"
+      }
+    },
+    "en": {
+      "font": "en",
+      "series": "SINGLES · DEFENSE · #01",
+      "title": "Why you can never return their **smash**",
+      "tag": "SINGLES",
+      "hook": "**Where** do you stand?",
+      "analogy": "Straight or cross:\n**which lands first?**",
+      "mechanism": "Straight is shorter,\nso it gets to you **first**",
+      "reversal": "Center isn't wrong.\nBut against a smash, it's **slow**",
+      "answer": "Shift half a step to the **straight side**",
+      "ready": "Face the hitter,\nracket ready on the **straight side**",
+      "cross": "Cross-court is longer.\n**One step** gets it",
+      "miss": "The straight comes,\nyou turn **too late**",
+      "cta": "Find your level → **link in bio**",
+      "c1": [
+        "WHY THE STRAIGHT SMASH WINS",
+        "Straight vs cross"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "Answer: **A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "Stay in the middle?"
+      ],
+      "c4": [
+        "THE RULE",
+        "Lift it to a side?\nGuard that **straight** first"
+      ],
+      "titleBig": "Why you can never\nreturn their **smash**",
+      "labels": {
+        "straight": "straight · short",
+        "cross": "cross · long",
+        "first": "first",
+        "barS": "straight",
+        "barC": "cross",
+        "half": "half step",
+        "face": "face him",
+        "racket": "racket",
+        "step": "one step",
+        "gap": "gap",
+        "late": "too late"
+      }
+    }
+  }
+}
