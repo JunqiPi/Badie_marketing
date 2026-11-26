@@ -20,6 +20,7 @@
 - 2026-11-22：Playwright 照样能用。badminton is fun until、i人羽球 是 No results；smash badminton、badminton club 有结果但大半是马来西亚招人帖；香港公開賽 能出结果。
 - 2026-11-23：Playwright 照样能用。black friday badminton、Syed Modi、badminton sorry 是 No results；badminton racket 有结果（大半是菲律宾卖二手拍）。
 - 2026-11-24：Playwright 照样能用。badminton thanksgiving、badminton los angeles 是 No results；羽球拍 混着追星的手燈帖，没用。
+- 2026-11-25：Playwright 照样能用。15分制、badminton scoring、badminton california 是 No results；打羽毛球 能出结果（香港、马来西亚为主）。
 - 搜索结果是“热门 + 最近”混排，几个月前的高赞帖会一直挂在前面。
 - 我们自己的主页不登录能看到简介、粉丝数和帖子正文，**看不到赞和回复数**。2026-11-12 晚 footwork 那条已经挂上去，0 粉丝。
 
@@ -99,6 +100,13 @@
 - **组织者工具都在 Threads 上推**（2026-11-24）：sign-up/轮转/分摊场地费的小工具（网页报名不用下载）在 badminton 和 pickleball 标签下发推广帖，互动很低；“I built something that might help!”式的创始人帖（菲律宾 pickleball 排队工具）58 赞、39 分享。算对手，不点名。
 - **香港招人帖的固定写法**（2026-11-24）：“❌黑面 ❌教練上身”“如 48 小時內飛機…”（飛機 = 放鸽子）。只写给香港球友。
 
+- **15 分制**（2026-11-25）：“羽毛球明年15分制屁股还没坐热就得起来了🤪🤪🤪🤪” 3 天 70 赞。已核实：BWF 2026-04-25 通过 3×15，2027-01-04 起实行（14 平领先两分，20 平下一分定）；国内比赛可继续 21 分。英文圈还没人聊，1 月初能再接一次。
+- **被好球友背着打**（2026-11-25 看到，1 月的帖）：“羽球新手最害怕的事情 不是打輸 而是被好球友背了一直打輸” 235 赞、58 回复。注意原句是“不是……而是……”，我们换说法。
+- **一个人去陌生人的局**（2026-11-25 看到，10 月的帖）：“你们敢一个人去参加陌生人的羽球局吗？” 44 赞、40 回复。台湾团文把“一個人來也完全ok”写成卖点。
+- **看外表猜实力**（2026-11-25 看到，11-01 的帖）：“一直傻笑 一看就不會打羽毛球 能招生到人嗎？” 8.7K 赞、1.7K 分享。和 11-17 的“身形看不出实力”是一类。
+- **台北抢场地**（2026-11-25）：“先佔用，揪不到人再釋出” 13 赞。场地难订是老痛点。
+- **“open play not the Olympics”**（2026-11-25，菲律宾）：和“搭档以为是 PPA 决赛”、马来西亚“smash macam nak masuk Olympic”同一个梗，多国通用。
+
 ## 热但不碰的
 
 - **双打性别站队**（2026-11-12）：骂男生双打叫女搭档顾前场，1.8K 赞、609 回复、762 分享；问招人帖“善待女生”是不是话术，41 回复。回复多半是吵架，品牌进去只会挨骂。我们写双打只写前后场、不带性别。
@@ -117,4 +125,5 @@
 
 - 11 月：Korea Open 3–8、Japan Masters 和 Kaohsiung Masters 10–15、Hong Kong Open 17–22、Syed Modi 24–29。要蹭比赛热点之前先查 BWF 官网确认。
 - 香港公开赛（11-17–22）已结束，过时。Syed Modi 11-24–29（勒克瑙，Super 300）洛杉矶没人关心，不接。
-- 11-26 感恩节、11-27 Black Friday：可以接（11-25 到 11-28）。Threads 上 badminton thanksgiving、black friday badminton 都搜不到，没有现成的羽毛球帖可接，只能自己写。
+- 11-26 感恩节、11-27 Black Friday：可以接（11-25 到 11-28）。11-28 以后过时。
+- 2027-01-04：BWF 改 3×15 分制（已核实，bwfbadminton.com 2026-04-25 新闻）。Threads 上 badminton thanksgiving、black friday badminton 都搜不到，没有现成的羽毛球帖可接，只能自己写。
