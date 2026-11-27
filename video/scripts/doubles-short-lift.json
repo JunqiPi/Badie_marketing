@@ -1,0 +1,359 @@
+{
+  "_note": "战术题 #04（双打防守）。说明见 doubles-short-lift.md。时间以中文母版为准，四种语言共用；只换字。**词** = 荧光绿重点词，\\n = 换行。音乐和 #01、#02、#06 同一套参数（同一条时间网格）。",
+  "duration": 38.0,
+  "fps": 30,
+  "music": {
+    "bpm": 120,
+    "key": "A",
+    "first_downbeat": 1.0,
+    "drop": 3.0,
+    "full": 15.0,
+    "resolve": 31.0,
+    "tail": 36.3,
+    "dips": [
+      [
+        2.4,
+        3.0
+      ],
+      [
+        14.2,
+        15.0
+      ],
+      [
+        30.4,
+        31.0
+      ]
+    ]
+  },
+  "sfx": {
+    "transition": 3.0,
+    "reveal": 15.0,
+    "miss": 29.271,
+    "rule": 31.0
+  },
+  "sheet": [
+    1.6,
+    4.2,
+    6.9,
+    8.6,
+    9.6,
+    12.8,
+    16.0,
+    18.0,
+    20.7,
+    25.2,
+    29.5,
+    33.0
+  ],
+  "subs": [
+    [
+      0.5,
+      3.0,
+      "hook"
+    ],
+    [
+      3.0,
+      7.0,
+      "analogy"
+    ],
+    [
+      7.0,
+      11.0,
+      "mechanism"
+    ],
+    [
+      11.0,
+      15.0,
+      "reversal"
+    ],
+    [
+      15.0,
+      19.0,
+      "answer"
+    ],
+    [
+      19.0,
+      23.0,
+      "ready"
+    ],
+    [
+      23.0,
+      27.0,
+      "middle"
+    ],
+    [
+      27.0,
+      31.0,
+      "miss"
+    ],
+    [
+      34.7,
+      37.8,
+      "cta"
+    ]
+  ],
+  "cards": [
+    [
+      3.0,
+      5.6,
+      "c1"
+    ],
+    [
+      15.0,
+      16.6,
+      "c2"
+    ],
+    [
+      27.0,
+      28.8,
+      "c3"
+    ],
+    [
+      31.0,
+      36.3,
+      "c4"
+    ]
+  ],
+  "text": {
+    "zh": {
+      "font": "zh",
+      "series": "DOUBLES · DEFENSE · #04",
+      "title": "球挑浅了，**往前**还是**往后**站？",
+      "titleBig": "球挑浅了，\n**往前**还是**往后**站？",
+      "tag": "双打",
+      "hook": "选 **A、B 还是 C**？",
+      "analogy": "同样一记杀球，哪个**先到**？",
+      "mechanism": "离得越近，\n你的**反应时间越少**",
+      "reversal": "往前压看着积极，\n可离他**更近了**",
+      "answer": "两个人都**退半步**",
+      "ready": "多出来这一点时间，\n就够你**挡回去**",
+      "middle": "他要是吊，球慢，\n**上一步**就够",
+      "miss": "离得太近，\n球到了**拍子还没到**",
+      "cta": "测测你的水平 → **主页链接**",
+      "c1": [
+        "WHERE HE SMASHES FROM",
+        "后场 vs 半场"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "答案：**A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "往前压呢？"
+      ],
+      "c4": [
+        "THE RULE",
+        "挑浅了，\n两个人都**退半步**"
+      ],
+      "labels": {
+        "deep": "挑深了在这",
+        "short": "挑浅了在这",
+        "first": "先到",
+        "near": "更近",
+        "back": "退半步",
+        "step": "上一步",
+        "late": "晚了"
+      }
+    },
+    "ja": {
+      "font": "ja",
+      "series": "DOUBLES · DEFENSE · #04",
+      "title": "ロブが浅くなったら、**前**？**後ろ**？",
+      "titleBig": "ロブが浅くなったら、\n**前**？**後ろ**？",
+      "tag": "ダブルス",
+      "hook": "**A・B・C**、どれ？",
+      "analogy": "どっちのスマッシュが**先に来る**？",
+      "mechanism": "近いほど、\n**反応する時間が減る**",
+      "reversal": "前に出ると、\n**もっと近く**なる",
+      "answer": "2人とも**半歩下がる**",
+      "ready": "その分の時間で、\n**返せる**",
+      "middle": "ドロップなら遅いので、\n**一歩前**で届く",
+      "miss": "近すぎて、\n**ラケットが間に合わない**",
+      "cta": "レベル診断→**プロフのリンク**",
+      "c1": [
+        "WHERE HE SMASHES FROM",
+        "奥 vs ハーフ"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "正解：**A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "前に出たら？"
+      ],
+      "c4": [
+        "THE RULE",
+        "浅く上がったら、\n**2人とも半歩下がる**"
+      ],
+      "labels": {
+        "deep": "深いロブなら",
+        "short": "浅いロブ",
+        "first": "先に来る",
+        "near": "もっと近い",
+        "back": "半歩下がる",
+        "step": "一歩前",
+        "late": "間に合わない"
+      }
+    },
+    "ko": {
+      "font": "ko",
+      "series": "DOUBLES · DEFENSE · #04",
+      "title": "로브가 짧게 떴다면, **앞으로**? **뒤로**?",
+      "titleBig": "로브가 짧게 떴다면,\n**앞으로**? **뒤로**?",
+      "tag": "복식",
+      "hook": "**A, B, C** 중에 뭐예요?",
+      "analogy": "같은 스매시, 어디서 친 게 **먼저 올까요**?",
+      "mechanism": "가까울수록\n**반응할 시간이 줄어요**",
+      "reversal": "앞으로 나가면 적극적으로 보여도\n상대와 **더 가까워져요**",
+      "answer": "둘 다 **반 발 뒤로**",
+      "ready": "그만큼 시간이 생겨서\n**받아낼 수 있어요**",
+      "middle": "드롭이면 느려서\n**한 발 앞으로**면 돼요",
+      "miss": "너무 가까워서\n**라켓이 늦어요**",
+      "cta": "레벨 테스트는 **프로필 링크**에서",
+      "c1": [
+        "WHERE HE SMASHES FROM",
+        "뒤쪽 vs 중간"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "정답: **A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "앞으로 나가면?"
+      ],
+      "c4": [
+        "THE RULE",
+        "로브가 짧으면\n**둘 다 반 발 뒤로**"
+      ],
+      "labels": {
+        "deep": "깊게 올렸다면",
+        "short": "짧게 올렸을 때",
+        "first": "먼저 도착",
+        "near": "더 가까움",
+        "back": "반 발 뒤로",
+        "step": "한 발 앞",
+        "late": "늦었어요"
+      }
+    },
+    "en": {
+      "font": "en",
+      "series": "DOUBLES · DEFENSE · #04",
+      "title": "Short lift: step **up** or step **back**?",
+      "titleBig": "Your lift fell short:\nstep **up** or step **back**?",
+      "tag": "DOUBLES",
+      "hook": "**A, B or C?**",
+      "analogy": "Same smash, two spots.\nWhich one reaches you **first**?",
+      "mechanism": "The closer he is,\nthe **less time** you get",
+      "reversal": "Stepping up feels brave,\nbut puts you **even closer**",
+      "answer": "Both of you **step back** half a step",
+      "ready": "That half step buys the time\nto **get it back**",
+      "middle": "If he drops, it's slow:\n**one step in** is enough",
+      "miss": "Too close:\nthe smash beats your **racket**",
+      "cta": "Find your level → **link in bio**",
+      "c1": [
+        "WHERE HE SMASHES FROM",
+        "Deep vs short"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "Answer: **A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "Step up?"
+      ],
+      "c4": [
+        "THE RULE",
+        "Short lift?\n**Both step back**"
+      ],
+      "labels": {
+        "deep": "good lift",
+        "short": "short lift",
+        "first": "first",
+        "near": "closer",
+        "back": "half step back",
+        "step": "one step",
+        "late": "too late"
+      }
+    }
+  },
+  "impact": {
+    "events": [
+      {
+        "type": "smash",
+        "at": 7.6,
+        "p": [
+          -0.5,
+          -3.4
+        ],
+        "h": 2.8,
+        "dur": 0.742
+      },
+      {
+        "type": "land",
+        "at": 8.342,
+        "p": [
+          -1.05,
+          4.7
+        ],
+        "h": 0,
+        "slow": true
+      },
+      {
+        "type": "smash",
+        "at": 19.9,
+        "p": [
+          -0.5,
+          -3.4
+        ],
+        "h": 2.8,
+        "dur": 0.624
+      },
+      {
+        "type": "block",
+        "at": 20.524,
+        "p": [
+          -1.006,
+          4.05
+        ],
+        "h": 0.621,
+        "slow": true
+      },
+      {
+        "type": "block",
+        "at": 25.072,
+        "p": [
+          0.58,
+          2.0
+        ],
+        "h": 0.659,
+        "slow": true
+      },
+      {
+        "type": "smash",
+        "at": 28.9,
+        "p": [
+          -0.5,
+          -3.4
+        ],
+        "h": 2.8,
+        "dur": 0.371
+      },
+      {
+        "type": "land",
+        "at": 29.271,
+        "p": [
+          -1.05,
+          4.7
+        ],
+        "h": 0,
+        "stop": true,
+        "shake": true,
+        "quiet": true
+      }
+    ]
+  }
+}

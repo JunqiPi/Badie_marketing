@@ -1,0 +1,299 @@
+{
+  "_note": "战术题 #03（单打防守）。说明见 singles-backhand-rear.md。时间以中文母版为准，四种语言共用；只换字。**词** = 荧光绿重点词，\\n = 换行。音乐和 #01、#02、#06 同一套参数（同一条时间网格）。",
+  "duration": 38.0,
+  "fps": 30,
+  "music": {
+    "bpm": 120,
+    "key": "A",
+    "first_downbeat": 1.0,
+    "drop": 3.0,
+    "full": 15.0,
+    "resolve": 31.0,
+    "tail": 36.3,
+    "dips": [
+      [
+        2.4,
+        3.0
+      ],
+      [
+        14.2,
+        15.0
+      ],
+      [
+        30.4,
+        31.0
+      ]
+    ]
+  },
+  "sfx": {
+    "transition": 3.0,
+    "reveal": 15.0,
+    "miss": 30.454,
+    "rule": 31.0
+  },
+  "sheet": [
+    1.6,
+    4.2,
+    6.6,
+    8.8,
+    10.2,
+    13.4,
+    16.0,
+    20.5,
+    23.5,
+    30.2,
+    30.7,
+    33.0
+  ],
+  "subs": [
+    [
+      0.5,
+      3.0,
+      "hook"
+    ],
+    [
+      3.0,
+      7.0,
+      "analogy"
+    ],
+    [
+      7.0,
+      11.0,
+      "mechanism"
+    ],
+    [
+      11.0,
+      15.0,
+      "reversal"
+    ],
+    [
+      15.0,
+      19.0,
+      "answer"
+    ],
+    [
+      19.0,
+      23.0,
+      "ready"
+    ],
+    [
+      23.0,
+      27.0,
+      "middle"
+    ],
+    [
+      27.0,
+      31.0,
+      "miss"
+    ],
+    [
+      34.7,
+      37.8,
+      "cta"
+    ]
+  ],
+  "cards": [
+    [
+      3.0,
+      5.6,
+      "c1"
+    ],
+    [
+      15.0,
+      16.6,
+      "c2"
+    ],
+    [
+      27.0,
+      28.8,
+      "c3"
+    ],
+    [
+      31.0,
+      36.3,
+      "c4"
+    ]
+  ],
+  "text": {
+    "zh": {
+      "font": "zh",
+      "series": "SINGLES · DEFENSE · #03",
+      "title": "被压到反手后场，先回**什么**？",
+      "titleBig": "被压到反手后场，\n先回**什么**？",
+      "tag": "单打",
+      "hook": "选 **A、B 还是 C**？",
+      "analogy": "同样往后场打，\n哪个让他**更难受**？",
+      "mechanism": "快球**先到底线**；\n高球飞得久，还**落不到底**",
+      "reversal": "高球他**原地就截**，\n快球他得**退到底线**",
+      "answer": "又**远**又**快**，压到他**底线**",
+      "ready": "他只能**被动起球**，\n你也回到了**中间**",
+      "middle": "局面**扳回来**，\n这一拍你不慌",
+      "miss": "回网前？\n他压上来**一拍扑死**",
+      "cta": "测测你的水平 → **主页链接**",
+      "c1": [
+        "FAST VS HIGH",
+        "快球 vs 高球"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "答案：**A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "吊网前呢？"
+      ],
+      "c4": [
+        "THE RULE",
+        "被压到反手后场，\n先压一个**又远又快**的球"
+      ],
+      "labels": {
+        "fast": "快",
+        "high": "高",
+        "first": "先到底线",
+        "short": "不到底线",
+        "deep": "退到底线",
+        "cut": "原地截",
+        "back": "回中间",
+        "lift": "被动起球",
+        "reach": "到位",
+        "early": "冲到网前",
+        "late": "晚了"
+      }
+    },
+    "ja": {
+      "font": "ja",
+      "series": "SINGLES · DEFENSE · #03",
+      "title": "バック奥に追い込まれたら、**何を返す**？",
+      "titleBig": "バック奥に追い込まれたら、\n**何を返す**？",
+      "tag": "シングルス",
+      "hook": "**A・B・C**、どれ？",
+      "analogy": "どっちも奥へ。\n相手が**嫌なのは**どっち？",
+      "mechanism": "速い球は**先に奥**、\n高い球は**短くなる**",
+      "reversal": "高いと**カット**、\n速いと**下がらせる**",
+      "answer": "**速く深く**、奥まで押し込む",
+      "ready": "相手は**苦しいロブ**、\n自分は**真ん中**へ",
+      "middle": "これで**五分**に戻る",
+      "miss": "ネット前に返すと\n**前で叩かれる**",
+      "cta": "レベル診断→**プロフのリンク**",
+      "c1": [
+        "FAST VS HIGH",
+        "速い球 vs 高い球"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "正解：**A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "ネット前は？"
+      ],
+      "c4": [
+        "THE RULE",
+        "バック奥に追い込まれたら\n**速く深く**"
+      ],
+      "labels": {
+        "fast": "速い",
+        "high": "高い",
+        "first": "先に奥へ",
+        "short": "短い",
+        "deep": "下がる",
+        "cut": "カット",
+        "back": "戻る",
+        "lift": "苦しいロブ",
+        "reach": "間に合う",
+        "early": "前に詰める",
+        "late": "間に合わない"
+      }
+    },
+    "ko": {
+      "font": "ko",
+      "series": "SINGLES · DEFENSE · #03",
+      "title": "백핸드 뒤로 밀리면, **뭘 칠까**?",
+      "titleBig": "백핸드 뒤로 밀리면,\n**뭘 칠까**?",
+      "tag": "단식",
+      "hook": "**A, B, C** 중에 뭐예요?",
+      "analogy": "둘 다 뒤로 보내도\n상대가 **더 힘든 건**?",
+      "mechanism": "빠른 공은 **먼저 깊이**,\n높은 공은 **짧게 떨어져요**",
+      "reversal": "높으면 **바로 끊기고**,\n빠르면 상대가 **밀려나요**",
+      "answer": "**빠르고 깊게**, 엔드라인까지",
+      "ready": "상대는 **어쩔 수 없이 올리고**\n나는 **가운데**로",
+      "middle": "이제 **다시 대등**해요",
+      "miss": "네트 앞으로?\n상대가 들어와 **바로 때려요**",
+      "cta": "레벨 테스트는 **프로필 링크**에서",
+      "c1": [
+        "FAST VS HIGH",
+        "빠른 공 vs 높은 공"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "정답: **A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "네트 앞은?"
+      ],
+      "c4": [
+        "THE RULE",
+        "백핸드 뒤로 밀리면\n**빠르고 깊게**"
+      ],
+      "labels": {
+        "fast": "빠르게",
+        "high": "높게",
+        "first": "먼저 도착",
+        "short": "짧아요",
+        "deep": "밀려남",
+        "cut": "차단",
+        "back": "가운데로",
+        "lift": "억지로 올림",
+        "reach": "제자리",
+        "early": "이미 네트 앞",
+        "late": "늦었어요"
+      }
+    },
+    "en": {
+      "font": "en",
+      "series": "SINGLES · DEFENSE · #03",
+      "title": "Stuck deep on your backhand: **what now**?",
+      "titleBig": "Stuck deep on your backhand:\n**what now**?",
+      "tag": "SINGLES",
+      "hook": "**A, B or C?**",
+      "analogy": "Both go deep.\nWhich one **hurts** him more?",
+      "mechanism": "Fast gets **deep first**.\nHigh hangs and **falls short**",
+      "reversal": "High? He **cuts it off**.\nFast? He's **pushed back**",
+      "answer": "**Fast** and **deep**,\nall the way to his baseline",
+      "ready": "He has to **lift**.\nYou're back in the **middle**",
+      "middle": "Back to **even**.\nNo panic now",
+      "miss": "Net shot?\nHe steps in and **kills it**",
+      "cta": "Find your level → **link in bio**",
+      "c1": [
+        "FAST VS HIGH",
+        "Fast vs high"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "Answer: **A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "Drop to the net?"
+      ],
+      "c4": [
+        "THE RULE",
+        "Stuck on your backhand?\nHit it **fast and deep**"
+      ],
+      "labels": {
+        "fast": "fast",
+        "high": "high",
+        "first": "deep first",
+        "short": "short",
+        "deep": "pushed back",
+        "cut": "cut off",
+        "back": "back to middle",
+        "lift": "weak lift",
+        "reach": "in position",
+        "early": "at the net",
+        "late": "too late"
+      }
+    }
+  }
+}

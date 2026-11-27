@@ -1,0 +1,456 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!--
+  战术题 #06「斜线高远来了，你先打什么？」（单打 · 后场）的动画画面。1080×1920。
+  画面只由 window.render(t) 决定（t = 秒），没有 CSS 动画、没有随机数，逐帧截图每次都一样。
+  window.setup(spec, lang) 先把文字放好（spec = video/scripts/singles-clear-drop.json）。
+  镜头、球场、球、勾叉、文字排版和 #01、#02 共用 common.js（坐标和镜头的约定写在那里）；这里只写这一集的场景。
+-->
+<style>
+@font-face{font-family:BZH;src:url('file:///C:/Windows/Fonts/NotoSansSC-VF.ttf');font-weight:100 900}
+@font-face{font-family:BJA;src:url('file:///C:/Windows/Fonts/NotoSansJP-VF.ttf');font-weight:100 900}
+@font-face{font-family:BKO;src:url('file:///C:/Windows/Fonts/malgunbd.ttf');font-weight:100 900}
+@font-face{font-family:BEN;src:url('file:///C:/Windows/Fonts/seguibl.ttf');font-weight:100 900}
+@font-face{font-family:BLAB;src:url('file:///C:/Windows/Fonts/bahnschrift.ttf');font-weight:100 900}
+:root{--lime:#D4F33F;--warm:#FF6A3D;--pale:#E6F0E2;--bg:#0E1A14}
+html,body{margin:0;padding:0;width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden}
+svg{position:absolute;left:0;top:0}
+.t{position:absolute;left:0;width:1080px;text-align:center;white-space:pre;color:#F3F7EF;font-weight:900;
+   transform-origin:50% 50%;will-change:transform,opacity}
+body.zh .t{font-family:BZH,sans-serif}
+body.ja .t{font-family:BJA,sans-serif}
+body.ko .t{font-family:BKO,sans-serif;font-weight:700}
+body.en .t{font-family:BEN,sans-serif}
+.hl{color:var(--lime);text-shadow:0 0 14px rgba(212,243,63,.45)}
+.lab{font-family:BLAB,sans-serif !important;font-weight:600 !important;letter-spacing:.32em;text-transform:uppercase}
+/* 顶栏放在安全区里（y 300–398），右边不进右侧 140 px */
+#wordmark{left:84px;width:auto;top:300px;font-family:BEN,sans-serif !important;font-size:36px;color:var(--lime);
+  text-shadow:0 0 16px rgba(212,243,63,.35);letter-spacing:.01em}
+#series{left:auto;right:150px;width:auto;top:313px;font-size:20px;color:rgba(230,240,226,.62)}
+#title{top:352px;line-height:1.14;text-shadow:0 2px 18px rgba(0,0,0,.8)}
+#titleBig{top:0;line-height:1.14;text-shadow:0 0 28px rgba(212,243,63,.28),0 2px 24px rgba(0,0,0,.9)}
+.sub{top:0;line-height:1.3;font-size:54px;text-shadow:0 2px 8px rgba(0,0,0,.7)}
+.cap{display:inline-block;padding:10px 34px 14px;border-radius:30px;background:rgba(8,15,11,.74);
+  box-shadow:0 0 40px 18px rgba(8,15,11,.55)}
+.clab{font-size:26px;color:var(--lime);text-shadow:0 0 12px rgba(212,243,63,.6)}
+.ctxt{line-height:1.16;color:#F6FBE6;text-shadow:0 0 26px rgba(212,243,63,.5),0 0 70px rgba(212,243,63,.22),0 2px 20px rgba(0,0,0,.8)}
+.lbl{position:absolute;left:0;top:0;white-space:pre;font-weight:800;font-size:30px;padding:3px 14px 5px;border-radius:999px;
+  background:rgba(10,20,14,.78);border:2px solid currentColor;transform-origin:0 0;will-change:transform,opacity}
+body.zh .lbl{font-family:BZH,sans-serif} body.ja .lbl{font-family:BJA,sans-serif}
+body.ko .lbl{font-family:BKO,sans-serif;font-weight:700} body.en .lbl{font-family:BEN,sans-serif;font-size:27px}
+.lbl.lime{color:var(--lime);box-shadow:0 0 14px rgba(212,243,63,.35)} .lbl.pale{color:var(--pale)}
+.lbl.warm{color:var(--warm);box-shadow:0 0 14px rgba(255,106,61,.35)}
+#endmark{top:740px;font-family:BEN,sans-serif !important;font-size:190px;color:var(--lime);
+  text-shadow:0 0 40px rgba(212,243,63,.55),0 0 90px rgba(212,243,63,.25)}
+</style></head>
+<body class="zh"><div id="stage">
+<svg id="svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <radialGradient id="bgGrad" cx="540" cy="900" r="1150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#16301F"/><stop offset=".45" stop-color="#0F1E16"/><stop offset="1" stop-color="#0A130E"/>
+    </radialGradient>
+    <linearGradient id="topFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0B140F" stop-opacity=".97"/><stop offset=".62" stop-color="#0B140F" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#0B140F" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="botFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0B140F" stop-opacity="0"/><stop offset=".35" stop-color="#0B140F" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#0B140F" stop-opacity=".95"/>
+    </linearGradient>
+    <radialGradient id="floorGlow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#CFE9B0" stop-opacity=".07"/><stop offset=".6" stop-color="#CFE9B0" stop-opacity=".025"/>
+      <stop offset="1" stop-color="#CFE9B0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="scrimGrad" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#0A130E" stop-opacity=".9"/><stop offset=".55" stop-color="#0A130E" stop-opacity=".72"/>
+      <stop offset="1" stop-color="#0A130E" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="g1" filterUnits="userSpaceOnUse" x="-1200" y="-2000" width="3480" height="5920">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="g2" filterUnits="userSpaceOnUse" x="-1200" y="-2000" width="3480" height="5920">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bgGrad)"/>
+  <ellipse cx="540" cy="1780" rx="760" ry="420" fill="url(#floorGlow)"/>
+  <ellipse cx="540" cy="120" rx="620" ry="260" fill="url(#floorGlow)" opacity=".6"/>
+  <g id="world">
+    <g id="court"></g>
+    <g id="paths">
+      <path id="pStraight" fill="none" stroke="#D4F33F" stroke-linecap="round" filter="url(#g1)"/>
+      <path id="pCross" fill="none" stroke="#E6F0E2" stroke-linecap="round" filter="url(#g1)"/>
+      <path id="pRemain" fill="none" stroke="#FF6A3D" stroke-linecap="round" filter="url(#g1)"/>
+      <path id="runFar" fill="none" stroke="#D4F33F" stroke-linecap="round"/>
+      <path id="runNear" fill="none" stroke="#FF6A3D" stroke-linecap="round"/>
+      <path id="backArrow" fill="none" stroke="#D4F33F" stroke-linecap="round"/>
+      <polygon id="backHead" points="0,0 -16,-9 -16,9" fill="#D4F33F"/>
+      <line id="lunge" stroke="#FF6A3D" stroke-linecap="round"/>
+    </g>
+    <g id="opts"></g>
+    <circle id="pulse1" fill="none" stroke="#D4F33F" stroke-width="4" filter="url(#g1)"/>
+    <circle id="pulse2" fill="none" stroke="#FF6A3D" stroke-width="5" filter="url(#g1)"/>
+    <g id="O">
+      <circle id="Oc" fill="#2A140C" stroke="#FF6A3D" stroke-width="5" filter="url(#g2)"/>
+      <polygon id="Ow" fill="#FF6A3D"/>
+    </g>
+    <g id="players"></g>
+    <g id="sh1"></g><g id="sh2"></g>
+    <g id="marks"></g>
+  </g>
+  <rect x="0" y="0" width="1080" height="430" fill="url(#topFade)"/>
+  <rect x="0" y="1500" width="1080" height="420" fill="url(#botFade)" opacity=".7"/>
+  <ellipse id="scrim" cx="540" cy="680" rx="560" ry="230" fill="url(#scrimGrad)" opacity="0"/>
+</svg>
+<div id="wordmark" class="t">Badie</div>
+<div id="series" class="t lab"></div>
+<div id="title" class="t"></div>
+<div id="titleBig" class="t"></div>
+<div id="labels"></div>
+<div id="subs"></div>
+<div id="cards"></div>
+<div id="endmark" class="t">Badie</div>
+</div>
+<script src="common.js"></script>
+<script>
+'use strict';
+// ---- 镜头 ----
+// OPEN：开头、揭晓和循环帧，看得到对方后场（他打斜线高远的那个角、选项 C）和我方后场；
+// PLAY：往上移一点，对方从中场到网前、我方从网前到后场的击球点都在字幕上面，字幕放在我身后
+// 安全区版（2026-11-21）：顶栏在 y 300–398，字、人、球都在 y 1500 以上
+const OPEN = { cx: 0, cy: -1.431, s: 96 };    // 选项 C 的圈 y≈428，他 y≈505，A/B 圈 y≈783，网 y≈994，我在后场 y≈1474
+const PLAY = { cx: 0, cy: 0.499, s: 97 };     // 他回位的地方 y≈440，网 y≈809，我在后场 y≈1294，字幕 1320 起
+const FULL = OPEN;                             // common.js 按它算粗细，循环帧也回到它
+const CAP_TOP = { open: 1120, play: 1320 };    // 字幕顶边，镜头移动时跟着走（两行字幕底边 ≤ 1490）
+const MOVES = [
+  [4.6, 5.4, OPEN, PLAY],      // 章节卡下面换到 PLAY：比两种吊球、他跑多远
+  [14.2, 15.0, PLAY, OPEN],    // 揭晓时回到开头的构图，A、B、C 三个落点都看得到
+  [18.2, 19.0, OPEN, PLAY],    // 演示、常见错误、规则
+];
+
+// ---- 位置（米；原点 = 网的中点，x 向右、y 向我方）----
+// 对方在他的正手后场（从我们这边看的左后场）打了一个斜线高远，到我的正手后场（右后场）
+const O0 = [-1.8, -5.1];                    // 他打斜线高远的地方
+const OB = [-0.7, -3.8];                    // 我击球时他回到的地方：还在往中间走，偏他打球的那一边
+const MB = [0, 3.2];                        // 我的中心位置
+const MH = [1.75, 5.0];                     // 我在后场击球的位置
+const SH = [1.85, 5.05];                    // 球在我头顶的位置（地面投影）
+const A = [1.9, -2.2], B = [-1.9, -2.2], C = [-1.9, -5.9];   // 吊直线、吊斜线、斜线高远的落点
+const RK = 0.62;                            // 拍面中心离身体中心（米）
+// 吊球速度：只有阻力的减速模型，数值只用来排先后（直线 7.2 米约 0.79 秒，斜线 8.1 米约 1.00 秒），不上屏
+const LD = 4.6, VD = 22;
+const sD = (t) => LD * Math.log(1 + VD * Math.max(0, t) / LD);
+const tD = (s) => (Math.exp(s / LD) - 1) * LD / VD;
+const HD = 2.65;
+const dropH = (f) => HD * (1 - f ** 2.6);   // 过网时约 1.6 米，越往后掉得越陡
+function dropAt(from, to, realT, len) {
+  const f = Math.min(1, sD(realT) / len);
+  return { p: lerp2(from, to, f), h: dropH(f), fly: f < 1, f };
+}
+const LEN_A = dist(SH, A), LEN_B = dist(SH, B);
+const T_A = tD(LEN_A), T_B = tD(LEN_B);
+const FC = 0.9;                              // 吊斜线时他在这个比例处接到（球离地约 0.6 米）
+const PC = lerp2(SH, B, FC), HC = dropH(FC), T_C = tD(FC * LEN_B);
+const STAND3 = [-1.8, -2.05];                // 他接斜线吊球时站的地方（早到了）
+const LAND3 = [-1.85, 1.0];                  // 他放直线网前，落在我最远的那个角
+const NET3 = 0.85;                           // 网前球飞行时间（秒）
+const R1 = [0.5, 3.6], R2 = [-0.55, 2.4];    // 常见错误：我先往回走，再扑过去，还差一段
+const RUN_A = dist(OB, A) - 0.6;             // 他要跑到离落点 0.6 米（伸拍够得到）
+const RUNV = 1.5;                            // 演示是 0.5× 慢放：他每秒 3 米，画面上 1.5 米/秒
+
+// ---- 时间点（秒）：和 #01、#02 同一条两小节网格 ----
+const T = {
+  title: 0.3, opt: [1.2, 1.333, 1.467], clearEnd: 2.4, oBack: [0.4, 2.4], meGo: [0.5, 2.3],
+  drawS: [5.7, 6.3], drawC: [5.85, 6.45],
+  race: 7.6, freeze: 0.8, slow: 0.5,
+  runs: 11.3, reveal: 15.0, aLit: [16.8, 17.4],
+  sm1: 19.9, back: [23.3, 24.3],
+  missCard: 27.0, reset: [27.2, 27.8], sm3: 28.9, rule: 31.0,
+  end: 36.3, loop: 37.6, dur: 38.0,
+};
+T.raceLandA = T.race + T_A / T.slow;
+T.raceResume = T.raceLandA + T.freeze;
+T.raceLandB = T.raceResume + (T_B - T_A) / T.slow;
+T.land1 = T.sm1 + T_A / T.slow;
+T.run1 = T.sm1 + 0.2;
+T.arrive1 = T.run1 + RUN_A / RUNV;
+T.contact = T.sm3 + T_C;
+T.land3 = T.contact + NET3;
+window.TIMES = T;
+
+// ---- 选项：三个落点（A 吊直线，B 吊斜线，C 斜线高远）----
+const OPTS = [['A', A], ['B', B], ['C', C]];
+const opts = {};
+function buildOpts() {
+  for (const [k, p] of OPTS) {
+    const g = el('g', {}, $('opts'));
+    const ring = el('circle', { cx: 0, cy: 0, r: 17, fill: 'none', 'stroke-width': 3, 'stroke-dasharray': '6 5' }, g);
+    const txt = el('text', { x: 0, y: 47, 'text-anchor': 'middle', 'font-family': 'BLAB', 'font-weight': 700, 'font-size': 26 }, g);
+    txt.textContent = k;
+    opts[k] = { g, ring, txt, p };
+  }
+}
+let M = {};
+function buildMarks() {
+  M = { okA: mark('ok', LIME, 12), noB: mark('no', WARM, 10), noC: mark('no', WARM, 10),
+        ok1: mark('ok', LIME, 15), okBack: mark('ok', LIME, 13), miss: mark('no', WARM, 17) };
+}
+
+// ---- 我（实心荧光绿点 + 朝向小三角 + 拍子）----
+const ME = {};
+function buildMe() {
+  const g = el('g', {}, $('players'));
+  Object.assign(ME, { g, arm: el('line', { stroke: LIME, 'stroke-linecap': 'round' }, g), head: el('ellipse', { fill: 'none', stroke: LIME }, g),
+    c: el('circle', { fill: LIME, filter: 'url(#g2)' }, g), w: el('polygon', { fill: LIME }, g) });
+}
+function drawMe(st, rkOp) {
+  const o = ME, z = ZF(), mr = 13 * z;
+  o.g.setAttribute('transform', `translate(${X(st.p[0])},${Y(st.p[1])})`);
+  o.c.setAttribute('r', mr);
+  const fa = st.face * Math.PI / 180;
+  const wpt = (r, a) => `${Math.cos(fa + a) * r},${Math.sin(fa + a) * r}`;
+  o.w.setAttribute('points', `${wpt(mr + 13 * z, 0)} ${wpt(mr + 4 * z, -0.42)} ${wpt(mr + 4 * z, 0.42)}`);
+  const ra = st.rk * Math.PI / 180, rkPx = RK * CAM.s, headR = 0.13 * CAM.s;
+  const armEnd = Math.max(mr + 2, rkPx - headR);
+  o.arm.setAttribute('x1', Math.cos(ra) * mr); o.arm.setAttribute('y1', Math.sin(ra) * mr);
+  o.arm.setAttribute('x2', Math.cos(ra) * armEnd); o.arm.setAttribute('y2', Math.sin(ra) * armEnd);
+  o.arm.setAttribute('stroke-width', 3 * Math.sqrt(z));
+  o.head.setAttribute('cx', Math.cos(ra) * rkPx); o.head.setAttribute('cy', Math.sin(ra) * rkPx);
+  o.head.setAttribute('rx', headR); o.head.setAttribute('ry', headR * 0.72);
+  o.head.setAttribute('transform', `rotate(${st.rk},${Math.cos(ra) * rkPx},${Math.sin(ra) * rkPx})`);
+  o.head.setAttribute('stroke-width', 3 * Math.sqrt(z));
+  o.arm.setAttribute('opacity', rkOp); o.head.setAttribute('opacity', rkOp);
+}
+// 我在 t 秒的位置、朝向、拍子角度（屏幕角度，-90 = 朝网）
+const FACE_H = angW(MH, OB);                 // 在后场击球时，身体朝着他
+const RK_UP = -40;                           // 准备击球：拍子举在正手一侧
+function swing(t, at) { return t >= at - 0.12 && t < at + 0.5 ? Math.sin(Math.PI * clamp01((t - at + 0.12) / 0.62)) : 0; }
+function meAt(t) {
+  if (t >= T.loop) t = 0;
+  const s = { p: MB, face: -90, rk: -90 };
+  if (t >= T.meGo[0]) {                                     // 斜线高远来了，退到右后场
+    const k = tw(t, T.meGo[0], T.meGo[1], easeInOut);
+    s.p = lerp2(MB, MH, k); s.face = lerp(-90, FACE_H, k); s.rk = lerp(-90, RK_UP, k);
+  }
+  if (t >= T.back[0]) {                                     // 吊完直线，回中间
+    const k = tw(t, T.back[0], T.back[1], easeInOut);
+    s.p = lerp2(MH, MB, k); s.face = lerp(FACE_H, -90, k); s.rk = lerp(RK_UP, -90, k);
+  }
+  if (t >= T.reset[0]) {                                    // 常见错误：回到后场重来
+    const k = tw(t, T.reset[0], T.reset[1], easeInOut);
+    s.p = lerp2(MB, MH, k); s.face = lerp(-90, FACE_H, k); s.rk = lerp(-90, RK_UP, k);
+  }
+  if (t >= T.sm3 + 0.1) {                                   // 吊完斜线往回走，再往左前扑，还是晚了
+    const k1 = tw(t, T.sm3 + 0.1, T.sm3 + 0.9, easeInOut), k2 = tw(t, T.sm3 + 0.9, T.land3 + 0.05, easeOutCubic);
+    s.p = k2 > 0 ? lerp2(R1, R2, k2) : lerp2(MH, R1, k1);
+    const fTo = angW(R1, LAND3);
+    s.face = k2 > 0 ? fTo : lerp(FACE_H, -90, k1);
+    s.rk = k2 > 0 ? lerp(-90, fTo - 10, k2) : lerp(RK_UP, -90, k1);
+  }
+  if (t >= T.rule - 0.3) {                                  // 规则卡：回到后场，准备吊直线（卡出来前就开始走，拍子不和卡上的字叠）
+    const k = tw(t, T.rule - 0.3, T.rule + 0.3, easeInOut);
+    s.p = lerp2(R2, MH, k); s.face = lerp(angW(R1, LAND3), FACE_H, k); s.rk = lerp(angW(R1, LAND3) - 10, RK_UP, k);
+  }
+  // 出手：拍子往前挥一下（-40 → -110 → -40）
+  for (const at of [T.race, T.sm1, T.sm3]) { const w = swing(t, at); if (w > 0) s.rk = lerp(s.rk, -115, w); }
+  return s;
+}
+
+// ---- 对手（橙色空心点，朝着我）----
+function oppAt(t) {
+  if (t >= T.loop) t = 0;
+  let p = O0;
+  if (t >= T.oBack[0]) p = lerp2(O0, OB, tw(t, T.oBack[0], T.oBack[1], easeInOut));
+  if (t >= T.run1) {                                        // 吊直线：他跑整条对角线，还是晚了
+    const d = Math.min(RUN_A, RUNV * (t - T.run1));
+    p = lerp2(OB, A, d / dist(OB, A));
+  }
+  if (t >= T.reset[0]) p = lerp2(lerp2(OB, A, RUN_A / dist(OB, A)), OB, tw(t, T.reset[0], T.reset[1], easeInOut));
+  if (t >= T.sm3 + 0.05) p = lerp2(OB, STAND3, tw(t, T.sm3 + 0.05, T.contact - 0.12, easeInOut));   // 吊斜线：他早到了
+  if (t >= T.rule) p = lerp2(STAND3, OB, tw(t, T.rule, T.rule + 0.6, easeInOut));
+  return p;
+}
+
+// ---- 球 ----
+const hang = (op) => ({ p: SH, h: 2.6, fly: false, op });
+function shuttle1(t) {
+  if (t >= T.loop) t = 0;
+  if (t < T.clearEnd) {                                    // 他的斜线高远：一开始刚离拍，越飞越慢、从高处落到我头顶
+    const k = t / T.clearEnd, kk = 1 - (1 - k) ** 1.5;
+    return { p: lerp2([O0[0] + 0.05, O0[1] + 0.25], SH, kk), h: lerp(2.9, 2.6, kk) + 5.2 * Math.sin(Math.PI * Math.min(1, kk * 1.05)), fly: true, op: 1 };
+  }
+  if (t < T.race) return hang(1);
+  if (t < 11.0) {                                          // 两种吊球一起出手（0.5× 慢放），这是直线那颗
+    const real = t < T.raceLandA ? (t - T.race) * T.slow : T_A;
+    return { ...dropAt(SH, A, real, LEN_A), op: 1 - tw(t, 10.6, 10.9, lin) };
+  }
+  if (t < T.sm1) return hang(tw(t, 11.0, 11.3));
+  if (t < T.back[0] + 0.5) {                               // 演示：吊直线（0.5× 慢放），落在他最远的角
+    return { ...dropAt(SH, A, (t - T.sm1) * T.slow, LEN_A), op: 1 - tw(t, 22.6, 22.9, lin) };
+  }
+  if (t < T.reset[1]) return null;
+  if (t < T.sm3) return hang(tw(t, T.reset[1], T.reset[1] + 0.3));
+  if (t < T.rule) {                                        // 常见错误：吊斜线（真实速度），他早到，放直线网前到我最远的角
+    if (t < T.contact) return { ...dropAt(SH, B, t - T.sm3, LEN_B), op: 1 };
+    const k = clamp01((t - T.contact) / NET3), kk = 1 - (1 - k) ** 1.5;
+    if (k < 1) return { p: lerp2(PC, LAND3, kk), h: lerp(HC, 0, kk) + 1.6 * Math.sin(Math.PI * kk), fly: true, op: 1 };
+    return { p: LAND3, h: 0, fly: false, op: 1 - tw(t, 30.7, 31.0, lin) };
+  }
+  if (t < T.end) return hang(tw(t, T.rule + 0.4, T.rule + 0.7));
+  return null;
+}
+function shuttle2(t) {                                      // 只在“谁先落地”那一段：斜线那颗
+  if (t < T.race || t >= 11.0) return null;
+  let real;
+  if (t < T.raceLandA) real = (t - T.race) * T.slow;
+  else if (t < T.raceResume) real = T_A;
+  else real = T_A + (t - T.raceResume) * T.slow;
+  return { ...dropAt(SH, B, real, LEN_B), op: 1 - tw(t, 10.6, 10.9, lin) };
+}
+
+// ---- 文字 ----
+const LABEL_STYLE = { straight: 'lime', cross: 'pale', first: 'lime', far: 'lime', near: 'warm', back: 'lime', early: 'warm', late: 'warm' };
+const SIZES = { zh: { title: 40, big: 84, sub: 56, card: 124 }, ja: { title: 38, big: 76, sub: 54, card: 110 },
+                ko: { title: 36, big: 72, sub: 50, card: 104 }, en: { title: 32, big: 66, sub: 50, card: 98 } };
+const CARD_Y = { c1: 1010, c2: 1010, c3: 860, c4: 860 };   // 卡片中心的屏幕 y：OPEN 里放在 A/B 圈和字幕之间（网附近），PLAY 里是网附近，那时都没有动作
+window.setup = function (spec, lang) {
+  setupText(spec, lang, { sizes: SIZES, cardY: CARD_Y, bigY: 958, labelStyle: LABEL_STYLE });
+  buildCourt('singles'); court.tag.textContent = TX.tag; buildOpts(); buildMarks(); buildMe(); buildShuttle('sh1'); buildShuttle('sh2');
+  return { fonts: [...document.fonts].filter((f) => f.status === 'loaded').map((f) => f.family) };
+};
+
+// ---- 每一帧 ----
+function dashLine(path, from, to, p, op, w, z) {              // 虚线（人跑的路线）：从 from 画到 to，p = 画出来的比例
+  const q = lerp2(from, to, clamp01(p));
+  path.setAttribute('d', `M${X(from[0])},${Y(from[1])} L${X(q[0])},${Y(q[1])}`);
+  path.setAttribute('opacity', p > 0 ? op : 0); path.setAttribute('stroke-width', w);
+  path.style.strokeDasharray = `${10 * z} ${9 * z}`;
+}
+window.render = function (t) {
+  const inLoop = t >= T.loop;
+  const ts = inLoop ? 0 : t;
+  CAM = camAt(t, MOVES);
+  const z = ZF();
+  const worldOp = inLoop ? tw(t, T.loop, T.dur - 0.05) : 1 - tw(t, T.end, T.end + 0.3);
+  $('world').setAttribute('opacity', worldOp);
+  drawCourt();
+
+  // 对手：出手时稍微放大一下
+  const op = oppAt(ts), me = meAt(ts);
+  let hit = ts < 0.3 ? 1 - ts / 0.3 : 0;
+  if (ts >= T.contact && ts < T.contact + 0.3) hit = 1 - (ts - T.contact) / 0.3;
+  const or = 14 * z * (1 + 0.25 * hit);
+  $('O').setAttribute('transform', `translate(${X(op[0])},${Y(op[1])}) rotate(${angW(op, me.p)})`);
+  $('Oc').setAttribute('r', or); $('Oc').setAttribute('stroke-width', 4.5 * Math.sqrt(z));
+  $('Ow').setAttribute('points', `${or + 13 * z},0 ${or + 4 * z},${-8 * z} ${or + 4 * z},${8 * z}`);
+
+  // 我
+  drawMe(me, ts < T.meGo[1] - 0.3 ? 0.4 : 1);
+
+  // 两条吊球线：直线（荧光绿）、斜线（淡白）。每一段只让正在讲的那条亮
+  let sOp = 0, cOp = 0;
+  if (ts >= T.drawS[0] && ts < T.missCard) {
+    if (ts < 11.0) { sOp = 1; cOp = 0.85; }
+    else if (ts < T.reveal) { sOp = 0.3; cOp = 0.3; }
+    else if (ts < T.aLit[0]) { sOp = 0.3; cOp = 0.2; }
+    else if (ts < T.back[0]) { sOp = lerp(0.3, 1, tw(ts, T.aLit[0], T.aLit[1])); cOp = 0.15; }
+    else { sOp = 0.35; cOp = 0.15; }
+    const f = 1 - tw(ts, T.missCard - 0.4, T.missCard, lin); sOp *= f; cOp *= f;
+  }
+  if (ts >= T.sm3 - 0.4 && ts < T.rule) cOp = 0.5 * tw(ts, T.sm3 - 0.4, T.sm3) * (1 - tw(ts, T.contact, T.contact + 0.3));
+  if (ts >= T.rule) { sOp = tw(ts, T.rule + 0.3, T.rule + 0.8); cOp = 0; }
+  const lw = 4.5 * Math.sqrt(z);
+  setLine($('pStraight'), SH, A, ts >= T.rule ? 1 : tw(ts, T.drawS[0], T.drawS[1], easeInOut), sOp, lw);
+  setLine($('pCross'), SH, B, ts >= T.sm3 - 0.4 ? 1 : tw(ts, T.drawC[0], T.drawC[1], easeInOut), cOp, lw * 0.85);
+  const s2 = shuttle2(ts);
+  if (s2 && ts >= T.raceLandA && ts < T.raceResume + 0.3) {   // 直线落地时，斜线那颗还差的一段
+    const rOp = Math.min(tw(ts, T.raceLandA, T.raceLandA + 0.15), 1 - tw(ts, T.raceResume, T.raceResume + 0.3));
+    $('pRemain').setAttribute('d', `M${X(s2.p[0])},${Y(s2.p[1])} L${X(B[0])},${Y(B[1])}`);
+    $('pRemain').setAttribute('opacity', rOp); $('pRemain').setAttribute('stroke-width', lw);
+    $('pRemain').setAttribute('stroke-dasharray', `${2 * z} ${12 * z}`);
+  } else $('pRemain').setAttribute('opacity', 0);
+
+  // 他要跑多远：到直线落点（远，荧光绿）、到斜线落点（近，橙色）
+  const rw = 4 * Math.sqrt(z);
+  let farP = 0, farOp = 0, nearP = 0, nearOp = 0;
+  if (ts >= T.runs && ts < T.reveal) {
+    farP = tw(ts, T.runs + 0.1, T.runs + 0.7, easeInOut); nearP = tw(ts, T.runs + 0.3, T.runs + 0.9, easeInOut);
+    farOp = nearOp = 1 - tw(ts, 14.6, 15.0, lin);
+  }
+  if (ts >= T.run1 - 0.1 && ts < T.back[0] + 0.4) { farP = 1; farOp = 0.75 * tw(ts, T.run1 - 0.1, T.run1 + 0.2) * (1 - tw(ts, T.back[0], T.back[0] + 0.4, lin)); }
+  if (ts >= T.rule) { farP = tw(ts, T.rule + 0.6, T.rule + 1.2, easeInOut); farOp = 0.8; }
+  dashLine($('runFar'), OB, A, farP, farOp, rw, z);
+  dashLine($('runNear'), OB, B, nearP, nearOp, rw, z);
+
+  // 吊完直线回中间：虚线箭头
+  const bp = tw(ts, T.back[0] - 0.1, T.back[0] + 0.5), bv = vis(ts, T.back[0] - 0.1, 26.6, 0.05, 0.3);
+  const bEnd = lerp2(MH, [MB[0] + 0.25, MB[1] + 0.35], bp);
+  $('backArrow').setAttribute('d', `M${X(MH[0]) - 18 * z},${Y(MH[1]) - 18 * z} L${X(bEnd[0])},${Y(bEnd[1])}`);
+  $('backArrow').setAttribute('opacity', bv); $('backArrow').setAttribute('stroke-width', 4 * Math.sqrt(z));
+  $('backArrow').setAttribute('stroke-dasharray', `${10 * z} ${9 * z}`);
+  $('backHead').setAttribute('transform', `translate(${X(bEnd[0])},${Y(bEnd[1])}) rotate(${angW(MH, MB)}) scale(${z})`);
+  $('backHead').setAttribute('opacity', bp > 0.05 ? bv : 0);
+
+  // 常见错误：我扑过去还差的一段（橙色虚线）
+  const lv = vis(ts, T.land3, T.rule, 0.15, 0.25);
+  const mp = me.p;
+  setSeg($('lunge'), X(mp[0]), Y(mp[1]), X(LAND3[0]), Y(LAND3[1]), lv, 4 * Math.sqrt(z));
+  $('lunge').setAttribute('stroke-dasharray', `${2 * z} ${11 * z}`);
+
+  // 场景里的小标签：每次最多两个
+  if (!inLoop) {
+    const pS = onLineSD(A, 2.4), pC = onLineSD(B, 2.4);
+    placeLabel('straight', ts, 6.3, 8.7, X(pS[0]) + 22, Y(pS[1]), 'l');
+    placeLabel('cross', ts, 6.6, 8.7, X(pC[0]) - 24, Y(pC[1]), 'r');
+    if (ts < 15) placeLabel('first', ts, T.raceLandA, 10.1, X(A[0]) + 26 * z, Y(A[1]) - 36 * z, 'l');
+    else placeLabel('first', ts, T.land1, 22.8, X(A[0]) + 26 * z, Y(A[1]) - 36 * z, 'l');
+    const mF = lerp2(OB, A, 0.55), mN = lerp2(OB, B, 0.55);
+    placeLabel('far', ts, T.runs + 0.6, 14.7, X(mF[0]) + 26 * z, Y(mF[1]) - 24 * z, 'l');
+    placeLabel('near', ts, T.runs + 0.8, 14.7, X(mN[0]) - 26 * z, Y(mN[1]) - 24 * z, 'r');
+    const bm = lerp2(MH, MB, 0.5);
+    placeLabel('back', ts, T.back[1], 26.4, X(bm[0]) + 34 * z, Y(bm[1]) + 10 * z, 'l');
+    placeLabel('early', ts, T.contact - 0.3, T.rule, X(STAND3[0]), Y(STAND3[1]) - 52 * z, 'c');
+    placeLabel('late', ts, T.land3 + 0.05, T.rule, X(LAND3[0]) + 6 * z, Y(LAND3[1]) + 50 * z, 'c');
+  } else hideLabels();
+
+  // 选项圈（A 对）
+  for (const [i, [k]] of OPTS.entries()) {
+    const o = opts[k], t0 = T.opt[i];
+    const sc = ts < t0 ? 0 : easeOutBack(clamp01((ts - t0) / 0.3));
+    let oo = ts < t0 ? 0 : Math.min(1, (ts - t0) / 0.15);
+    if (ts >= 5.0 && ts < T.reveal) oo *= lerp(1, 0.3, tw(ts, 5.0, 5.4));
+    if (k === 'C' && ts < T.reveal) oo *= 1 - tw(ts, 4.4, 4.8);   // PLAY 镜头里 C 的圈在顶栏底下，换镜头前收起来，揭晓时再出来
+    oo *= 1 - tw(ts, 18.2, 18.6);
+    const right = k === 'A', rv2 = ts >= T.reveal;
+    const col = rv2 ? (right ? LIME : WARM) : PALE;
+    if (rv2 && !right) oo *= 0.6;
+    const pop = rv2 && right ? 1 + 0.25 * (1 - tw(ts, T.reveal, T.reveal + 0.4)) : 1;
+    o.ring.setAttribute('stroke', col);
+    o.ring.setAttribute('stroke-dasharray', rv2 && right ? 'none' : '6 5');
+    o.ring.setAttribute('stroke-width', rv2 && right ? 4 : 3);
+    o.ring.setAttribute('filter', rv2 && right ? 'url(#g1)' : 'none');
+    o.txt.setAttribute('fill', col);
+    o.g.setAttribute('transform', `translate(${X(o.p[0])},${Y(o.p[1])}) scale(${Math.max(0.001, sc * pop * z)})`);
+    o.g.setAttribute('opacity', oo);
+  }
+  // 勾和叉
+  showMark(M.okA, X(A[0]) + 24 * z, Y(A[1]) - 24 * z, ts, T.reveal, 17.9);
+  showMark(M.noB, X(B[0]) + 22 * z, Y(B[1]) - 22 * z, ts, T.reveal + 0.07, 17.9);
+  showMark(M.noC, X(C[0]) + 34 * z, Y(C[1]) + 4 * z, ts, T.reveal + 0.13, 17.9);   // 放在圈右边，不往上顶到问题那一行
+  showMark(M.ok1, X(A[0]) - 34 * z, Y(A[1]) + 30 * z, ts, T.land1, 22.8);
+  showMark(M.okBack, X(MB[0]) - 40 * z, Y(MB[1]) - 30 * z, ts, T.back[1], 26.6);
+  showMark(M.miss, X(LAND3[0]) + 34 * z, Y(LAND3[1]) - 30 * z, ts, T.land3 + 0.1, T.rule - 0.2);
+  pulse($('pulse1'), A, ts, ts < 15 ? T.raceLandA : T.land1);
+  pulse($('pulse2'), LAND3, ts, T.land3);
+
+  drawShuttle('sh1', shuttle1, ts);
+  drawShuttle('sh2', shuttle2, ts);
+
+  const ck = clamp01((CAM.cy - OPEN.cy) / (PLAY.cy - OPEN.cy));
+  renderText(t, lerp(CAP_TOP.open, CAP_TOP.play, ck));
+};
+// 吊球线上到深度 y 的点
+function onLineSD(to, y) { return lerp2(SH, to, (y - SH[1]) / (to[1] - SH[1])); }
+</script>
+</body></html>

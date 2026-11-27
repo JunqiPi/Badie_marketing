@@ -102,6 +102,90 @@ def sfx_rule():
 SFX = {"transition": (sfx_transition, 0.9), "reveal": (sfx_reveal, 1.0), "miss": (sfx_miss, 0.85), "rule": (sfx_rule, 0.7)}
 
 
+# ---------- 冲击音效（2026-11-23，可选：脚本 JSON 有 impact 才加）----------
+# 杀球“啪”、杀球飞行 whoosh、接杀/挡网“嗒”、落地“咚”。和上面四个音效一样是干声、没有混响。
+# 冲击类对齐到事件之后的第一帧（和 common.js 的 impFrame 一样取整），whoosh 只在击球之后响，不提前。
+def imp_smash():
+    """杀球击球：又脆又重。2 ms 的起音，高频 crack 8 ms 散掉，下面垫一个 110→55 Hz 的短低音。"""
+    t = _t(0.35)
+    n = len(t)
+    crack = _f("bandpass", rng.standard_normal(n), [1800, 9000]) * np.exp(-t / 0.008)
+    snap = _f("bandpass", rng.standard_normal(n), [600, 2400]) * np.exp(-t / 0.02) * 0.6
+    f = 55 + 55 * np.exp(-t / 0.02)
+    low = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.07) * 0.8
+    return np.tanh(1.6 * (crack * 1.2 + snap + low) * np.clip(t / 0.0015, 0, 1)) * 0.95
+
+
+def imp_whoosh(dur):
+    """杀球飞行：dur 秒，噪声从亮到暗扫下来，中间最响，到拍面前收掉。"""
+    t = _t(dur)
+    n = len(t)
+    k = t / dur
+    noise = rng.standard_normal(n)
+    hi, mid = _f("bandpass", noise, [2500, 8000]), _f("bandpass", noise, [700, 2500])
+    env = np.sin(np.pi * np.clip(k, 0, 1)) ** 1.5 * np.clip(t / 0.01, 0, 1)
+    return (hi * (1 - k) + mid * k) * env * 0.55
+
+
+def imp_block():
+    """接杀 / 挡网：轻的“嗒”，短促的中高频 + 一点 700 Hz 的木头感。"""
+    t = _t(0.18)
+    n = len(t)
+    tick = _f("bandpass", rng.standard_normal(n), [1500, 5000]) * np.exp(-t / 0.005)
+    body = np.sin(2 * np.pi * 720 * t) * np.exp(-t / 0.025) * 0.5
+    return np.tanh(1.8 * (tick + body) * np.clip(t / 0.001, 0, 1)) * 0.7
+
+
+def imp_land():
+    """落地：闷的“咚”，比转折点那个 miss 短、轻。"""
+    t = _t(0.3)
+    f = 60 + 40 * np.exp(-t / 0.02)
+    body = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.08)
+    dull = _f("lowpass", rng.standard_normal(len(t)), 500) * np.exp(-t / 0.025) * 0.7
+    return np.tanh(1.3 * (body + dull) * np.clip(t / 0.002, 0, 1)) * 0.6
+
+
+IMP_GAIN = {"smash": 0.9, "whoosh": 0.4, "block": 0.6, "land": 0.6}
+
+
+def slowdown(x, k=2.0):
+    """慢放段的声音：拉长 k 倍（音调也跟着降），和画面上 0.5× 的动作对得上。"""
+    n = int(len(x) * k)
+    return np.interp(np.arange(n) / k, np.arange(len(x)), x)
+
+
+def frame_at(at, fps):
+    return np.ceil(at * fps - 1e-6) / fps
+
+
+def impact_track(spec):
+    """把所有冲击音效按帧放进一条和片子一样长的单声道轨。没有 impact 返回 None。"""
+    ev = (spec.get("impact") or {}).get("events") or []
+    if not ev:
+        return None
+    fps = spec["fps"]
+    out = np.zeros(int(spec["duration"] * SR) + SR)
+
+    def put(sig, at):
+        i = int(round(at * SR))
+        j = min(len(out), i + len(sig))
+        if j > i:
+            out[i:j] += sig[: j - i]
+
+    for e in ev:
+        if e.get("quiet"):
+            continue
+        at = frame_at(e["at"], fps)
+        g = e.get("gain", 1.0)   # 单个事件的音量（默认 1）；和音乐重拍叠在一起太响时调小
+        if e["type"] == "smash":
+            put(imp_smash() * IMP_GAIN["smash"] * g, at)
+            put(imp_whoosh(e.get("dur", 0.4)) * IMP_GAIN["whoosh"] * g, at + 0.004)
+        else:
+            sig = (imp_block() if e["type"] == "block" else imp_land()) * IMP_GAIN[e["type"]] * g
+            put(slowdown(sig) * 0.85 if e.get("slow") else sig, at)
+    return out[: int(spec["duration"] * SR)]
+
+
 def stereo(x, width=0.0):
     return np.stack([x, x], axis=1)
 
@@ -115,6 +199,10 @@ def build_audio(spec, music, work, ff):
         parts.append(f"(1-0.7*clip((t-{a})/0.08,0,1)*clip(({b}-t)/0.004,0,1))")
     for name, at in spec["sfx"].items():
         parts.append(f"(1-0.37*clip((t-{at - 0.02})/0.02,0,1)*clip(({at + 0.9}-t)/0.4,0,1))")
+    for e in (spec.get("impact") or {}).get("events") or []:   # 杀球那一下音乐让开约 5 dB，0.35 秒回来
+        if e["type"] == "smash" and not e.get("quiet"):
+            at = frame_at(e["at"], spec["fps"])
+            parts.append(f"(1-0.45*clip((t-{at - 0.01})/0.01,0,1)*clip(({at + 0.45}-t)/0.3,0,1))")
     vol = "*".join(parts)
     chains.append(f"[0:a]aresample={SR},atrim=0:{dur},asetpts=N/SR/TB,volume='{vol}':eval=frame[m]")
     labels.append("[m]")
@@ -127,6 +215,14 @@ def build_audio(spec, music, work, ff):
         ms = max(0, round((at + off) * 1000))
         chains.append(f"[{i}:a]adelay={ms}:all=1[s{i}]")
         labels.append(f"[s{i}]")
+    imp = impact_track(spec)
+    if imp is not None:
+        path = work / "sfx-impact.wav"
+        sf.write(path, stereo(imp), SR, subtype="PCM_24")
+        inputs += ["-i", path]
+        k = len(labels)
+        chains.append(f"[{k}:a]anull[s{k}]")
+        labels.append(f"[s{k}]")
     chains.append(f"{''.join(labels)}amix=inputs={len(labels)}:normalize=0:duration=first,atrim=0:{dur}[out]")
     mix = work / "mix.wav"
     run([ff, "-v", "error", "-y", *inputs, "-filter_complex", ";".join(chains), "-map", "[out]", "-ar", SR, "-c:a", "pcm_s24le", mix])
@@ -176,6 +272,7 @@ def main():
     ap.add_argument("--music", help="背景音乐文件；不给就用 make_music.py 按脚本生成")
     ap.add_argument("--out", default=str(HERE / "out"))
     ap.add_argument("--audio-only", action="store_true")
+    ap.add_argument("--tag", default="", help="成片名后面加一段，比如 --tag impact → out/<名>-<语言>-impact.mp4（试验版不覆盖原片）")
     a = ap.parse_args()
     spec_path = Path(a.spec).resolve()
     spec = json.loads(spec_path.read_text(encoding="utf-8"))
@@ -192,15 +289,16 @@ def main():
     audio = build_audio(spec, music, work, ff)
 
     for lang in a.lang.split(","):
-        silent = work / f"{name}-{lang}-video.mp4"
+        sfx_ = f"-{a.tag}" if a.tag else ""
+        silent = work / f"{name}-{lang}{sfx_}-video.mp4"
         if not (a.audio_only and silent.exists()):
             run(["node", HERE / "anim" / "render_anim.cjs", Path(a.page).resolve(), spec_path, lang, silent],
                 env={**__import__("os").environ, "FFMPEG": ff})
-        final = out / f"{name}-{lang}.mp4"
+        final = out / f"{name}-{lang}{sfx_}.mp4"
         run([ff, "-v", "error", "-y", "-i", silent, "-i", audio, "-map", "0:v", "-map", "1:a", "-c:v", "copy",
              "-bsf:v", "h264_metadata=colour_primaries=1:transfer_characteristics=1:matrix_coefficients=1:video_full_range_flag=0",
              "-c:a", "aac", "-b:a", "384k", "-ar", str(SR), "-shortest", "-movflags", "+faststart", final])
-        sheet(ff, final, spec["sheet"], out / f"{name}-{lang}-sheet.png", spec["fps"])
+        sheet(ff, final, spec["sheet"], out / f"{name}-{lang}{sfx_}-sheet.png", spec["fps"])
         print(f"{final}: {measure(ff, final)}")
 
 
