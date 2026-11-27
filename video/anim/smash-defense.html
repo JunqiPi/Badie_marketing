@@ -7,6 +7,7 @@
   球场按比例画在“米”坐标里：原点 = 网的中点，x 向右、y 向我方为正。
   镜头 = (cx, cy, s)：把 (cx, cy) 米放在屏幕 (540, 857)，每米 s 像素。点和线的粗细随镜头轻微变大，
   位置、距离、球拍长度都按真实比例。
+  镜头、球场、球、勾叉、文字排版这些和别的站位题共用的代码在 common.js；这里只写这一集的场景。
 -->
 <style>
 @font-face{font-family:BZH;src:url('file:///C:/Windows/Fonts/NotoSansSC-VF.ttf');font-weight:100 900}
@@ -36,7 +37,6 @@ body.en .t{font-family:BEN,sans-serif}
 /* 字幕压在球场上：后面一块柔和的深色圆角底，盖住球场线 */
 .cap{display:inline-block;padding:10px 34px 14px;border-radius:30px;background:rgba(8,15,11,.74);
   box-shadow:0 0 40px 18px rgba(8,15,11,.55)}
-#halo{display:none}
 .clab{font-size:26px;color:var(--lime);text-shadow:0 0 12px rgba(212,243,63,.6)}
 .ctxt{line-height:1.16;color:#F6FBE6;text-shadow:0 0 26px rgba(212,243,63,.5),0 0 70px rgba(212,243,63,.22),0 2px 20px rgba(0,0,0,.8)}
 /* 场景里的小标签：贴在它说的东西旁边 */
@@ -128,32 +128,21 @@ body.ko .lbl{font-family:BKO,sans-serif;font-weight:700} body.en .lbl{font-famil
 <div id="series" class="t lab"></div>
 <div id="title" class="t"></div>
 <div id="titleBig" class="t"></div>
-<div id="halo"></div>
 <div id="labels"></div>
 <div id="subs"></div>
 <div id="cards"></div>
 <div id="endmark" class="t">Badie</div>
 </div>
+<script src="common.js"></script>
 <script>
 'use strict';
-const NS = 'http://www.w3.org/2000/svg';
-const $ = (id) => document.getElementById(id);
-const LIME = '#D4F33F', WARM = '#FF6A3D', PALE = '#E6F0E2';
-
-// ---- 镜头 ----
-const SCX = 540, SCY = 857;
-// 每个镜头都让动作停在字幕（y 1200）上面：字幕永远紧贴在焦点下面
+// ---- 镜头（每个镜头都让动作停在字幕上面：字幕永远紧贴在焦点下面）----
 // v4：球场铺满画面。全场 116 px/米（宽 708 px），从顶栏下面一直到底（我方底线 y≈1764，外面接场边地面）；
 // 字幕在全场时压在我方前场上（网和我之间），在半场、近景时压在我方后场上（人和落点在字幕上面）
 const FULL = { cx: 0, cy: -0.605, s: 116 };   // 远端底线 y≈150，对手 y≈301，网 y≈927，我 y≈1345，落点 y≈1484
 const HALF = { cx: 0, cy: 2.456, s: 160 };    // 网 y≈464，我 y≈1040，底线 y≈1536，下面是场边地面
 const CLOSE = { cx: -0.9, cy: 3.05, s: 260 }; // 我 y≈1000，底线 y≈1806
 const CAP_TOP = { full: 1030, near: 1170 };   // 字幕顶边：全场 / 半场和近景，镜头推拉时跟着走
-let CAM = { ...FULL };
-const X = (x) => SCX + (x - CAM.cx) * CAM.s;
-const Y = (y) => SCY + (y - CAM.cy) * CAM.s;
-const ZF = () => Math.pow(CAM.s / FULL.s, 0.45);      // 点、线粗细跟镜头轻微变大
-const HK = () => 0.16 * CAM.s;                          // 球高 1 米 = 屏幕上移 0.16 米
 
 // ---- 位置（米）----
 const H = [-1.9, -5.4];
@@ -161,27 +150,12 @@ const HALFSTEP = 0.45;                                   // 半步，按真实�
 const A = [-HALFSTEP, 3.6], B = [0, 3.6], C = [HALFSTEP, 3.6];  // A 往直线那边，B 中间，C 往斜线那边
 const LS = [-2.0, 4.8], LC = [2.0, 4.8];                 // 直线、斜线杀球落点
 const RK = 0.62;                                         // 拍面中心离身体中心（米）
-// 杀球的速度：只有阻力的减速模型 s(t) = L ln(1 + v0 t / L)。数值只用来排先后，不上屏。
-const L0 = 4.6, V0 = 60;
-const sOf = (t) => L0 * Math.log(1 + V0 * Math.max(0, t) / L0);
-const tOf = (s) => (Math.exp(s / L0) - 1) * L0 / V0;
-const dist = (a, b) => Math.hypot(b[0] - a[0], b[1] - a[1]);
-const lerp = (a, b, k) => a + (b - a) * k;
-const lerp2 = (p, q, k) => [lerp(p[0], q[0], k), lerp(p[1], q[1], k)];
-const clamp01 = (x) => Math.min(1, Math.max(0, x));
-const easeOutCubic = (t) => 1 - (1 - t) ** 3;
-const easeInOut = (t) => (t < .5 ? 4 * t ** 3 : 1 - (-2 * t + 2) ** 3 / 2);
-const easeOutBack = (t) => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * (t - 1) ** 3 + c1 * (t - 1) ** 2; };
-const lin = (x) => x;
-const tw = (t, t0, t1, e = easeOutCubic) => e(clamp01((t - t0) / (t1 - t0)));
-const vis = (t, t0, t1, d = 0.3, d2 = 0.2) => Math.min(tw(t, t0, t0 + d), 1 - tw(t, t1 - d2, t1, lin));
 const LEN_S = dist(H, LS), LEN_C = dist(H, LC);
 const T_S = tOf(LEN_S), T_C = tOf(LEN_C);
 const F_INT = (3.6 - H[1]) / (LS[1] - H[1]);            // 两条线在 y = 3.6（我站的深度）的位置
 const IS = lerp2(H, LS, F_INT), IC = lerp2(H, LC, F_INT);
 const T_IS = tOf(F_INT * LEN_S), T_IC = tOf(F_INT * LEN_C);
 const LUNGE = [IS[0] + RK, 3.6], STEP = [IC[0] - RK, 3.6];
-const angW = (p, q) => Math.atan2(q[1] - p[1], q[0] - p[0]) * 180 / Math.PI;   // 米坐标和屏幕同向
 const FACE_H = angW(A, H);
 
 // ---- 时间点（秒）。镜头移动都在两小节的网格上落地（强拍在奇数秒），而且不和第一次出现的字重叠 ----
@@ -209,69 +183,8 @@ const MOVES = [
   [26.2, 27.0, HALF, FULL],    // 拉回全场：站中间、真实速度
 ];
 window.TIMES = T;
-function camAt(t) {
-  if (t >= T.loop) {
-    const k = tw(t, T.loop, T.dur - 0.05);
-    return { cx: FULL.cx, cy: FULL.cy, s: FULL.s * lerp(1.05, 1, k) };
-  }
-  let c = FULL;
-  for (const [t0, t1, a, b] of MOVES) {
-    if (t >= t1) c = b;
-    else if (t > t0) {
-      const k = easeInOut((t - t0) / (t1 - t0));
-      // 缩放按对数插值，推拉速度看起来均匀
-      return { cx: lerp(a.cx, b.cx, k), cy: lerp(a.cy, b.cy, k), s: Math.exp(lerp(Math.log(a.s), Math.log(b.s), k)) };
-    } else break;
-  }
-  return c;
-}
 
-// ---- 建元素 ----
-function el(tag, attrs, parent) {
-  const e = document.createElementNS(NS, tag);
-  for (const k in attrs) e.setAttribute(k, attrs[k]);
-  if (parent) parent.appendChild(e);
-  return e;
-}
-const court = {};
-function buildCourt() {
-  const g = $('court');
-  court.floor = el('rect', { fill: '#0F2218', stroke: 'rgba(226,242,220,.08)', 'stroke-width': 2, rx: 18 }, g);   // 场边地面，一直铺到画面底下
-  court.alley = el('rect', { fill: '#0C1912' }, g);
-  court.singles = el('rect', { fill: '#132A1D' }, g);
-  court.lit = el('g', { stroke: 'rgba(226,242,220,.8)', fill: 'none', filter: 'url(#g1)' }, g);
-  court.dim = el('g', { stroke: 'rgba(226,242,220,.32)', fill: 'none' }, g);
-  const X2 = 3.05, X1 = 2.59, Yb = 6.7, SS = 1.98, LSV = 5.94;
-  court.lines = [];
-  const L = (grp, a, b, c, d) => court.lines.push([el('line', {}, grp), a, b, c, d]);
-  L(court.dim, -X2, -Yb, -X2, Yb); L(court.dim, X2, -Yb, X2, Yb);
-  L(court.dim, -X2, -LSV, X2, -LSV); L(court.dim, -X2, LSV, X2, LSV);
-  L(court.lit, -X1, -Yb, -X1, Yb); L(court.lit, X1, -Yb, X1, Yb);
-  L(court.lit, -X2, -Yb, X2, -Yb); L(court.lit, -X2, Yb, X2, Yb);
-  L(court.lit, -X2, -SS, X2, -SS); L(court.lit, -X2, SS, X2, SS);
-  L(court.lit, 0, -Yb, 0, -SS); L(court.lit, 0, SS, 0, Yb);
-  court.net = el('line', { stroke: '#EEF6EA', filter: 'url(#g1)' }, g);
-  court.p1 = el('circle', { fill: '#EEF6EA' }, g);
-  court.p2 = el('circle', { fill: '#EEF6EA' }, g);
-  court.tag = el('text', { 'text-anchor': 'end', 'font-family': 'BLAB', 'font-weight': 600, 'letter-spacing': '0.25em', fill: 'rgba(230,240,226,.55)' }, g);
-}
-function drawCourt() {
-  const z = ZF();
-  const X2 = 3.05, X1 = 2.59, Yb = 6.7;
-  const rect = (r, x0, y0, x1, y1) => { r.setAttribute('x', X(x0)); r.setAttribute('y', Y(y0)); r.setAttribute('width', X(x1) - X(x0)); r.setAttribute('height', Y(y1) - Y(y0)); };
-  rect(court.floor, -X2 - 2.2, -Yb - 2.2, X2 + 2.2, Yb + 3.2);
-  rect(court.alley, -X2, -Yb, X2, Yb); rect(court.singles, -X1, -Yb, X1, Yb);
-  court.lit.setAttribute('stroke-width', 2.6 * Math.sqrt(z)); court.dim.setAttribute('stroke-width', 2 * Math.sqrt(z));
-  for (const [e, a, b, c, d] of court.lines) { e.setAttribute('x1', X(a)); e.setAttribute('y1', Y(b)); e.setAttribute('x2', X(c)); e.setAttribute('y2', Y(d)); }
-  const n0 = X(-X2) - 10 * z, n1 = X(X2) + 10 * z, ny = Y(0);
-  court.net.setAttribute('x1', n0); court.net.setAttribute('x2', n1); court.net.setAttribute('y1', ny); court.net.setAttribute('y2', ny);
-  court.net.setAttribute('stroke-width', 3 * Math.sqrt(z));
-  for (const [p, x] of [[court.p1, n0], [court.p2, n1]]) { p.setAttribute('cx', x); p.setAttribute('cy', ny); p.setAttribute('r', 5 * Math.sqrt(z)); }
-  court.tag.setAttribute('x', X(-X2) - 14); court.tag.setAttribute('y', Y(0) + 26 * z);
-  court.tag.setAttribute('font-size', 19 * Math.sqrt(z));
-  court.tag.setAttribute('opacity', clamp01((X(-X2) - 150) / 40));   // 推近时标签会出画，就不显示
-}
-
+// ---- 选项圈 ----
 const opts = {};
 function buildOpts() {
   const g = $('opts');
@@ -283,60 +196,13 @@ function buildOpts() {
     opts[k] = { g: o, ring, txt, p };
   }
 }
-function mark(kind, color, size) {
-  const g = el('g', { opacity: 0 }, $('marks'));
-  el('circle', { r: size, fill: '#0E1A14', stroke: color, 'stroke-width': 3, filter: 'url(#g1)' }, g);
-  const s = size * 0.5;
-  const d = kind === 'ok' ? `M${-s * .9},${s * .05} L${-s * .25},${s * .65} L${s},${-s * .6}` : `M${-s * .7},${-s * .7} L${s * .7},${s * .7} M${s * .7},${-s * .7} L${-s * .7},${s * .7}`;
-  el('path', { d, fill: 'none', stroke: color, 'stroke-width': size * 0.22, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
-  return g;
-}
 let M = {};
 function buildMarks() {
   M = { okA: mark('ok', LIME, 11), noB: mark('no', WARM, 9), noC: mark('no', WARM, 11),
         ok1: mark('ok', LIME, 15), ok2: mark('ok', LIME, 15), miss: mark('no', WARM, 17) };
 }
-function showMark(m, x, y, t, t0, t1) {
-  const k = clamp01((t - t0) / 0.3), out = 1 - clamp01((t - t1) / 0.2);
-  const sc = t < t0 ? 0 : easeOutBack(k) * ZF();
-  m.setAttribute('opacity', t < t0 ? 0 : Math.min(1, k * 2) * out);
-  m.setAttribute('transform', `translate(${x},${y}) scale(${Math.max(0.001, sc)})`);
-}
-const shuttles = {};
-function buildShuttle(id) {
-  const g = $(id);
-  const shadow = el('ellipse', { fill: 'rgba(0,0,0,.55)' }, g);
-  const trail = [];
-  for (let i = 0; i < 8; i++) trail.push(el('circle', { fill: '#F6FFE8' }, g));
-  const head = el('circle', { fill: '#FFFFFF', filter: 'url(#g2)' }, g);
-  shuttles[id] = { g, shadow, trail, head };
-}
-function drawShuttle(id, fn, t) {
-  const s = shuttles[id], z = ZF(), hk = HK();
-  const cur = fn(t);
-  if (!cur || cur.op <= 0) { s.g.setAttribute('opacity', 0); return; }
-  s.g.setAttribute('opacity', cur.op);
-  const x = X(cur.p[0]), y = Y(cur.p[1]);
-  s.shadow.setAttribute('cx', x); s.shadow.setAttribute('cy', y + 2);
-  s.shadow.setAttribute('rx', 6 * z); s.shadow.setAttribute('ry', 3 * z);
-  s.shadow.setAttribute('opacity', 0.9 - Math.min(0.6, cur.h * 0.1));
-  s.head.setAttribute('cx', x); s.head.setAttribute('cy', y - hk * cur.h); s.head.setAttribute('r', 7 * z);
-  for (let i = 0; i < s.trail.length; i++) {
-    const p = fn(t - (i + 1) * 0.03);
-    const c = s.trail[i];
-    if (!p || !cur.fly || !p.fly) { c.setAttribute('opacity', 0); continue; }
-    c.setAttribute('cx', X(p.p[0])); c.setAttribute('cy', Y(p.p[1]) - hk * p.h);
-    c.setAttribute('r', (5 - i * 0.45) * z); c.setAttribute('opacity', 0.55 * (1 - i / 8));
-  }
-}
-const smashH = (f) => 2.8 * (1 - f ** 3);
-function smashAt(to, realT, len) {
-  const f = Math.min(1, sOf(realT) / len);
-  return { p: lerp2(H, to, f), h: smashH(f), fly: f < 1, f };
-}
-function blockAt(from, h0, to, k) {
-  return { p: lerp2(from, to, easeOutCubic(k)), h: lerp(h0, 0.4, k) + 1.4 * Math.sin(Math.PI * k), fly: k < 1 };
-}
+
+// ---- 球 ----
 function shuttle1(t) {
   if (t >= T.loop) t = 0;
   const atH = (op = 1) => ({ p: H, h: 2.8, fly: false, op });
@@ -347,23 +213,23 @@ function shuttle1(t) {
   if (t < T.race) return atH();
   if (t < 11.0) {
     const real = t < T.raceLandS ? (t - T.race) * T.slow : T_S;
-    return { ...smashAt(LS, real, LEN_S), op: 1 - tw(t, 10.0, 10.3, lin) };
+    return { ...smashAt(H, LS, real, LEN_S), op: 1 - tw(t, 10.0, 10.3, lin) };
   }
   if (t < T.sm1) return atH(tw(t, 18.0, 18.3));
   if (t < T.sm2 - 0.6) {
-    if (t < T.hit1) return { ...smashAt(LS, (t - T.sm1) * T.slow, LEN_S), op: 1 };
+    if (t < T.hit1) return { ...smashAt(H, LS, (t - T.sm1) * T.slow, LEN_S), op: 1 };
     const k = clamp01((t - T.hit1) / 0.8);
     return { ...blockAt(IS, smashH(F_INT), [-1.4, -1.2], k), op: 1 - tw(t, T.hit1 + 0.7, T.hit1 + 1.0, lin) };
   }
   if (t < T.sm2) return atH(tw(t, T.sm2 - 0.6, T.sm2 - 0.4));
   if (t < T.missCard) {
-    if (t < T.hit2) return { ...smashAt(LC, (t - T.sm2) * T.slow, LEN_C), op: 1 };
+    if (t < T.hit2) return { ...smashAt(H, LC, (t - T.sm2) * T.slow, LEN_C), op: 1 };
     const k = clamp01((t - T.hit2) / 0.8);
     return { ...blockAt(IC, smashH(F_INT), [1.3, -1.2], k), op: 1 - tw(t, T.hit2 + 0.7, T.hit2 + 1.0, lin) };
   }
   if (t < T.sm3) return atH(tw(t, T.backB[1], T.backB[1] + 0.3));
   if (t < T.rule) {
-    if (t < T.land3) return { ...smashAt(LS, t - T.sm3, LEN_S), op: 1 };
+    if (t < T.land3) return { ...smashAt(H, LS, t - T.sm3, LEN_S), op: 1 };
     const k = clamp01((t - T.land3) / 0.3);
     return { p: lerp2(LS, [LS[0] - 0.1, LS[1] + 0.25], k), h: 0.25 * Math.sin(Math.PI * k), fly: false, op: 1 };
   }
@@ -375,7 +241,7 @@ function shuttle2(t) {
   if (t < T.raceLandS) real = (t - T.race) * T.slow;
   else if (t < T.raceResume) real = T_S;
   else real = T_S + (t - T.raceResume) * T.slow;
-  return { ...smashAt(LC, real, LEN_C), op: 1 - tw(t, 10.0, 10.3, lin) };
+  return { ...smashAt(H, LC, real, LEN_C), op: 1 - tw(t, 10.0, 10.3, lin) };
 }
 
 // ---- 我（位置、朝向、拍子）。一开始站中间（B）----
@@ -406,101 +272,26 @@ function meState(t) {
 }
 
 // ---- 文字 ----
-const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const md = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<span class="hl">$1</span>');
-function measureW(e) {
-  const prev = e.style.display; e.style.display = 'inline-block'; e.style.width = 'auto';
-  const w = e.getBoundingClientRect().width; e.style.display = prev; e.style.width = '';
-  return w;
-}
-function fitText(e, size, maxW) {
-  let s = size;
-  e.style.fontSize = s + 'px';
-  while (measureW(e) > maxW && s > 20) { s -= 2; e.style.fontSize = s + 'px'; }
-  return s;
-}
 // 场景里的小标签（文字在脚本 JSON 的 labels 里）和颜色
 const LABEL_STYLE = { straight: 'lime', cross: 'pale', first: 'lime', barS: 'lime', barC: 'pale', half: 'lime',
                       face: 'lime', racket: 'lime', step: 'lime', gap: 'warm', late: 'warm' };
-function placeLabel(k, t, t0, t1, x, y, align) {
-  const e = LBL[k];
-  const v = vis(t, t0, t1, 0.25, 0.2);
-  if (v <= 0) { e.style.opacity = 0; return; }
-  const sc = lerp(0.8, 1, easeOutBack(clamp01((t - t0) / 0.25)));
-  const ax = align === 'r' ? '-100%' : align === 'c' ? '-50%' : '0%';
-  e.style.opacity = v;
-  e.style.transform = `translate(${x}px,${y}px) translate(${ax},-50%) scale(${sc})`;
-}
 const onLine = (to, y) => lerp2(H, to, (y - H[1]) / (to[1] - H[1]));
-let SPEC, TX, SUBS = [], CARDS = [], LBL = {};
 const SIZES = { zh: { title: 40, big: 84, sub: 56, card: 124 }, ja: { title: 38, big: 76, sub: 54, card: 110 },
                 ko: { title: 36, big: 72, sub: 50, card: 104 }, en: { title: 32, big: 66, sub: 50, card: 98 } };
 const CARD_Y = { c1: 620, c2: 700, c3: 620, c4: 620 };      // 卡片中心的屏幕 y：放在球场中间，叠在画面上
-const BIG_Y = 540;                                           // 开头大字问题的中心 y（压在对方半场上）
-let BIG_H = 0;
 window.setup = function (spec, lang) {
-  SPEC = spec; TX = spec.text[lang];
-  document.body.className = TX.font;
-  const Z = SIZES[TX.font];
-  $('series').textContent = TX.series;
-  $('title').innerHTML = md(TX.title.replace(/\n/g, ' ')); fitText($('title'), Z.title, 900);
-  $('titleBig').innerHTML = md(TX.titleBig || TX.title); fitText($('titleBig'), Z.big, 940);
-  BIG_H = $('titleBig').getBoundingClientRect().height;
-  $('titleBig').style.top = (BIG_Y - BIG_H / 2) + 'px';
-  for (const [k, cls] of Object.entries(LABEL_STYLE)) {
-    const e = document.createElement('div'); e.className = 'lbl ' + cls; e.textContent = TX.labels[k];
-    $('labels').appendChild(e); LBL[k] = e;
-  }
-  const subs = $('subs');
-  SUBS = spec.subs.map(([t0, t1, key]) => {
-    const e = document.createElement('div'); e.className = 't sub'; e.innerHTML = '<span class="cap">' + md(TX[key]) + '</span>';
-    subs.appendChild(e); fitText(e, Z.sub, 780);
-    return { t0, t1, e };
-  });
-  const cards = $('cards');
-  CARDS = spec.cards.map(([t0, t1, key]) => {
-    const [label, text] = TX[key];
-    const l = document.createElement('div'); l.className = 't lab clab'; l.textContent = label;
-    const c = document.createElement('div'); c.className = 't ctxt'; c.innerHTML = md(text);
-    cards.appendChild(l); cards.appendChild(c);
-    const lines = text.split('\n').length;
-    const fs = fitText(c, lines > 1 ? Math.round(Z.card * 0.78) : Z.card, 900);
-    const h = fs * 1.18 * lines, cy = CARD_Y[key];
-    c.style.top = (cy - h / 2 + 18) + 'px'; l.style.top = (cy - h / 2 - 34) + 'px';
-    return { t0, t1, l, c, key, cy };
-  });
-  buildCourt(); court.tag.textContent = TX.tag; buildOpts(); buildMarks(); buildShuttle('sh1'); buildShuttle('sh2');
+  setupText(spec, lang, { sizes: SIZES, cardY: CARD_Y, bigY: 540, labelStyle: LABEL_STYLE });   // 开头大字压在对方半场上
+  buildCourt('singles'); court.tag.textContent = TX.tag; buildOpts(); buildMarks(); buildShuttle('sh1'); buildShuttle('sh2');
   const tk = $('ticks');
   for (let i = 0; i < 4; i++) el('line', {}, tk);
   return { fonts: [...document.fonts].filter((f) => f.status === 'loaded').map((f) => f.family) };
 };
 
-// ---- 画线 ----
-function setLine(path, from, to, p, op, w) {
-  const x1 = X(from[0]), y1 = Y(from[1]), x2 = X(to[0]), y2 = Y(to[1]);
-  path.setAttribute('d', `M${x1},${y1} L${x2},${y2}`);
-  const L = Math.hypot(x2 - x1, y2 - y1);
-  path.style.strokeDasharray = `${L} ${L}`;
-  path.style.strokeDashoffset = L * (1 - clamp01(p));
-  path.setAttribute('opacity', op);
-  path.setAttribute('stroke-width', w);
-}
-function setSeg(line, x1, y1, x2, y2, op, w) {
-  line.setAttribute('x1', x1); line.setAttribute('y1', y1); line.setAttribute('x2', x2); line.setAttribute('y2', y2);
-  line.setAttribute('opacity', op); line.setAttribute('stroke-width', w);
-}
-function pulse(c, at, t, t0) {
-  const k = (t - t0) / 0.7;
-  if (k < 0 || k > 1) { c.setAttribute('opacity', 0); return; }
-  c.setAttribute('cx', X(at[0])); c.setAttribute('cy', Y(at[1]));
-  c.setAttribute('r', (8 + 26 * easeOutCubic(k)) * ZF()); c.setAttribute('opacity', 1 - k);
-}
-
 // ---- 每一帧 ----
 window.render = function (t) {
   const inLoop = t >= T.loop;
   const ts = inLoop ? 0 : t;
-  CAM = camAt(t);
+  CAM = camAt(t, MOVES);
   const z = ZF();
   const worldOp = inLoop ? tw(t, T.loop, T.dur - 0.05) : 1 - tw(t, T.end, T.end + 0.3);
   $('world').setAttribute('opacity', worldOp);
@@ -631,7 +422,7 @@ window.render = function (t) {
     placeLabel('step', ts, T.sm2 + 0.4, 26.2, (ax0 + ax1) / 2, ay + 34 * z, 'c');
     placeLabel('gap', ts, 28.1, 29.5, X(-1.15), Y(3.6), 'c');
     placeLabel('late', ts, T.land3 + 0.05, 31.0, X(LS[0]) - 22 * z, Y(LS[1]) - 40 * z, 'r');
-  } else for (const e of Object.values(LBL)) e.style.opacity = 0;
+  } else hideLabels();
 
   // 选项圈（从左到右 A B C；A 对）
   for (const [i, k] of ['A', 'B', 'C'].entries()) {
@@ -666,44 +457,8 @@ window.render = function (t) {
   drawShuttle('sh1', shuttle1, ts);
   drawShuttle('sh2', shuttle2, ts);
 
-  // 章节卡
-  let scrim = 0, scrimY = 790;
-  for (const c of CARDS) {
-    const v = vis(t, c.t0, c.t1, 0.3, 0.2);
-    const k = clamp01((t - c.t0) / 0.3);
-    const sc = t < c.t0 ? 0.9 : lerp(0.9, 1, easeOutBack(k));
-    c.l.style.opacity = v; c.c.style.opacity = v;
-    c.c.style.transform = `scale(${sc})`;
-    c.l.style.transform = `translateY(${(1 - easeOutCubic(k)) * 12}px)`;
-    if (v > scrim) { scrim = v; scrimY = c.cy; }
-  }
-  $('scrim').setAttribute('opacity', scrim);
-  $('scrim').setAttribute('cy', scrimY);
-
-  // 字幕（跟着镜头：全场时在网和我之间，推近时在我身后）
-  const capTop = lerp(CAP_TOP.full, CAP_TOP.near, clamp01((CAM.s - FULL.s) / (HALF.s - FULL.s)));
-  let halo = 0;
-  for (const s of SUBS) {
-    const v = vis(t, s.t0, s.t1, 0.3, 0.2);
-    const k = clamp01((t - s.t0) / 0.3);
-    s.e.style.opacity = v;
-    s.e.style.top = capTop + 'px';
-    s.e.style.transform = `scale(${lerp(0.94, 1, easeOutBack(k))})`;
-    halo = Math.max(halo, v);
-  }
-  $('halo').style.opacity = halo;
-  // 开头的问题：先大字压在球场中间，2.7–3.1 秒缩进顶部，之后一直挂在顶上
-  const tk = clamp01((t - T.title) / 0.3);
-  const up = tw(t, 2.7, 3.1, easeInOut);
-  const tb = $('titleBig');
-  tb.style.opacity = t < T.title ? 0 : Math.min(1, tk * 1.5) * (1 - up);
-  const smallC = 198 + 24;                                     // 顶部那行的中心 y
-  tb.style.transform = `translateY(${(smallC - BIG_Y) * up}px) scale(${(t < T.title ? 0.9 : lerp(0.9, 1, easeOutBack(tk))) * lerp(1, 0.5, up)})`;
-  $('title').style.opacity = tw(t, 2.95, 3.25) * (1 - tw(t, T.end, T.end + 0.25));
-  const ek = clamp01((t - (T.end + 0.15)) / 0.3);
-  const eOut = tw(t, T.loop, T.dur - 0.1);
-  $('endmark').style.opacity = t < T.end + 0.15 ? 0 : Math.min(1, ek * 1.5) * (1 - eOut);
-  $('endmark').style.transform = `scale(${(t < T.end + 0.15 ? 0.85 : lerp(0.85, 1, easeOutBack(ek))) * (1 - 0.12 * eOut)})`;
+  // 字（字幕跟着镜头：全场时在网和我之间，推近时在我身后）
+  renderText(t, lerp(CAP_TOP.full, CAP_TOP.near, clamp01((CAM.s - FULL.s) / (HALF.s - FULL.s))));
 };
 </script>
 </body></html>

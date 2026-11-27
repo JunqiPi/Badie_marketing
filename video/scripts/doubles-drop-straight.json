@@ -1,0 +1,377 @@
+{
+  "_note": "战术题 #09（双打后场，吊球）。说明见 doubles-drop-straight.md。时间以中文母版为准，四种语言共用；只换字。**词** = 荧光绿重点词，\n = 换行。音乐和 #01、#02、#06、#08 同一套参数（同一条时间网格）。",
+  "duration": 38.0,
+  "fps": 30,
+  "music": {
+    "bpm": 120,
+    "key": "A",
+    "first_downbeat": 1.0,
+    "drop": 3.0,
+    "full": 15.0,
+    "resolve": 31.0,
+    "tail": 36.3,
+    "dips": [
+      [
+        2.4,
+        3.0
+      ],
+      [
+        14.2,
+        15.0
+      ],
+      [
+        30.4,
+        31.0
+      ]
+    ]
+  },
+  "sfx": {
+    "transition": 3.0,
+    "reveal": 15.0,
+    "miss": 30.555,
+    "rule": 31.0
+  },
+  "sheet": [
+    1.6,
+    4.2,
+    6.8,
+    9.4,
+    13.5,
+    16.0,
+    21.2,
+    22.3,
+    24.6,
+    29.9,
+    30.8,
+    33.0
+  ],
+  "subs": [
+    [
+      0.5,
+      3.0,
+      "hook"
+    ],
+    [
+      3.0,
+      7.0,
+      "analogy"
+    ],
+    [
+      7.0,
+      11.0,
+      "mechanism"
+    ],
+    [
+      11.0,
+      15.0,
+      "reversal"
+    ],
+    [
+      15.0,
+      19.0,
+      "answer"
+    ],
+    [
+      19.0,
+      23.0,
+      "ready"
+    ],
+    [
+      23.0,
+      27.0,
+      "middle"
+    ],
+    [
+      27.0,
+      31.0,
+      "miss"
+    ],
+    [
+      34.7,
+      37.8,
+      "cta"
+    ]
+  ],
+  "cards": [
+    [
+      3.0,
+      5.6,
+      "c1"
+    ],
+    [
+      15.0,
+      16.6,
+      "c2"
+    ],
+    [
+      27.0,
+      28.8,
+      "c3"
+    ],
+    [
+      31.0,
+      36.3,
+      "c4"
+    ]
+  ],
+  "text": {
+    "zh": {
+      "font": "zh",
+      "series": "DOUBLES · REAR COURT · #09",
+      "title": "后场吊球，吊直线还是**斜线**？",
+      "titleBig": "后场吊球，\n吊直线还是**斜线**？",
+      "tag": "双打",
+      "hook": "选 **A、B 还是 C**？",
+      "analogy": "两种吊球，哪个**先落地**？",
+      "mechanism": "直线短，**先落地**；\n斜线长，**慢一拍**",
+      "reversal": "斜线那边的人站得更前，\n能在**高处**截住",
+      "answer": "吊**直线**，让他低手去够",
+      "ready": "他只能**低手挑起来**",
+      "middle": "球又回到头顶，\n**还是我们进攻**",
+      "miss": "他在高处截住，\n一拍**推到空当**",
+      "cta": "测测你的水平 → **主页链接**",
+      "c1": [
+        "WHICH DROP LANDS FIRST",
+        "吊直线 vs 吊斜线"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "答案：**A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "吊斜线呢？"
+      ],
+      "c4": [
+        "THE RULE",
+        "后场吊球，\n先吊**直线**"
+      ],
+      "labels": {
+        "straight": "直线",
+        "cross": "斜线",
+        "first": "先落地",
+        "front": "站得更前",
+        "gap": "空当",
+        "low": "只能挑",
+        "attack": "继续进攻",
+        "early": "高处截住"
+      }
+    },
+    "ja": {
+      "font": "ja",
+      "series": "DOUBLES · REAR COURT · #09",
+      "title": "後ろからドロップ、ストレート？**クロス**？",
+      "titleBig": "後ろからドロップ、\nストレート？**クロス**？",
+      "tag": "ダブルス",
+      "hook": "**A・B・C**、どれ？",
+      "analogy": "どっちのドロップが**先に落ちる**？",
+      "mechanism": "ストレートが**先**、\nクロスは**少し遅い**",
+      "reversal": "クロス側は前にいて、\n**高い打点**で取れる",
+      "answer": "**ストレート**に落とす",
+      "ready": "低い打点で\n**上げる**しかない",
+      "middle": "また頭の上に来て、\n**攻撃が続く**",
+      "miss": "高く取られて、\n**空き**へプッシュ",
+      "cta": "レベル診断→**プロフのリンク**",
+      "c1": [
+        "WHICH DROP LANDS FIRST",
+        "**2つ**のドロップ"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "正解：**A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "クロスなら？"
+      ],
+      "c4": [
+        "THE RULE",
+        "後ろからのドロップは\n**ストレート**"
+      ],
+      "labels": {
+        "straight": "ストレート",
+        "cross": "クロス",
+        "first": "先に着く",
+        "front": "前にいる",
+        "gap": "空き",
+        "low": "上げるだけ",
+        "attack": "攻撃が続く",
+        "early": "高く取る"
+      }
+    },
+    "ko": {
+      "font": "ko",
+      "series": "DOUBLES · REAR COURT · #09",
+      "title": "뒤에서 드롭, 직선? **대각**?",
+      "titleBig": "뒤에서 드롭,\n직선? **대각**?",
+      "tag": "복식",
+      "hook": "**A, B, C** 중에 뭐예요?",
+      "analogy": "드롭 두 개, 뭐가 **먼저 떨어질까요**?",
+      "mechanism": "직선은 짧아서 **먼저**,\n대각은 길어서 **한 박자 늦게**",
+      "reversal": "대각 쪽 수비는 앞에 서 있어서\n**높은 타점**에서 받아요",
+      "answer": "**직선**으로 드롭, 낮게 받게 해요",
+      "ready": "낮은 데서\n**띄우기만** 할 수 있어요",
+      "middle": "공이 다시 머리 위로,\n공격은 계속 **우리 쪽**",
+      "miss": "높은 타점에서 잡아서\n**빈 곳**으로 푸시",
+      "cta": "레벨 테스트는 **프로필 링크**에서",
+      "c1": [
+        "WHICH DROP LANDS FIRST",
+        "직선 vs 대각"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "정답: **A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "대각 드롭은?"
+      ],
+      "c4": [
+        "THE RULE",
+        "뒤에서 드롭은\n**직선**으로"
+      ],
+      "labels": {
+        "straight": "직선",
+        "cross": "대각",
+        "first": "먼저 도착",
+        "front": "앞에 서 있음",
+        "gap": "빈 곳",
+        "low": "띄우기만",
+        "attack": "공격 계속",
+        "early": "높은 타점"
+      }
+    },
+    "en": {
+      "font": "en",
+      "series": "DOUBLES · REAR COURT · #09",
+      "title": "Dropping from the back: straight or **cross**?",
+      "titleBig": "Dropping from the back:\nstraight or **cross**?",
+      "tag": "DOUBLES",
+      "hook": "**A, B or C?**",
+      "analogy": "Two drops.\nWhich one lands **first**?",
+      "mechanism": "Straight lands **first**.\nCross takes **longer**",
+      "reversal": "The cross defender is closer,\nand takes it **high**",
+      "answer": "Drop it **straight**, make him reach low",
+      "ready": "All he can do\nis **lift it up**",
+      "middle": "It's back over your head.\nStill **your attack**",
+      "miss": "He takes it high.\nOne push into the **gap**",
+      "cta": "Find your level → **link in bio**",
+      "c1": [
+        "WHICH DROP LANDS FIRST",
+        "Straight vs cross"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "Answer: **A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "Cross drop?"
+      ],
+      "c4": [
+        "THE RULE",
+        "Dropping from the back?\n**Go straight**"
+      ],
+      "labels": {
+        "straight": "straight",
+        "cross": "cross",
+        "first": "first",
+        "front": "closer",
+        "gap": "gap",
+        "low": "lift only",
+        "attack": "still attacking",
+        "early": "takes it high"
+      }
+    }
+  },
+  "impact": {
+    "events": [
+      {
+        "type": "block",
+        "at": 7.6,
+        "p": [
+          -2.05,
+          4.95
+        ],
+        "h": 2.8,
+        "slow": true,
+        "gain": 0.7
+      },
+      {
+        "type": "land",
+        "at": 9.208,
+        "p": [
+          -1.7,
+          -2.3
+        ],
+        "h": 0,
+        "slow": true,
+        "gain": 0.7
+      },
+      {
+        "type": "land",
+        "at": 10.499,
+        "p": [
+          1.9,
+          -2.3
+        ],
+        "h": 0,
+        "slow": true,
+        "gain": 0.5
+      },
+      {
+        "type": "block",
+        "at": 20.6,
+        "p": [
+          -2.05,
+          4.95
+        ],
+        "h": 2.8,
+        "slow": true,
+        "gain": 0.7
+      },
+      {
+        "type": "block",
+        "at": 22.01,
+        "p": [
+          -1.723,
+          -1.828
+        ],
+        "h": 0.45,
+        "slow": true
+      },
+      {
+        "type": "block",
+        "at": 29.375,
+        "p": [
+          -2.05,
+          4.95
+        ],
+        "h": 2.8,
+        "gain": 0.7
+      },
+      {
+        "type": "block",
+        "at": 30.055,
+        "p": [
+          1.135,
+          -0.896
+        ],
+        "h": 1.2,
+        "stop": true,
+        "shake": true
+      },
+      {
+        "type": "land",
+        "at": 30.555,
+        "p": [
+          2.2,
+          3.3
+        ],
+        "h": 0,
+        "shake": true,
+        "quiet": true
+      }
+    ]
+  }
+}

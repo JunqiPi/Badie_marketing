@@ -1,0 +1,384 @@
+{
+  "_note": "战术题 #08（双打后场）。说明见 doubles-smash-straight.md。时间以中文母版为准，四种语言共用；只换字。**词** = 荧光绿重点词，\\n = 换行。音乐和 #01、#02、#06 同一套参数（同一条时间网格）。",
+  "duration": 38.0,
+  "fps": 30,
+  "music": {
+    "bpm": 120,
+    "key": "A",
+    "first_downbeat": 1.0,
+    "drop": 3.0,
+    "full": 15.0,
+    "resolve": 31.0,
+    "tail": 36.3,
+    "dips": [
+      [
+        2.4,
+        3.0
+      ],
+      [
+        14.2,
+        15.0
+      ],
+      [
+        30.4,
+        31.0
+      ]
+    ]
+  },
+  "sfx": {
+    "transition": 3.0,
+    "reveal": 15.0,
+    "miss": 30.555,
+    "rule": 31.0
+  },
+  "sheet": [
+    1.6,
+    4.2,
+    6.8,
+    8.75,
+    13.5,
+    16.0,
+    21.4,
+    22.6,
+    24.0,
+    29.7,
+    30.8,
+    33.0
+  ],
+  "subs": [
+    [
+      0.5,
+      3.0,
+      "hook"
+    ],
+    [
+      3.0,
+      7.0,
+      "analogy"
+    ],
+    [
+      7.0,
+      11.0,
+      "mechanism"
+    ],
+    [
+      11.0,
+      15.0,
+      "reversal"
+    ],
+    [
+      15.0,
+      19.0,
+      "answer"
+    ],
+    [
+      19.0,
+      23.0,
+      "ready"
+    ],
+    [
+      23.0,
+      27.0,
+      "middle"
+    ],
+    [
+      27.0,
+      31.0,
+      "miss"
+    ],
+    [
+      34.7,
+      37.8,
+      "cta"
+    ]
+  ],
+  "cards": [
+    [
+      3.0,
+      5.6,
+      "c1"
+    ],
+    [
+      15.0,
+      16.6,
+      "c2"
+    ],
+    [
+      27.0,
+      28.8,
+      "c3"
+    ],
+    [
+      31.0,
+      36.3,
+      "c4"
+    ]
+  ],
+  "text": {
+    "zh": {
+      "font": "zh",
+      "series": "DOUBLES · REAR COURT · #08",
+      "title": "后场杀球，杀直线还是**斜线**？",
+      "titleBig": "后场杀球，\n杀直线还是**斜线**？",
+      "tag": "双打",
+      "hook": "选 **A、B 还是 C**？",
+      "analogy": "两种杀球，哪个**先到**？",
+      "mechanism": "直线短，**先到**；\n斜线长，**慢一拍**",
+      "reversal": "斜线那边的人站得更前，\n还多了**一拍时间**",
+      "answer": "杀**直线**，最快压到他身上",
+      "ready": "球太快，他只能**挡回网前**",
+      "middle": "同伴就在网前，\n**一拍封死**",
+      "miss": "他早等着了，\n一拍**抽直线**到空当",
+      "cta": "测测你的水平 → **主页链接**",
+      "c1": [
+        "WHICH SMASH ARRIVES FIRST",
+        "杀直线 vs 杀斜线"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "答案：**A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "杀斜线呢？"
+      ],
+      "c4": [
+        "THE RULE",
+        "后场杀球，\n先杀**直线**"
+      ],
+      "labels": {
+        "straight": "直线",
+        "cross": "斜线",
+        "first": "先到",
+        "front": "站得更前",
+        "gap": "空当",
+        "block": "只能挡",
+        "kill": "封网",
+        "early": "早等着了"
+      }
+    },
+    "ja": {
+      "font": "ja",
+      "series": "DOUBLES · REAR COURT · #08",
+      "title": "後ろからスマッシュ、ストレート？**クロス**？",
+      "titleBig": "後ろからスマッシュ、\nストレート？**クロス**？",
+      "tag": "ダブルス",
+      "hook": "**A・B・C**、どれ？",
+      "analogy": "どっちのスマッシュが**先に届く**？",
+      "mechanism": "ストレートが**先**、\nクロスは**少し遅い**",
+      "reversal": "クロス側の人は前にいて、\n**時間**もある",
+      "answer": "**ストレート**に打つ",
+      "ready": "速すぎて、\n**前に返す**のがやっと",
+      "middle": "前に来たら\nパートナーが**決める**",
+      "miss": "もう待たれて、\n**空き**へドライブ",
+      "cta": "レベル診断→**プロフのリンク**",
+      "c1": [
+        "WHICH SMASH ARRIVES FIRST",
+        "**2つ**のスマッシュ"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "正解：**A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "クロスなら？"
+      ],
+      "c4": [
+        "THE RULE",
+        "後ろからのスマッシュは\n**ストレート**"
+      ],
+      "labels": {
+        "straight": "ストレート",
+        "cross": "クロス",
+        "first": "先に着く",
+        "front": "前にいる",
+        "gap": "空き",
+        "block": "返すだけ",
+        "kill": "決める",
+        "early": "待ってた"
+      }
+    },
+    "ko": {
+      "font": "ko",
+      "series": "DOUBLES · REAR COURT · #08",
+      "title": "뒤에서 스매시, 직선? **대각**?",
+      "titleBig": "뒤에서 스매시,\n직선? **대각**?",
+      "tag": "복식",
+      "hook": "**A, B, C** 중에 뭐예요?",
+      "analogy": "스매시 두 개, 뭐가 **먼저 닿을까요**?",
+      "mechanism": "직선은 짧아서 **먼저**,\n대각은 길어서 **한 박자 늦게**",
+      "reversal": "대각 쪽 수비는 앞에 서 있고\n**시간**도 더 있어요",
+      "answer": "**직선**으로 스매시, 가장 빨라요",
+      "ready": "너무 빨라서\n네트 앞으로 **막기만** 해요",
+      "middle": "파트너가 네트 앞에서\n**바로 끝내요**",
+      "miss": "이미 기다렸다가\n**빈 곳**으로 드라이브",
+      "cta": "레벨 테스트는 **프로필 링크**에서",
+      "c1": [
+        "WHICH SMASH ARRIVES FIRST",
+        "직선 vs 대각"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "정답: **A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "대각 스매시는?"
+      ],
+      "c4": [
+        "THE RULE",
+        "뒤에서 스매시는\n**직선**으로"
+      ],
+      "labels": {
+        "straight": "직선",
+        "cross": "대각",
+        "first": "먼저 도착",
+        "front": "앞에 서 있음",
+        "gap": "빈 곳",
+        "block": "막기만",
+        "kill": "끝내기",
+        "early": "기다림"
+      }
+    },
+    "en": {
+      "font": "en",
+      "series": "DOUBLES · REAR COURT · #08",
+      "title": "Smashing from the back: straight or **cross**?",
+      "titleBig": "Smashing from the back:\nstraight or **cross**?",
+      "tag": "DOUBLES",
+      "hook": "**A, B or C?**",
+      "analogy": "Two smashes.\nWhich one gets there **first**?",
+      "mechanism": "Straight gets there **first**.\nCross takes **longer**",
+      "reversal": "The cross-court defender\nstands closer, with **more time**",
+      "answer": "Smash it **straight**, fastest to him",
+      "ready": "Too fast. All he can do\nis **block it to the net**",
+      "middle": "Your partner is right there.\n**Put it away**",
+      "miss": "He's ready for it.\nStraight drive into the **gap**",
+      "cta": "Find your level → **link in bio**",
+      "c1": [
+        "WHICH SMASH ARRIVES FIRST",
+        "Straight vs cross"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "Answer: **A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "Cross smash?"
+      ],
+      "c4": [
+        "THE RULE",
+        "Smashing from the back?\n**Go straight**"
+      ],
+      "labels": {
+        "straight": "straight",
+        "cross": "cross",
+        "first": "first",
+        "front": "stands closer",
+        "gap": "gap",
+        "block": "block only",
+        "kill": "kill",
+        "early": "ready for it"
+      }
+    }
+  },
+  "impact": {
+    "events": [
+      {
+        "type": "smash",
+        "at": 7.6,
+        "p": [
+          -2.05,
+          4.95
+        ],
+        "h": 2.8,
+        "dur": 1.07
+      },
+      {
+        "type": "land",
+        "at": 8.67,
+        "p": [
+          -2.35,
+          -4.6
+        ],
+        "h": 0,
+        "slow": true
+      },
+      {
+        "type": "smash",
+        "at": 20.6,
+        "p": [
+          -2.05,
+          4.95
+        ],
+        "h": 2.8,
+        "dur": 0.852
+      },
+      {
+        "type": "block",
+        "at": 21.453,
+        "p": [
+          -2.322,
+          -3.7
+        ],
+        "h": 0.718,
+        "slow": true
+      },
+      {
+        "type": "smash",
+        "at": 23.003,
+        "p": [
+          -1.4,
+          0.7
+        ],
+        "h": 1.25,
+        "dur": 0.5
+      },
+      {
+        "type": "land",
+        "at": 23.503,
+        "p": [
+          -0.9,
+          -1.9
+        ],
+        "h": 0,
+        "slow": true,
+        "shake": true
+      },
+      {
+        "type": "smash",
+        "at": 29.577,
+        "p": [
+          -2.05,
+          4.95
+        ],
+        "h": 2.8,
+        "dur": 0.478,
+        "gain": 0.4
+      },
+      {
+        "type": "block",
+        "at": 30.055,
+        "p": [
+          1.794,
+          -3.3
+        ],
+        "h": 0.994,
+        "stop": true
+      },
+      {
+        "type": "land",
+        "at": 30.555,
+        "p": [
+          2.35,
+          3.7
+        ],
+        "h": 0,
+        "shake": true,
+        "quiet": true
+      }
+    ]
+  }
+}

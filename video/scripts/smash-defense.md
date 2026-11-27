@@ -317,6 +317,17 @@
 
 ## 五、YouTube 标题和简介
 
+### 发布用的定稿（2026-11-20 用户写中文版、确认三语，替换下面的旧稿）
+用户的结构：标题问一句 → 痛点 + 一句话说能学到什么 → 测水平链接 → 一句“我们是 Badie”。用户决定不写 AI 那句。Instagram、TikTok 的网址那行换成 link in bio / プロフィールのリンクから / 프로필 링크에서。
+
+- 中文：为什么你的防守总差一步？ / 对手杀球就丢分？培养自己的接杀球意识 一条视频提升你的防守意识！ / 测测你的羽毛球水平：https://badie.rsvp/level-quiz/ / 我们是 Badie，一款帮你寻找羽毛球球友的APP。
+- EN：Why is your defense always one step late? / Losing the point every time they smash? Build your smash-defense instinct. One video to level up your defense! / Test your badminton level: https://badie.rsvp/level-quiz/ / We're Badie, an app that helps you find people to play badminton with. / #badminton #badmintontips #shorts（Instagram 用 #badminton #badmintonlovers #badmintonplayer，TikTok 用 #badminton #badmintontips #badmintontraining）
+- 日本語：【バドミントン】レシーブがいつも一歩遅れるのはなぜ？ / スマッシュを打たれたら失点…になっていませんか？スマッシュレシーブの意識をつくろう。この動画1本でレシーブの意識が変わります！ / バドミントンのレベル診断：https://badie.rsvp/level-quiz/ / 私たちは Badie、バドミントン仲間を見つけるアプリです。 / #バドミントン #バドミントン初心者 #スマッシュレシーブ #shorts
+- 한국어：왜 내 수비는 항상 한 발 늦을까? / 상대가 스매시만 하면 실점하나요? 스매시 리시브 감각을 길러 보세요. 영상 하나로 수비 감각이 달라져요! / 배드민턴 레벨 테스트: https://badie.rsvp/level-quiz/ / 저희는 배드민턴 같이 칠 사람을 찾아 주는 앱 Badie예요. / #배드민턴 #배드민턴레슨 #배드민턴수비 #shorts
+- 发在哪：英文 YouTube（Badie Claudia）、Instagram、TikTok，洛杉矶晚上 7 点；日文 YouTube（@badiebadminton_jp）、韩文 YouTube（@badiebadminton_kr），当地晚上 9 点。
+
+### 旧稿（11-19）
+
 ### 中文
 **标题**：你为什么永远接不到对面的杀球？｜羽球站位题 #01
 

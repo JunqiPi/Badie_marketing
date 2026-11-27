@@ -1,0 +1,153 @@
+{
+  "_note": "战术题 #07（单打后场）。说明见 singles-clear-recover.md。时间以中文母版为准，四种语言共用；只换字。**词** = 荧光绿重点词，\\n = 换行。音乐和 #01、#02、#06 同一套参数（同一条时间网格）。",
+  "duration": 38.0,
+  "fps": 30,
+  "music": {
+    "bpm": 120,
+    "key": "A",
+    "first_downbeat": 1.0,
+    "drop": 3.0,
+    "full": 15.0,
+    "resolve": 31.0,
+    "tail": 36.3,
+    "dips": [[2.4, 3.0], [14.2, 15.0], [30.4, 31.0]]
+  },
+  "sfx": {
+    "transition": 3.0,
+    "reveal": 15.0,
+    "miss": 30.555,
+    "rule": 31.0
+  },
+  "sheet": [1.6, 4.2, 6.8, 10.0, 13.5, 16.0, 21.4, 24.9, 29.0, 30.8, 33.0, 37.7],
+  "subs": [
+    [0.5, 3.0, "hook"],
+    [3.0, 7.0, "analogy"],
+    [7.0, 11.0, "mechanism"],
+    [11.0, 15.0, "reversal"],
+    [15.0, 19.0, "answer"],
+    [19.0, 23.0, "ready"],
+    [23.0, 27.0, "middle"],
+    [27.0, 31.0, "miss"],
+    [34.7, 37.8, "cta"]
+  ],
+  "cards": [
+    [3.0, 5.6, "c1"],
+    [15.0, 16.6, "c2"],
+    [27.0, 28.8, "c3"],
+    [31.0, 36.3, "c4"]
+  ],
+  "text": {
+    "zh": {
+      "font": "zh",
+      "series": "SINGLES · REAR COURT · #07",
+      "title": "打完高远球，你回**哪里**站？",
+      "titleBig": "打完高远球，\n你回**哪里**站？",
+      "tag": "单打",
+      "hook": "选 **A、B 还是 C**？",
+      "analogy": "他在后场，**杀、吊、高远**都能打",
+      "mechanism": "网前的球，**伸拍**就够；\n后场的球，要**退到球下**",
+      "reversal": "站得太前，\n后场的球就**来不及**",
+      "answer": "回到中间，**偏后一步**",
+      "ready": "他再打后场，你**来得及**",
+      "middle": "吊到网前，**伸拍**也够得到",
+      "miss": "站在前面，\n一个**高远**就把你压到底",
+      "cta": "测测你的水平 → **主页链接**",
+      "c1": ["WHAT COMES NEXT", "他下一拍打哪？"],
+      "c2": ["THE ANSWER", "答案：**A**"],
+      "c3": ["COMMON MISTAKE", "站前面抢网？"],
+      "c4": ["THE RULE", "打完高远，\n回中间**偏后一步**"],
+      "labels": {
+        "front": "伸拍就够",
+        "back": "要退到球下",
+        "late1": "来不及",
+        "inTime": "来得及",
+        "reach": "够得到",
+        "late": "晚了"
+      }
+    },
+    "ja": {
+      "font": "ja",
+      "series": "SINGLES · REAR COURT · #07",
+      "title": "クリアを打ったら、**どこ**に戻る？",
+      "titleBig": "クリアを打ったら、\n**どこ**に戻る？",
+      "tag": "シングルス",
+      "hook": "**A・B・C**、どれ？",
+      "analogy": "相手は後ろ。\n**スマッシュもドロップも**ある",
+      "mechanism": "前は**手を伸ばす**だけ、\n後ろは**下がる**",
+      "reversal": "前すぎると、\n後ろが**間に合わない**",
+      "answer": "真ん中の**少し後ろ**",
+      "ready": "またクリアでも\n**間に合う**",
+      "middle": "ドロップでも\n**手を伸ばせば**届く",
+      "miss": "前にいると、\n**クリア一本**で抜かれる",
+      "cta": "レベル診断→**プロフのリンク**",
+      "c1": ["WHAT COMES NEXT", "次の一球は？"],
+      "c2": ["THE ANSWER", "正解：**A**"],
+      "c3": ["COMMON MISTAKE", "前で待つと？"],
+      "c4": ["THE RULE", "クリアの後は\n真ん中の**少し後ろ**"],
+      "labels": {
+        "front": "届く",
+        "back": "下がる",
+        "late1": "間に合わない",
+        "inTime": "間に合う",
+        "reach": "届いた",
+        "late": "遅い"
+      }
+    },
+    "ko": {
+      "font": "ko",
+      "series": "SINGLES · REAR COURT · #07",
+      "title": "클리어 치고 나면, **어디**에 설까?",
+      "titleBig": "클리어 치고 나면,\n**어디**에 설까?",
+      "tag": "단식",
+      "hook": "**A, B, C** 중에 뭐예요?",
+      "analogy": "상대는 뒤에 있어요.\n**스매시, 드롭, 클리어** 다 가능",
+      "mechanism": "앞은 **라켓만** 뻗으면 되고,\n뒤는 **공 아래로** 가야 해요",
+      "reversal": "너무 앞에 서면\n뒤쪽이 **늦어요**",
+      "answer": "가운데에서 **한 발 뒤로**",
+      "ready": "또 클리어가 와도\n**늦지 않아요**",
+      "middle": "드롭이 와도\n**라켓을 뻗으면** 닿아요",
+      "miss": "앞에 서 있으면\n**클리어 한 번**에 뚫려요",
+      "cta": "레벨 테스트는 **프로필 링크**에서",
+      "c1": ["WHAT COMES NEXT", "다음 공은?"],
+      "c2": ["THE ANSWER", "정답: **A**"],
+      "c3": ["COMMON MISTAKE", "앞에서 기다리면?"],
+      "c4": ["THE RULE", "클리어 친 다음엔\n가운데 **한 발 뒤**"],
+      "labels": {
+        "front": "뻗으면 닿음",
+        "back": "공 아래로",
+        "late1": "늦어요",
+        "inTime": "늦지 않음",
+        "reach": "닿았어요",
+        "late": "늦었어요"
+      }
+    },
+    "en": {
+      "font": "en",
+      "series": "SINGLES · REAR COURT · #07",
+      "title": "After a clear, where do you **stand**?",
+      "titleBig": "After a clear,\nwhere do you **stand**?",
+      "tag": "SINGLES",
+      "hook": "**A, B or C?**",
+      "analogy": "He's at the back.\nHe can **smash, drop or clear**",
+      "mechanism": "Front: just **reach**.\nBack: get **under it**",
+      "reversal": "Stand too far up,\nand the back is **too far**",
+      "answer": "Middle, **one step back**",
+      "ready": "He clears again?\nYou're there **in time**",
+      "middle": "He drops?\nYou can still **reach it**",
+      "miss": "Stand too far up,\nand one clear **beats you**",
+      "cta": "Find your level → **link in bio**",
+      "c1": ["WHAT COMES NEXT", "His next shot?"],
+      "c2": ["THE ANSWER", "Answer: **A**"],
+      "c3": ["COMMON MISTAKE", "Rush the net?"],
+      "c4": ["THE RULE", "After a clear:\nmiddle, **one step back**"],
+      "labels": {
+        "front": "just reach",
+        "back": "get under it",
+        "late1": "too far",
+        "inTime": "in time",
+        "reach": "got it",
+        "late": "too late"
+      }
+    }
+  }
+}

@@ -1,0 +1,373 @@
+{
+  "_note": "站位题 #02（双打防守）。说明见 doubles-defense-side.md。时间以中文母版为准，四种语言共用；只换字。**词** = 荧光绿重点词，\\n = 换行。音乐和 #01 同一套参数（同一条时间网格）。",
+  "duration": 38.0,
+  "fps": 30,
+  "music": {
+    "bpm": 120,
+    "key": "A",
+    "first_downbeat": 1.0,
+    "drop": 3.0,
+    "full": 15.0,
+    "resolve": 31.0,
+    "tail": 36.3,
+    "dips": [
+      [
+        2.4,
+        3.0
+      ],
+      [
+        14.2,
+        15.0
+      ],
+      [
+        30.4,
+        31.0
+      ]
+    ]
+  },
+  "sfx": {
+    "transition": 3.0,
+    "reveal": 15.0,
+    "miss": 29.522,
+    "rule": 31.0
+  },
+  "sheet": [
+    1.6,
+    5.0,
+    8.0,
+    9.3,
+    13.5,
+    16.0,
+    18.2,
+    20.9,
+    24.6,
+    25.8,
+    29.7,
+    33.0
+  ],
+  "subs": [
+    [
+      0.5,
+      3.0,
+      "hook"
+    ],
+    [
+      3.0,
+      7.0,
+      "analogy"
+    ],
+    [
+      7.0,
+      11.0,
+      "mechanism"
+    ],
+    [
+      11.0,
+      15.0,
+      "reversal"
+    ],
+    [
+      15.0,
+      19.0,
+      "answer"
+    ],
+    [
+      19.0,
+      23.0,
+      "ready"
+    ],
+    [
+      23.0,
+      27.0,
+      "middle"
+    ],
+    [
+      27.0,
+      31.0,
+      "miss"
+    ],
+    [
+      34.7,
+      37.8,
+      "cta"
+    ]
+  ],
+  "cards": [
+    [
+      3.0,
+      5.6,
+      "c1"
+    ],
+    [
+      15.0,
+      16.6,
+      "c2"
+    ],
+    [
+      27.0,
+      28.8,
+      "c3"
+    ],
+    [
+      31.0,
+      36.3,
+      "c4"
+    ]
+  ],
+  "text": {
+    "zh": {
+      "font": "zh",
+      "series": "DOUBLES · DEFENSE · #02",
+      "title": "球挑到左边，**两个人**怎么站？",
+      "titleBig": "球挑到左边，\n**两个人**怎么站？",
+      "tag": "双打",
+      "hook": "选 **A、B 还是 C**？",
+      "analogy": "他在左边杀，哪条线**先到**？",
+      "mechanism": "直线短，**先到**；\n斜线长，**慢一拍**",
+      "reversal": "各管一半看着公平，\n可**中间**是两个人的缝",
+      "answer": "两个人一起往**左边**挪",
+      "ready": "左边的人贴边线，守**直线**",
+      "middle": "右边的人站到**中间**，\n斜线慢，跨一步就够",
+      "miss": "杀到中间，两个人**都慢一步**",
+      "cta": "测测你的水平 → **主页链接**",
+      "c1": [
+        "WHERE THE SMASH GOES",
+        "直线 · 中路 · 斜线"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "答案：**A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "各管一半呢？"
+      ],
+      "c4": [
+        "THE RULE",
+        "挑到哪边，\n两个人就往**哪边**挪"
+      ],
+      "labels": {
+        "straight": "直线",
+        "cross": "斜线",
+        "first": "先到",
+        "gap": "空当",
+        "guardS": "守直线",
+        "guardM": "守中间",
+        "step": "一步",
+        "who": "谁接？"
+      }
+    },
+    "ja": {
+      "font": "ja",
+      "series": "DOUBLES · DEFENSE · #02",
+      "title": "左に上げたら、**2人**はどこに立つ？",
+      "titleBig": "左に上げたら、\n**2人**はどこに立つ？",
+      "tag": "ダブルス",
+      "hook": "**A・B・C**、どれ？",
+      "analogy": "どのコースが**先に来る**？",
+      "mechanism": "ストレートが**先**、\nクロスは**少し遅い**",
+      "reversal": "半分ずつだと\n**真ん中**が空く",
+      "answer": "**2人とも**左に寄る",
+      "ready": "左の人は**ストレート**を守る",
+      "middle": "右の人は**真ん中**、\nクロスは一歩で届く",
+      "miss": "真ん中で**2人とも遅れる**",
+      "cta": "レベル診断→**プロフのリンク**",
+      "c1": [
+        "WHERE THE SMASH GOES",
+        "**3つ**のコース"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "正解：**A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "半分ずつ？"
+      ],
+      "c4": [
+        "THE RULE",
+        "上げた側へ\n**2人で寄る**"
+      ],
+      "labels": {
+        "straight": "ストレート",
+        "cross": "クロス",
+        "first": "先に着く",
+        "gap": "空く",
+        "guardS": "ストレート",
+        "guardM": "真ん中",
+        "step": "一歩",
+        "who": "どっち？"
+      }
+    },
+    "ko": {
+      "font": "ko",
+      "series": "DOUBLES · DEFENSE · #02",
+      "title": "왼쪽으로 올렸을 때, **둘이** 어디 설까?",
+      "titleBig": "왼쪽으로 올렸을 때,\n**둘이** 어디 설까?",
+      "tag": "복식",
+      "hook": "**A, B, C** 중에 뭐예요?",
+      "analogy": "왼쪽에서 스매시, 뭐가 **먼저** 올까요?",
+      "mechanism": "직선은 짧아서 **먼저**,\n대각은 길어서 **한 박자 늦게**",
+      "reversal": "반반 나누면 공평해 보여도\n**가운데**가 비어요",
+      "answer": "**둘 다** 왼쪽으로 붙어요",
+      "ready": "왼쪽 사람은 **직선**을 막아요",
+      "middle": "오른쪽 사람은 **가운데**로,\n대각은 한 발이면 돼요",
+      "miss": "가운데로 오면 **둘 다 늦어요**",
+      "cta": "레벨 테스트는 **프로필 링크**에서",
+      "c1": [
+        "WHERE THE SMASH GOES",
+        "직선 · 가운데 · 대각"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "정답: **A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "반반 나누면?"
+      ],
+      "c4": [
+        "THE RULE",
+        "올려 준 쪽으로\n**둘이 같이** 붙어요"
+      ],
+      "labels": {
+        "straight": "직선",
+        "cross": "대각",
+        "first": "먼저 도착",
+        "gap": "빈 곳",
+        "guardS": "직선",
+        "guardM": "가운데",
+        "step": "한 발",
+        "who": "누구 공?"
+      }
+    },
+    "en": {
+      "font": "en",
+      "series": "DOUBLES · DEFENSE · #02",
+      "title": "Lifted to the left: where do **you two** stand?",
+      "titleBig": "Lifted to the left:\nwhere do **you two** stand?",
+      "tag": "DOUBLES",
+      "hook": "**A, B or C?**",
+      "analogy": "He smashes from the left.\nWhich line lands **first**?",
+      "mechanism": "Straight lands **first**.\nCross takes **longer**",
+      "reversal": "Half each looks fair,\nbut the **middle** is a gap",
+      "answer": "**Both** shift to the left",
+      "ready": "Left player guards the **straight**",
+      "middle": "Right player: the **middle**.\nOne step gets the cross",
+      "miss": "Smash the middle:\n**both** of you are late",
+      "cta": "Find your level → **link in bio**",
+      "c1": [
+        "WHERE THE SMASH GOES",
+        "Straight · middle · cross"
+      ],
+      "c2": [
+        "THE ANSWER",
+        "Answer: **A**"
+      ],
+      "c3": [
+        "COMMON MISTAKE",
+        "Half each?"
+      ],
+      "c4": [
+        "THE RULE",
+        "Lift to a side?\n**Both** shift that way"
+      ],
+      "labels": {
+        "straight": "straight",
+        "cross": "cross",
+        "first": "first",
+        "gap": "gap",
+        "guardS": "straight",
+        "guardM": "middle",
+        "step": "one step",
+        "who": "whose?"
+      }
+    }
+  },
+  "impact": {
+    "events": [
+      {
+        "type": "smash",
+        "at": 7.6,
+        "p": [
+          -2.2,
+          -5.3
+        ],
+        "h": 2.8,
+        "dur": 1.197
+      },
+      {
+        "type": "land",
+        "at": 8.797,
+        "p": [
+          -2.55,
+          4.7
+        ],
+        "h": 0,
+        "slow": true
+      },
+      {
+        "type": "smash",
+        "at": 19.9,
+        "p": [
+          -2.2,
+          -5.3
+        ],
+        "h": 2.8,
+        "dur": 0.933
+      },
+      {
+        "type": "block",
+        "at": 20.833,
+        "p": [
+          -2.515,
+          3.7
+        ],
+        "h": 0.759,
+        "slow": true
+      },
+      {
+        "type": "smash",
+        "at": 23.5,
+        "p": [
+          -2.2,
+          -5.3
+        ],
+        "h": 2.8,
+        "dur": 0.989
+      },
+      {
+        "type": "block",
+        "at": 24.489,
+        "p": [
+          -0.109,
+          3.7
+        ],
+        "h": 0.696,
+        "slow": true
+      },
+      {
+        "type": "smash",
+        "at": 28.9,
+        "p": [
+          -2.2,
+          -5.3
+        ],
+        "h": 2.8,
+        "dur": 0.622
+      },
+      {
+        "type": "land",
+        "at": 29.522,
+        "p": [
+          0.1,
+          4.6
+        ],
+        "h": 0,
+        "stop": true,
+        "shake": true,
+        "quiet": true
+      }
+    ]
+  }
+}
